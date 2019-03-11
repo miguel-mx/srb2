@@ -1,0 +1,142 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Artículos</h1>
+    <table class="table table-stripped table-hover ">
+
+        <thead>
+        <tr style="border-bottom: 3px solid #0088CC">
+            <th scope="row"></th>
+            <th scope="col">Document title</th>
+            <th scope="col">Authors</th>
+            <th scope="col">Year</th>
+            <th scope="col">Source</th>
+        </tr>
+        </thead>
+
+        {% set counter = 0 %}
+        {% for referencia in referencias %}
+            <tbody>
+            <tr class="mt-5 border-bottom">
+                <th scope="row">{{ counter + 1 }}</th>
+                <td>{{ referencia.title }}</td>
+                <td>{{ referencia.authores }}</td>
+                <td>{{ referencia.yearPub }}</td>
+                <td>{{ referencia.journal }}<br>{{ referencia.issue }},  pp. {{ referencia.pages }}</td>
+            </tr>
+            </tbody>
+            {% set counter = counter + 1 %}
+        {% endfor %}
+    </table>
+
+    {#<h1>Referencias list</h1>#}
+
+    {#<table>#}
+    {#<thead>#}
+    {#<tr>#}
+    {#<th>Authores</th>#}
+    {#<th>Title</th>#}
+    {#<th>Type</th>#}
+    {#<th>Yearpreprint</th>#}
+    {#<th>Yearpub</th>#}
+    {#<th>Publication</th>#}
+    {#<th>Journal</th>#}
+    {#<th>Issue</th>#}
+    {#<th>Pages</th>#}
+    {#<th>Corporateauthor</th>#}
+    {#<th>Address</th>#}
+    {#<th>Keywords</th>#}
+    {#<th>Abst</th>#}
+    {#<th>Publisher</th>#}
+    {#<th>Placepub</th>#}
+    {#<th>Editor</th>#}
+    {#<th>Issn</th>#}
+    {#<th>Isbn</th>#}
+    {#<th>Medium</th>#}
+    {#<th>Notas</th>#}
+    {#<th>Revision</th>#}
+    {#<th>File</th>#}
+    {#<th>Url</th>#}
+    {#<th>Doi</th>#}
+    {#<th>Arxiv</th>#}
+    {#<th>Mathscinet</th>#}
+    {#<th>Zmath</th>#}
+    {#<th>Inspires</th>#}
+    {#<th>Created</th>#}
+    {#<th>Modified</th>#}
+    {#<th>Volume</th>#}
+    {#<th>Reportnumber</th>#}
+    {#<th>Msc</th>#}
+    {#<th>Mrnumber</th>#}
+    {#<th>Booktitle</th>#}
+    {#<th>School</th>#}
+    {#<th>Advisor</th>#}
+    {#<th>Thesistype</th>#}
+    {#<th>Id</th>#}
+    {#<th>Actions</th>#}
+    {#</tr>#}
+    {#</thead>#}
+    {#<tbody>#}
+    {#{% for referencium in referencias %}#}
+    {#<tr>#}
+    {#<td><a href="{{ path('referencia_show', { 'id': referencium.id }) }}">{{ referencium.authores }}</a></td>#}
+    {#<td>{{ referencium.title }}</td>#}
+    {#<td>{{ referencium.type }}</td>#}
+    {#<td>{{ referencium.yearpreprint }}</td>#}
+    {#<td>{{ referencium.yearpub }}</td>#}
+    {#<td>{{ referencium.publication }}</td>#}
+    {#<td>{{ referencium.journal }}</td>#}
+    {#<td>{{ referencium.issue }}</td>#}
+    {#<td>{{ referencium.pages }}</td>#}
+    {#<td>{{ referencium.corporateauthor }}</td>#}
+    {#<td>{{ referencium.address }}</td>#}
+    {#<td>{{ referencium.keywords }}</td>#}
+    {#<td>{{ referencium.abst }}</td>#}
+    {#<td>{{ referencium.publisher }}</td>#}
+    {#<td>{{ referencium.placepub }}</td>#}
+    {#<td>{{ referencium.editor }}</td>#}
+    {#<td>{{ referencium.issn }}</td>#}
+    {#<td>{{ referencium.isbn }}</td>#}
+    {#<td>{{ referencium.medium }}</td>#}
+    {#<td>{{ referencium.notas }}</td>#}
+    {#<td>{% if referencium.revision %}Yes{% else %}No{% endif %}</td>#}
+    {#<td>{{ referencium.file }}</td>#}
+    {#<td>{{ referencium.url }}</td>#}
+    {#<td>{{ referencium.doi }}</td>#}
+    {#<td>{{ referencium.arxiv }}</td>#}
+    {#<td>{{ referencium.mathscinet }}</td>#}
+    {#<td>{{ referencium.zmath }}</td>#}
+    {#<td>{{ referencium.inspires }}</td>#}
+    {#<td>{% if referencium.created %}{{ referencium.created|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+    {#<td>{% if referencium.modified %}{{ referencium.modified|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+    {#<td>{{ referencium.volume }}</td>#}
+    {#<td>{{ referencium.reportnumber }}</td>#}
+    {#<td>{{ referencium.msc }}</td>#}
+    {#<td>{{ referencium.mrnumber }}</td>#}
+    {#<td>{{ referencium.booktitle }}</td>#}
+    {#<td>{{ referencium.school }}</td>#}
+    {#<td>{{ referencium.advisor }}</td>#}
+    {#<td>{{ referencium.thesistype }}</td>#}
+    {#<td>{{ referencium.id }}</td>#}
+    {#<td>#}
+    {#<ul>#}
+    {#<li>#}
+    {#<a href="{{ path('referencia_show', { 'id': referencium.id }) }}">show</a>#}
+    {#</li>#}
+    {#<li>#}
+    {#<a href="{{ path('referencia_edit', { 'id': referencium.id }) }}">edit</a>#}
+    {#</li>#}
+    {#</ul>#}
+    {#</td>#}
+    {#</tr>#}
+    {#{% endfor %}#}
+    {#</tbody>#}
+    {#</table>#}
+
+    <ul>
+        <li>
+            <a href="{{ path('referencia_new') }}">Create a new referencium</a>
+        </li>
+    </ul>
+{% endblock %}

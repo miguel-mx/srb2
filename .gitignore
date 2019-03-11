@@ -1,0 +1,26 @@
+/.web-server-pid
+/app/config/parameters.yml
+/build/
+/phpunit.xml
+/phpunit.xml.dist
+/var/*
+!/var/cache
+/var/cache/*
+/var/cache/.gitkeep
+!/var/logs
+/var/logs/*
+/var/logs/.gitkeep
+/var/sessions
+/var/sessions/*
+/var/sessions/.gitkeep
+/var/SymfonyRequirements.php
+/var/bootstrap.php.cache
+/vendor/
+/web/bundles/
+.idea/
+/composer.phar
+
+
+
+# Backup entities generated with doctrine:generate:entities command
+**/Entity/*~
