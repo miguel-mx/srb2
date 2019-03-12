@@ -7,7 +7,7 @@
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="authores" type="text" column="authores" nullable="true">
+    <field name="authors" type="text" column="authors" nullable="true">
       <options>
         <option name="fixed"/>
       </options>
@@ -87,11 +87,6 @@
         <option name="fixed"/>
       </options>
     </field>
-    <field name="medium" type="string" column="medium" length="250" nullable="true">
-      <options>
-        <option name="fixed"/>
-      </options>
-    </field>
     <field name="notas" type="string" column="notas" length="2500" nullable="true">
       <options>
         <option name="fixed"/>
@@ -118,17 +113,7 @@
         <option name="fixed"/>
       </options>
     </field>
-    <field name="mathscinet" type="string" column="mathscinet" length="250" nullable="true">
-      <options>
-        <option name="fixed"/>
-      </options>
-    </field>
     <field name="zmath" type="string" column="zmath" length="250" nullable="true">
-      <options>
-        <option name="fixed"/>
-      </options>
-    </field>
-    <field name="inspires" type="string" column="inspires" length="250" nullable="true">
       <options>
         <option name="fixed"/>
       </options>

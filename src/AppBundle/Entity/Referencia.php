@@ -15,7 +15,7 @@ class Referencia
     /**
      * @var string
      *
-     * @ORM\Column(name="authors", type="text", nullable=true)
+     * @ORM\Column(name="authors", type="text")
      */
     private $authors;
 
@@ -138,12 +138,12 @@ class Referencia
      */
     private $isbn;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="medium", type="string", length=250, nullable=true)
-     */
-    private $medium;
+//    /**
+//     * @var string
+//     *
+//     * @ORM\Column(name="medium", type="string", length=250, nullable=true)
+//     */
+//    private $medium;
 
     /**
      * @var string
@@ -187,12 +187,12 @@ class Referencia
      */
     private $arxiv;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="mathscinet", type="string", length=250, nullable=true)
-     */
-    private $mathscinet;
+//    /**
+//     * @var string
+//     *
+//     * @ORM\Column(name="mathscinet", type="string", length=250, nullable=true)
+//     */
+//    private $mathscinet;
 
     /**
      * @var string
@@ -201,12 +201,12 @@ class Referencia
      */
     private $zmath;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="inspires", type="string", length=250, nullable=true)
-     */
-    private $inspires;
+//    /**
+//     * @var string
+//     *
+//     * @ORM\Column(name="inspires", type="string", length=250, nullable=true)
+//     */
+//    private $inspires;
 
     /**
      * @var \DateTime
@@ -753,29 +753,29 @@ class Referencia
         return $this->isbn;
     }
 
-    /**
-     * Set medium
-     *
-     * @param string $medium
-     *
-     * @return Referencia
-     */
-    public function setMedium($medium)
-    {
-        $this->medium = $medium;
-
-        return $this;
-    }
-
-    /**
-     * Get medium
-     *
-     * @return string
-     */
-    public function getMedium()
-    {
-        return $this->medium;
-    }
+//    /**
+//     * Set medium
+//     *
+//     * @param string $medium
+//     *
+//     * @return Referencia
+//     */
+//    public function setMedium($medium)
+//    {
+//        $this->medium = $medium;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get medium
+//     *
+//     * @return string
+//     */
+//    public function getMedium()
+//    {
+//        return $this->medium;
+//    }
 
     /**
      * Set notas
@@ -921,29 +921,29 @@ class Referencia
         return $this->arxiv;
     }
 
-    /**
-     * Set mathscinet
-     *
-     * @param string $mathscinet
-     *
-     * @return Referencia
-     */
-    public function setMathscinet($mathscinet)
-    {
-        $this->mathscinet = $mathscinet;
-
-        return $this;
-    }
-
-    /**
-     * Get mathscinet
-     *
-     * @return string
-     */
-    public function getMathscinet()
-    {
-        return $this->mathscinet;
-    }
+//    /**
+//     * Set mathscinet
+//     *
+//     * @param string $mathscinet
+//     *
+//     * @return Referencia
+//     */
+//    public function setMathscinet($mathscinet)
+//    {
+//        $this->mathscinet = $mathscinet;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get mathscinet
+//     *
+//     * @return string
+//     */
+//    public function getMathscinet()
+//    {
+//        return $this->mathscinet;
+//    }
 
     /**
      * Set zmath
@@ -969,29 +969,29 @@ class Referencia
         return $this->zmath;
     }
 
-    /**
-     * Set inspires
-     *
-     * @param string $inspires
-     *
-     * @return Referencia
-     */
-    public function setInspires($inspires)
-    {
-        $this->inspires = $inspires;
-
-        return $this;
-    }
-
-    /**
-     * Get inspires
-     *
-     * @return string
-     */
-    public function getInspires()
-    {
-        return $this->inspires;
-    }
+//    /**
+//     * Set inspires
+//     *
+//     * @param string $inspires
+//     *
+//     * @return Referencia
+//     */
+//    public function setInspires($inspires)
+//    {
+//        $this->inspires = $inspires;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get inspires
+//     *
+//     * @return string
+//     */
+//    public function getInspires()
+//    {
+//        return $this->inspires;
+//    }
 
     /**
      * Set created

@@ -21,9 +21,9 @@
             <tr class="mt-5 border-bottom">
                 <th scope="row">{{ counter + 1 }}</th>
                 <td>{{ referencia.title }}</td>
-                <td>{{ referencia.authores }}</td>
+                <td>{{ referencia.authors }}</td>
                 <td>{{ referencia.yearPub }}</td>
-                <td>{{ referencia.journal }}<br>{{ referencia.issue }},  pp. {{ referencia.pages }}</td>
+                <td>{{ referencia.journal }}<br>{% if  referencia.issue %}{{ referencia.issue }},{% endif %} pp. {{ referencia.pages }}</td>
             </tr>
             </tbody>
             {% set counter = counter + 1 %}
