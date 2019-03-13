@@ -11,7 +11,13 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+    {% block header %}
+
+    {% endblock %}
+
+
+    {% block body %}{% endblock %}
         {% block javascripts %}
             <!-- Optional JavaScript -->
             <!-- jQuery first, then Popper.js, then Bootstrap JS -->
