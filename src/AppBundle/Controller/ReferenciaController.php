@@ -24,9 +24,7 @@ class ReferenciaController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-//        $referencias = $em->getRepository('AppBundle:Referencia')->findByYearPub('2018');
-//        $referencias = $em->getRepository('AppBundle:Referencia')->findByYearOrderByYear('2018');
+        
         $referencias = $em->getRepository(Referencia::class)->findByYearpub('2018');
 
         return $this->render('referencia/index.html.twig', array(

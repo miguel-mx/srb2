@@ -7,10 +7,8 @@
 <div class="text-center"><img src="img/ccmlogo200x100.png"> </div>
 <h5 class="text-secondary text-center"><strong>Sistema de Información Académica</strong></h5>
 
-<form action="{{ path('login') }}" class="form-signin" method="post" >
-    {% if csrf_token %}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" class="form-signin" />
-    {% endif %}
+<form action="{{ path('login') }}" class="form-signin" method="post">
+
     <div class="form-group">
         <label for="username" class="sr-only" >{{ 'security.login.username'|trans }}</label>
         <input type="text" id="username" placeholder="username" name="_username" value="{{ last_username }}" required="required" class="form-control"/>
@@ -19,8 +17,11 @@
     <div class="form-group">
         <label for="password" class="sr-only" >{{ 'security.login.password'|trans }}</label>
         <input type="password" id="password" placeholder="password" name="_password" required="required" class="form-control"/>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
     </div>
 
     <input  class="btn btn-primary btn-block" type="submit" id="_submit" name="_submit" value="Login" />
     <p class="mt-3"><a href="/sia/resetting/request">¿Olvidó la contraseña?</a></p>
+
 </form>
+

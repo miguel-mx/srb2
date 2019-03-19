@@ -36,9 +36,9 @@ class Author
     private $id;
 
     /**
-     * @var \AppBundle\Entity\FosUser
+     * @var \AppBundle\Entity\User
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\FosUser")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -122,11 +122,11 @@ class Author
     /**
      * Set user
      *
-     * @param \AppBundle\Entity\FosUser $user
+     * @param \AppBundle\Entity\User $user
      *
      * @return Author
      */
-    public function setUser(\AppBundle\Entity\FosUser $user = null)
+    public function setUser(\AppBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -136,7 +136,7 @@ class Author
     /**
      * Get user
      *
-     * @return \AppBundle\Entity\FosUser
+     * @return \AppBundle\Entity\User
      */
     public function getUser()
     {

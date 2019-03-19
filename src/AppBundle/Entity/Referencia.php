@@ -15,7 +15,7 @@ class Referencia
     /**
      * @var string
      *
-     * @ORM\Column(name="authors", type="text")
+     * @ORM\Column(name="authors", type="text", nullable=true)
      */
     private $authors;
 
@@ -288,9 +288,9 @@ class Referencia
     private $id;
 
     /**
-     * @var \AppBundle\Entity\FosUser
+     * @var \AppBundle\Entity\User
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\FosUser")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -1246,11 +1246,11 @@ class Referencia
     /**
      * Set user
      *
-     * @param \AppBundle\Entity\FosUser $user
+     * @param \AppBundle\Entity\User $user
      *
      * @return Referencia
      */
-    public function setUser(\AppBundle\Entity\FosUser $user = null)
+    public function setUser(\AppBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -1260,7 +1260,7 @@ class Referencia
     /**
      * Get user
      *
-     * @return \AppBundle\Entity\FosUser
+     * @return \AppBundle\Entity\User
      */
     public function getUser()
     {
