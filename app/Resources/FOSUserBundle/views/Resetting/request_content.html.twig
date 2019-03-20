@@ -1,0 +1,17 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+<div class="text-center"><img src="/img/ccmlogo200x100.png"> </div>
+<h5 class="text-secondary text-center"><strong>Sistema de Información Académica</strong></h5>
+
+<form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+    <div class="form-group">
+        <label for="username" class="sr-only">{{ 'resetting.request.username'|trans }}</label>
+        <input type="text" id="username" placeholder="username" name="username" required="required" class="form-control" />
+    </div>
+    <div>
+        <input class="btn btn-primary btn-block" type="submit" id="submit" name="submit" value="Recuperar contraseña" />
+
+
+    </div>
+</form>
