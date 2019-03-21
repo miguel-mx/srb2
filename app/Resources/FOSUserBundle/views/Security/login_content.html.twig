@@ -1,11 +1,11 @@
 
-
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
 <div class="text-center"><img src="img/ccmlogo200x100.png"> </div>
 <h5 class="text-secondary text-center"><strong>Sistema de Información Académica</strong></h5>
+
 
 <form action="{{ path('login') }}" class="form-signin" method="post" >
     {% if csrf_token %}

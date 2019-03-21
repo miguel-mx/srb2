@@ -18,11 +18,16 @@
             <li><a href="news.asp">News</a></li>
             <li><a href="contact.asp">Contact</a></li>
             <li><a href="about.asp">About</a></li>
+            <li><a href="{{ path('fos_user_security_logout') }}">{{ 'Logout'|trans({}, 'FOSUserBundle') }}</a></li>
         </ul>
     {% endblock %}
-
+    <div class="container">
+        <div class="blue-gradient color-block mb-3 mx-auto rounded-circle z-depth-1">
 
     {% block body %}{% endblock %}
+
+        </div>
+    </div>
         {% block javascripts %}
             <!-- Optional JavaScript -->
             <!-- jQuery first, then Popper.js, then Bootstrap JS -->

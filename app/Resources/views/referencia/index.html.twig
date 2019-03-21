@@ -2,33 +2,65 @@
 
 {% block body %}
 
-    <h1>Artículos</h1>
     <table class="table table-stripped table-hover ">
 
-        <thead>
-        <tr style="border-bottom: 3px solid #0088CC">
-            <th scope="row"></th>
-            <th scope="col">Document title</th>
-            <th scope="col">Authors</th>
-            <th scope="col">Year</th>
-            <th scope="col">Source</th>
-        </tr>
-        </thead>
+        <tr class=" border-bottom">
+            <td style="background-color: dodgerblue">
+                <h1>Filtros</h1>
+            </td>
 
-        {% set counter = 0 %}
-        {% for referencia in referencias %}
-            <tbody>
-            <tr class="mt-5 border-bottom">
-                <th scope="row">{{ counter + 1 }}</th>
-                <td>{{ referencia.title }}</td>
-                <td>{{ referencia.authors }}</td>
-                <td>{{ referencia.yearPub }}</td>
-                <td>{{ referencia.journal }}<br>{% if  referencia.issue %}{{ referencia.issue }},{% endif %} pp. {{ referencia.pages }}</td>
-            </tr>
-            </tbody>
-            {% set counter = counter + 1 %}
-        {% endfor %}
+
+            <td>
+                <h1>Artículos</h1>
+
+                {% set counter = 0 %}
+                {% for referencia in referencias %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ counter + 1 }}. {{ referencia.title }}</h5>
+                        <p class="card-text">Autores: {{ referencia.authors }}</p>
+                        <p class="card-text">Año: {{ referencia.yearPub }}</p>
+                        <p class="card-text"><small class="text-muted">{{ referencia.journal }}<br>{% if  referencia.issue %}{{ referencia.issue }},{% endif %} pp. {{ referencia.pages }}</small></p>
+                    </div>
+                    {% set counter = counter + 1 %}
+                    {% endfor %}
+                </div>
+            </td>
+
+        </tr>
     </table>
+
+
+
+
+
+    {#<table class="table table-stripped table-hover ">#}
+
+        {#<thead>#}
+        {#<tr style="border-bottom: 3px solid #0088CC">#}
+            {#<th scope="row"></th>#}
+            {#<th scope="col">Document title</th>#}
+            {#<th scope="col">Authors</th>#}
+            {#<th scope="col">Year</th>#}
+            {#<th scope="col">Source</th>#}
+        {#</tr>#}
+        {#</thead>#}
+
+        {#{% set counter = 0 %}#}
+        {#{% for referencia in referencias %}#}
+            {#<tbody>#}
+            {#<tr class="mt-5 border-bottom">#}
+                {#<th scope="row">{{ counter + 1 }}</th>#}
+                {#<td>{{ referencia.title }}</td>#}
+                {#<td>{{ referencia.authors }}</td>#}
+                {#<td>{{ referencia.yearPub }}</td>#}
+                {#<td>{{ referencia.journal }}<br>{% if  referencia.issue %}{{ referencia.issue }},{% endif %} pp. {{ referencia.pages }}</td>#}
+            {#</tr>#}
+            {#</tbody>#}
+            {#{% set counter = counter + 1 %}#}
+        {#{% endfor %}#}
+    {#</table>#}
+{#</div>#}
 
     {#<h1>Referencias list</h1>#}
 

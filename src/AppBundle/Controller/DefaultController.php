@@ -13,10 +13,12 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+
+         return $this->redirectToRoute('referencia_index');
+//        // replace this example code with whatever you need
+//        return $this->render('default/index.html.twig', [
+//            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+//        ]);
     }
 
     /**
@@ -28,5 +30,10 @@ class DefaultController extends Controller
         return $this->render('main.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
+    }
+
+    public function logout(Request $request)
+    {
+        return $this->redirectToRoute('/login');
     }
 }
