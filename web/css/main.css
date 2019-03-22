@@ -13,9 +13,13 @@ body {
 
 header {
     width: 100%;
-    height: 100vh;
-    background: url(https://wallpaper.wiki/wp-content/uploads/2017/05/wallpaper.wiki-Beautiful-Full-HD-Wallpaper-Download-Free-PIC-WPE0010098.jpg) no-repeat 50% 50%;
-    background-size: cover;
+    height: 70vh;
+    border-bottom-left-radius: 200px;
+    background: #bdc3c7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 
 
@@ -42,6 +46,7 @@ nav {
 }
 
 nav ul {
+    border-bottom-left-radius: 70px;
     line-height: 90px;
     list-style: none;
     background: rgba(0, 0, 0, 0);
@@ -113,4 +118,16 @@ nav ul li a {
         display: block;
     }
 
+
+}
+
+
+.search{
+
+    position: absolute;
+    border-radius: 30px;
+    width: 35%;
+    height: 50px;
+    align-content: center;
+    border: 1px solid #ccc;
 }
