@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <h2>Hemos enviado un correo, sigue los pasos para restablecer tu contraseña</h2>
+    {#<p>#}
+        {#{{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}#}
+    {#</p>#}
+{% endblock %}
