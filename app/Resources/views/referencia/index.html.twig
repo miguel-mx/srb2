@@ -2,33 +2,39 @@
 
 {% block body %}
 
-    <table class="table table-stripped table-hover ">
+<div class="container">
+    <div class="blue-gradient color-block mb-3 mx-auto rounded-circle z-depth-1">
+
+    <table class="table table-stripped ">
 
         <tr class=" border-bottom">
             <td style="background-color: dodgerblue">
-                <h1>Filtros</h1>
+                <h1>Your search</h1>
             </td>
 
 
             <td>
-                <h1>Artículos</h1>
+                <h1>Articles</h1>
 
                 {% set counter = 0 %}
                 {% for referencia in referencias %}
-                <div class="card">
+                <div class="card shadow-sm p-3 mb-1 bg-white rounded card-overgit">
                     <div class="card-body">
                         <h5 class="card-title">{{ counter + 1 }}. {{ referencia.title }}</h5>
-                        <p class="card-text">Autores: {{ referencia.authors }}</p>
-                        <p class="card-text">Año: {{ referencia.yearPub }}</p>
+                        <p class="card-text">Contributors: {{ referencia.authors }}</p>
+                        <p class="card-text">Publisher:{{ referencia.journal }}, <small class="text-muted">{{ referencia.yearPub }}</small></p>
                         <p class="card-text"><small class="text-muted">{{ referencia.journal }}<br>{% if  referencia.issue %}{{ referencia.issue }},{% endif %} pp. {{ referencia.pages }}</small></p>
                     </div>
-                    {% set counter = counter + 1 %}
-                    {% endfor %}
                 </div>
+                    {% set counter = counter + 1 %}
+                {% endfor %}
             </td>
 
         </tr>
     </table>
+
+    </div>
+</div>
 
 
 

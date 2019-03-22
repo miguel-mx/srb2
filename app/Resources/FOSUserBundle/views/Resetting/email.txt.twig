@@ -1,13 +1,22 @@
-{% trans_default_domain 'FOSUserBundle' %}
 {% block subject %}
-{%- autoescape false -%}
-{{ 'resetting.email.subject'|trans({'%username%': user.username}) }}
-{%- endautoescape -%}
+    {% autoescape false %}
+    {{ 'Solicitud Cambio de Contraseña'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}, 'FOSUserBundle') }}
+    {% endautoescape %}
 {% endblock %}
-
 {% block body_text %}
-{% autoescape false %}
-{{ 'resetting.email.message'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}
+    {% autoescape false %}
+
+Centro de Ciencias Matemáticas, Sistema de Referencias Bibliográficas.
+
+Usuario: {{ user.username }}
+
+Para cambiar su contraseña, por favor utilice el siguiente enlace:
+
+{{ confirmationUrl }}
+
+
+Centro de Ciencias Matemáticas
+UNAM-Morelia
 {% endautoescape %}
 {% endblock %}
 {% block body_html %}{% endblock %}
