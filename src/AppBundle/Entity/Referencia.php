@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -311,6 +312,13 @@ class Referencia
      * )
      */
     private $author;
+
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(length=128, unique=false)
+     */
+    private $slug;
+
 
     /**
      * Constructor
@@ -1299,5 +1307,17 @@ class Referencia
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

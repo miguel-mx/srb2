@@ -13,46 +13,13 @@
             {% block stylesheets %}
                 <link rel="stylesheet" href="{{ asset('css/main.css') }}"/>
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
             {% endblock %}
 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
 
     <body>
-
-    {% block navBar %}
-
-        <div class="topnav">
-            <input class="search" type="text" placeholder="Search..">
-        </div>
-        <div class="wrapper">
-            <header>
-                <nav>
-                    <div class="menu-icon">
-                        <i class="fa fa-bars fa-2x"></i>
-                    </div>
-                    <div class="logo"><img style="width: 20%" src="img/ccmlogoBN.png"></div>
-                    <div class="menu">
-                        <ul>
-                            <li><a href="#">Inicio</a></li>
-                            <li><a href="#">Autores</a></li>
-                            <li><a href="#">Usuario</a></li>
-                            <li><a href="#">Ayuda</a></li>
-
-                        </ul>
-                    </div>
-                </nav>
-            </header>
-        </div>
-
-
-    {% endblock %}
-
-    {% block header %}
-
-    {% endblock %}
-
-
 
 
     {% block body %}{% endblock %}

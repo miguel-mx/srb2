@@ -6,7 +6,7 @@ html, body {
 
 body {
     font-family: "Helvetica Neue",sans-serif;
-    font-weight: lighter;
+    font-size: 15px;
 }
 
 
@@ -130,4 +130,66 @@ nav ul li a {
     height: 50px;
     align-content: center;
     border: 1px solid #ccc;
+}
+
+.contain{
+    margin-left: 14.5%;
+    width: 71.5%;
+
+}
+
+.contain h5{
+    color: #01579b;
+}
+
+/* Styles for wrapping the search box */
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+.pag > nav {
+    position: relative;
+}
+
+.pag ul {
+    margin-left: 35%;
+}
+
+
+
+
+/*Search input*/
+
+input {
+    outline: none;
+
+}
+
+input[type=search] {
+    font-family: inherit;
+    font-size: 115%;
+}
+
+
+input[type=search] {
+    background: #e0e0e0 url(/img/icon.png) no-repeat 95% 50%;
+    border: solid 1px #ccc;
+    padding: 9px 8px 9px 20px;
+    width: 230px;
+    border-radius: 2em;
+    transition: all .5s;
+}
+
+input[type=search]:focus {
+    background: white url(/img/iconf.png) no-repeat 95% 50%;
+    border-color: #42a5f5;
+}
+
+input:-moz-placeholder {
+    color: #424242;
+}
+input::-webkit-input-placeholder {
+    color: #424242;
 }

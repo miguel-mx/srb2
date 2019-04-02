@@ -1,72 +1,117 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
 
-<div class="container">
-    <div class="blue-gradient color-block mb-3 mx-auto rounded-circle z-depth-1">
 
-    <table class="table table-stripped ">
+    <div class="contain">
 
-        <tr class=" border-bottom">
-            <td style="background-color: dodgerblue">
+        <div class="row">
+
+            <div class="col-3" style="background-color: #eeeeee">
                 <h1>Your search</h1>
-            </td>
+
+                <div class="row">
+                    <form>
+                        <div class="input-group">
+                            <input type="search" class="form-control" placeholder="Search" autocomplete="off" name="query" value="{{ app.request.get('query') }}">
+                        </div>
+                    </form>
+                </div>
+            </div>
 
 
-            <td>
-                <h1>Articles</h1>
+            <div class="col-8" style="background-color: #e0e0e0;">
 
-                {% set counter = 0 %}
-                {% for referencia in referencias %}
-                <div class="card shadow-sm p-3 mb-1 bg-white rounded card-overgit">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ counter + 1 }}. {{ referencia.title }}</h5>
-                        <p class="card-text">Contributors: {{ referencia.authors }}</p>
-                        <p class="card-text">Publisher:{{ referencia.journal }}, <small class="text-muted">{{ referencia.yearPub }}</small></p>
-                        <p class="card-text"><small class="text-muted">{{ referencia.journal }}<br>{% if  referencia.issue %}{{ referencia.issue }},{% endif %} pp. {{ referencia.pages }}</small></p>
+                <h1> {{ pagination.getTotalItemCount }} Resultados </h1>
+
+                <div class="row">
+                    <div class="col-md-4">.col-6 .col-md-4</div>
+                    <div class="col-md-8">
+                        <div class="pag">
+                            {{ knp_pagination_render(pagination) }}
+                        </div>
                     </div>
                 </div>
+
+                {% if pagination.page is null %}
+                    {% set counter = 0 %}
+                {% else %}
+                    {% set counter = (pagination.page - 1) * 10 %}
+                {% endif %}
+
+                {% for referencia in pagination %}
+                    <div class="card shadow-sm mb-1 bg-white rounded card-over"
+                         {% if loop.index is odd %}class="color"{% endif %}>
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-sm-1">
+                                    <h5 class="card-title">{{ counter + 1 }}.</h5>
+                                </div>
+                                <div class="col-md-11">
+                                    <h5><strong><a href="{{ path('referencia_show', { 'slug': referencia.slug }) }}">{{ referencia.title }}</a> </strong></h5><br>
+
+                                    <p class="card-text">By:
+                                        <button type="button" class="btn btn-link">{{ referencia.authors }}</button>
+                                        <br> Publisher: {{ referencia.journal }},
+                                        <small class="text-muted">{{ referencia.yearPub }}</small>
+                                    </p>
+                                    <p class="card-text">
+                                        <small class="text-muted">Volume: {{ referencia.volume }}
+                                            , {% if  referencia.issue %} Issue: {{ referencia.issue }},{% endif %}
+                                            Pages: {{ referencia.pages }}</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     {% set counter = counter + 1 %}
                 {% endfor %}
-            </td>
 
-        </tr>
-    </table>
+                <div class="row">
+                    <div class="col-md-4">.col-6 .col-md-4</div>
+                    <div class="col-md-8">
+                        <div class="pag">
+                            {{ knp_pagination_render(pagination) }}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
-</div>
-
-
-
 
 
     {#<table class="table table-stripped table-hover ">#}
 
-        {#<thead>#}
-        {#<tr style="border-bottom: 3px solid #0088CC">#}
-            {#<th scope="row"></th>#}
-            {#<th scope="col">Document title</th>#}
-            {#<th scope="col">Authors</th>#}
-            {#<th scope="col">Year</th>#}
-            {#<th scope="col">Source</th>#}
-        {#</tr>#}
-        {#</thead>#}
+    {#<thead>#}
+    {#<tr style="border-bottom: 3px solid #0088CC">#}
+    {#<th scope="row"></th>#}
+    {#<th scope="col">Document title</th>#}
+    {#<th scope="col">Authors</th>#}
+    {#<th scope="col">Year</th>#}
+    {#<th scope="col">Source</th>#}
+    {#</tr>#}
+    {#</thead>#}
 
-        {#{% set counter = 0 %}#}
-        {#{% for referencia in referencias %}#}
-            {#<tbody>#}
-            {#<tr class="mt-5 border-bottom">#}
-                {#<th scope="row">{{ counter + 1 }}</th>#}
-                {#<td>{{ referencia.title }}</td>#}
-                {#<td>{{ referencia.authors }}</td>#}
-                {#<td>{{ referencia.yearPub }}</td>#}
-                {#<td>{{ referencia.journal }}<br>{% if  referencia.issue %}{{ referencia.issue }},{% endif %} pp. {{ referencia.pages }}</td>#}
-            {#</tr>#}
-            {#</tbody>#}
-            {#{% set counter = counter + 1 %}#}
-        {#{% endfor %}#}
+    {#{% set counter = 0 %}#}
+    {#{% for referencia in referencias %}#}
+    {#<tbody>#}
+    {#<tr class="mt-5 border-bottom">#}
+    {#<th scope="row">{{ counter + 1 }}</th>#}
+    {#<td>{{ referencia.title }}</td>#}
+    {#<td>{{ referencia.authors }}</td>#}
+    {#<td>{{ referencia.yearPub }}</td>#}
+    {#<td>{{ referencia.journal }}<br>{% if  referencia.issue %}{{ referencia.issue }},{% endif %} pp. {{ referencia.pages }}</td>#}
+    {#</tr>#}
+    {#</tbody>#}
+    {#{% set counter = counter + 1 %}#}
+    {#{% endfor %}#}
     {#</table>#}
-{#</div>#}
+    {#</div>#}
 
     {#<h1>Referencias list</h1>#}
 

@@ -10,175 +10,177 @@
 
     {#</div>#}
 
-    <h1>Referencium</h1>
+    <h1>Referencia</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Authores</th>
-                <td>{{ referencium.authores }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ referencium.title }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ referencium.type }}</td>
-            </tr>
-            <tr>
-                <th>Yearpreprint</th>
-                <td>{{ referencium.yearpreprint }}</td>
-            </tr>
-            <tr>
-                <th>Yearpub</th>
-                <td>{{ referencium.yearpub }}</td>
-            </tr>
-            <tr>
-                <th>Publication</th>
-                <td>{{ referencium.publication }}</td>
-            </tr>
-            <tr>
-                <th>Journal</th>
-                <td>{{ referencium.journal }}</td>
-            </tr>
-            <tr>
-                <th>Issue</th>
-                <td>{{ referencium.issue }}</td>
-            </tr>
-            <tr>
-                <th>Pages</th>
-                <td>{{ referencium.pages }}</td>
-            </tr>
-            <tr>
-                <th>Corporateauthor</th>
-                <td>{{ referencium.corporateauthor }}</td>
-            </tr>
-            <tr>
-                <th>Address</th>
-                <td>{{ referencium.address }}</td>
-            </tr>
-            <tr>
-                <th>Keywords</th>
-                <td>{{ referencium.keywords }}</td>
-            </tr>
-            <tr>
-                <th>Abst</th>
-                <td>{{ referencium.abst }}</td>
-            </tr>
-            <tr>
-                <th>Publisher</th>
-                <td>{{ referencium.publisher }}</td>
-            </tr>
-            <tr>
-                <th>Placepub</th>
-                <td>{{ referencium.placepub }}</td>
-            </tr>
-            <tr>
-                <th>Editor</th>
-                <td>{{ referencium.editor }}</td>
-            </tr>
-            <tr>
-                <th>Issn</th>
-                <td>{{ referencium.issn }}</td>
-            </tr>
-            <tr>
-                <th>Isbn</th>
-                <td>{{ referencium.isbn }}</td>
-            </tr>
-            <tr>
-                <th>Medium</th>
-                <td>{{ referencium.medium }}</td>
-            </tr>
-            <tr>
-                <th>Notas</th>
-                <td>{{ referencium.notas }}</td>
-            </tr>
-            <tr>
-                <th>Revision</th>
-                <td>{% if referencium.revision %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>File</th>
-                <td>{{ referencium.file }}</td>
-            </tr>
-            <tr>
-                <th>Url</th>
-                <td>{{ referencium.url }}</td>
-            </tr>
-            <tr>
-                <th>Doi</th>
-                <td>{{ referencium.doi }}</td>
-            </tr>
-            <tr>
-                <th>Arxiv</th>
-                <td>{{ referencium.arxiv }}</td>
-            </tr>
-            <tr>
-                <th>Mathscinet</th>
-                <td>{{ referencium.mathscinet }}</td>
-            </tr>
-            <tr>
-                <th>Zmath</th>
-                <td>{{ referencium.zmath }}</td>
-            </tr>
-            <tr>
-                <th>Inspires</th>
-                <td>{{ referencium.inspires }}</td>
-            </tr>
-            <tr>
-                <th>Created</th>
-                <td>{% if referencium.created %}{{ referencium.created|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Modified</th>
-                <td>{% if referencium.modified %}{{ referencium.modified|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Volume</th>
-                <td>{{ referencium.volume }}</td>
-            </tr>
-            <tr>
-                <th>Reportnumber</th>
-                <td>{{ referencium.reportnumber }}</td>
-            </tr>
-            <tr>
-                <th>Msc</th>
-                <td>{{ referencium.msc }}</td>
-            </tr>
-            <tr>
-                <th>Mrnumber</th>
-                <td>{{ referencium.mrnumber }}</td>
-            </tr>
-            <tr>
-                <th>Booktitle</th>
-                <td>{{ referencium.booktitle }}</td>
-            </tr>
-            <tr>
-                <th>School</th>
-                <td>{{ referencium.school }}</td>
-            </tr>
-            <tr>
-                <th>Advisor</th>
-                <td>{{ referencium.advisor }}</td>
-            </tr>
-            <tr>
-                <th>Thesistype</th>
-                <td>{{ referencium.thesistype }}</td>
-            </tr>
-            <tr>
-                <th>Id</th>
-                <td>{{ referencium.id }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <h1>{{ referencia.title }}</h1>
+
+{#    <table>#}
+{#        <tbody>#}
+{#            <tr>#}
+{#                <th>Authores</th>#}
+{#                <td>{{ referencium.authores }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Title</th>#}
+{#                <td>{{ referencium.title }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Type</th>#}
+{#                <td>{{ referencium.type }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Yearpreprint</th>#}
+{#                <td>{{ referencium.yearpreprint }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Yearpub</th>#}
+{#                <td>{{ referencium.yearpub }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Publication</th>#}
+{#                <td>{{ referencium.publication }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Journal</th>#}
+{#                <td>{{ referencium.journal }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Issue</th>#}
+{#                <td>{{ referencium.issue }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Pages</th>#}
+{#                <td>{{ referencium.pages }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Corporateauthor</th>#}
+{#                <td>{{ referencium.corporateauthor }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Address</th>#}
+{#                <td>{{ referencium.address }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Keywords</th>#}
+{#                <td>{{ referencium.keywords }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Abst</th>#}
+{#                <td>{{ referencium.abst }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Publisher</th>#}
+{#                <td>{{ referencium.publisher }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Placepub</th>#}
+{#                <td>{{ referencium.placepub }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Editor</th>#}
+{#                <td>{{ referencium.editor }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Issn</th>#}
+{#                <td>{{ referencium.issn }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Isbn</th>#}
+{#                <td>{{ referencium.isbn }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Medium</th>#}
+{#                <td>{{ referencium.medium }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Notas</th>#}
+{#                <td>{{ referencium.notas }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Revision</th>#}
+{#                <td>{% if referencium.revision %}Yes{% else %}No{% endif %}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>File</th>#}
+{#                <td>{{ referencium.file }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Url</th>#}
+{#                <td>{{ referencium.url }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Doi</th>#}
+{#                <td>{{ referencium.doi }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Arxiv</th>#}
+{#                <td>{{ referencium.arxiv }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Mathscinet</th>#}
+{#                <td>{{ referencium.mathscinet }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Zmath</th>#}
+{#                <td>{{ referencium.zmath }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Inspires</th>#}
+{#                <td>{{ referencium.inspires }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Created</th>#}
+{#                <td>{% if referencium.created %}{{ referencium.created|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Modified</th>#}
+{#                <td>{% if referencium.modified %}{{ referencium.modified|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Volume</th>#}
+{#                <td>{{ referencium.volume }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Reportnumber</th>#}
+{#                <td>{{ referencium.reportnumber }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Msc</th>#}
+{#                <td>{{ referencium.msc }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Mrnumber</th>#}
+{#                <td>{{ referencium.mrnumber }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Booktitle</th>#}
+{#                <td>{{ referencium.booktitle }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>School</th>#}
+{#                <td>{{ referencium.school }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Advisor</th>#}
+{#                <td>{{ referencium.advisor }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Thesistype</th>#}
+{#                <td>{{ referencium.thesistype }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Id</th>#}
+{#                <td>{{ referencium.id }}</td>#}
+{#            </tr>#}
+{#        </tbody>#}
+{#    </table>#}
 
     <ul>
         <li>
             <a href="{{ path('referencia_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('referencia_edit', { 'id': referencium.id }) }}">Edit</a>
+            <a href="{{ path('referencia_edit', { 'slug': referencia.slug }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
