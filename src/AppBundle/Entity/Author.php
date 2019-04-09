@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -51,6 +52,12 @@ class Author
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Referencia", mappedBy="author")
      */
     private $referencia;
+
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=128, unique=false)
+     */
+    private $slug;
 
     /**
      * Constructor
@@ -175,5 +182,17 @@ class Author
     public function getReferencia()
     {
         return $this->referencia;
+    }
+
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

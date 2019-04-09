@@ -75,3 +75,37 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+
+
+
+
+.fos_user_resetting_reset {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+.fos_user_resetting_reset .checkbox {
+    font-weight: 400;
+}
+.fos_user_resetting_reset .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+.fos_user_resetting_reset .form-control:focus {
+    z-index: 2;
+}
+.fos_user_resetting_reset input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.fos_user_resetting_reset input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
