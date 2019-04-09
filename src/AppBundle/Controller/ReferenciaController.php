@@ -15,12 +15,12 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ReferenciaController extends Controller
 {
-                            /**
-                             * Lists all referencium entities.
-                             *
-                             * @Route("/", name="referencia_index")
-                             * @Method("GET")
-                             */
+    /**
+     * Lists all referencium entities.
+     *
+     * @Route("/", name="referencia_index")
+     * @Method("GET")
+     */
     public function indexAction(Request $request)
     {
 
@@ -47,6 +47,24 @@ class ReferenciaController extends Controller
             'pagination' => $pagination,
         ));
 
+
+    }
+
+    /**
+     * Lists all referencium entities.
+     *
+     * @Route("/data-tables", name="referencia_index2")
+     * @Method("GET")
+     */
+    public function dataTableAction(Request $request)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $referencias = $em->getRepository(Referencia::class)->findByYearpub('2018');
+
+        return $this->render('referencia/data-tables.html.twig', array(
+            'referencias' => $referencias,
+        ));
 
     }
 
