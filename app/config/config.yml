@@ -85,3 +85,35 @@ fos_user:
     from_email:
         address: info@matmor.unam.mx
         sender_name: SRB
+
+fos_elastica:
+    clients:
+        default: { host: localhost, port: 9200 }
+    indexes:
+        app:
+            types:
+                referencia:
+                    properties:
+                        #                        title: ~
+                        authors: ~
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Referencia
+                        provider: ~
+                        listener: ~
+                        finder: ~
+
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable:   true
+
+services:
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
