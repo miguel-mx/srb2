@@ -6,14 +6,14 @@ html, body {
 
 body {
     font-family: "Helvetica Neue",sans-serif;
-    font-weight: lighter;
+    font-size: 15px;
 }
 
 
 
 header {
     width: 100%;
-    height: 65vh;
+    height: 70vh;
     border-bottom-left-radius: 200px;
     background: #bdc3c7;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to bottom, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
@@ -23,163 +23,98 @@ header {
 }
 
 
+/********************Index Referencia*******************/
+.contain{
+    margin-left: 17%;
+    width: 71.5%;
 
-.content {
-    width: 94%;
-    margin: 4em auto;
-    font-size: 20px;
-    line-height: 30px;
-    text-align: justify;
 }
 
-.logo {
 
-    line-height: 60px;
-    position: fixed;
-    float: left;
-    margin: 16px 46px;
+/*Search input*/
+
+input {
+    outline: none;
+
 }
 
-nav {
-    position: fixed;
-    width: 100%;
+input[type=search] {
+    font-family: inherit;
+    font-size: 115%;
 }
 
-nav ul {
-    border-bottom-left-radius: 70px;
-    line-height: 90px;
-    list-style: none;
-    background: rgba(0, 0, 0, 0);
-    overflow: hidden;
-    color: #fff;
-    padding: 0;
-    text-align: right;
-    margin: 0;
-    padding-right: 40px;
-    transition: 1s;
+
+input[type=search] {
+    background: #e0e0e0 url(/img/icon.png) no-repeat 95% 50%;
+    border: solid 1px #ccc;
+    padding: 9px 8px 9px 20px;
+    width: 230px;
+    border-radius: 2em;
+    transition: all .5s;
 }
 
-nav.black ul {
-    background: #151e2c;
+input[type=search]:focus {
+    background: white url(/img/iconf.png) no-repeat 95% 50%;
+    border-color: #42a5f5;
 }
 
-nav ul li {
-    display: inline-block;
-    padding: 16px 40px;;
+input:-moz-placeholder {
+    color: #424242;
+}
+input::-webkit-input-placeholder {
+    color: #424242;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
+.card .card-header p {
     font-size: 16px;
+    margin-top: 6px;
+    display: block;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 
-.menu-icon {
-    line-height: 60px;
-    width: 100%;
-    background: #000;
-    text-align: right;
-    box-sizing: border-box;
-    padding: 15px 24px;
-    cursor: pointer;
-    color: #fff;
-    display: none;
-}
-
-@media(max-width: 786px) {
-
-    .logo {
-        position: fixed;
-        top: 0;
-        margin-top: 16px;
-    }
-
-    nav ul {
-        max-height: 0px;
-        background: #000;
-    }
-
-    nav.black ul {
-        background: #000;
-    }
-
-    .showing {
-        max-height: 34em;
-    }
-
-    nav ul li {
-        box-sizing: border-box;
-        width: 100%;
-        padding: 24px;
-        text-align: center;
-    }
-
-    .menu-icon {
-        display: block;
-    }
-
-
-}
-
-
-.search{
-    position: absolute;
-    margin-left: 30%;
-    height: 80px;
-    width: 45%;
-    margin-top: 15%;
-}
-
-.search__field{
-    height: 80px;
-    width: 100%;
-    border-radius: 40px;
-    border: 2px;
-    background: white;
-    color: #605c6b;
-    font-family: Arial;
-    font-size: 30px;
-    border: 2px solid #bdbdbd;
-
-}
-
-.search__icon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: #e9f1f4;
-    width: 60px;
-    height: 60px;
-    font-size: 1.35em;
-    text-align: center;
-    border-color: transparent;
-    border-radius: 50%;
-    margin-top: 1.2%;
-    margin-right: 1.8%;
-    pointer-events: none;
+.card h2 {
     display: inline-block;
 }
 
-.footer-copyright{
-    background: #6b6f73;
+
+.card button:active {
+    background: white url(/img/iconf.png) no-repeat;
+
 }
 
-.container {
-    background: #AAAAAA;
+
+.radios {
+    width: 40%;
+    margin-left: 30%;
 }
 
-.font-weight-bold{
-    color: white;
-}
-.page-footer{
-    background: #AAAAAA ;
-}
-.title{
-    position: absolute;
-    text-align: center;
-    color: white;
+
+
+
+/********************Show Referencia*******************/
+
+.referencia-container h3 {
+    margin-bottom: .8rem;
 }
 
-.title .h1, h1 {
-    font-size: 1rem;
+.referencia-container p {
+    margin-bottom: .2rem;
+    font-size: 1.1rem;
+}
+
+.referencia-container .small, small {
+    font-size: 60%;
+    font-weight: 400;
+    color: #868686;
+}
+
+.block p {
+    margin: 2px 0px 2px 0px;
+}
+
+.block {
+
+    margin: 25px 0px 25px 0px;
 }
