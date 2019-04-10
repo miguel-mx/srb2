@@ -1,26 +1,318 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
+/********************pagina inicio NAV y FOOTER*******************/
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
+.nav-item {
+    margin-left: 15px;
+    font-weight: normal;
+    font-size: 18px;
+    color: #615e62;
+}
+.navbar{
+    border-bottom: black;
+}
 body {
-    font-family: "Helvetica Neue",sans-serif;
-    font-size: 15px;
+    font-family: 'Nunito Sans', sans-serif;
+    margin-top: 40px;
+
+}
+
+a {
+    color: #615e62;
+    text-decoration: none;
+    background-color: transparent;
+}
+.brand p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    line-height: 120%;
+    color: #6c757c;
+}
+
+.hero-text {
+    color: white;
+    padding-top: 100px;
+}
+
+.hero-text h1 {
+    text-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
+    font-size: 48px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: white;
+    margin-bottom: 0.1rem;
+}
+
+.hero-text h2 {
+    text-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
+    font-size: 42px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: white;
+}
+
+.searchbar{
+    margin-top: -7px;
+    height: 50px;
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 40px;
+    padding: 10px;
+}
+
+input::placeholder {
+    color: #ffffff;
+}
+
+.search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    font-size: 20px;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 100%;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 85%;
+    caret-color: #f9feff;
+    transition: width 0.4s linear;
+}
+
+
+#buscador{
+
+    border: #197a99;
+    background: url(https://images.unsplash.com/photo-1534774592507-488885376ad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80) no-repeat center;
+    background-size: cover;
+    height: 620px;
+    background-position: center;
+
+}
+
+.h1, h1 {
+    font-size: 2.375rem;
+    font-weight: bold;
+    color: #455d7a;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.search_icon{
+    height: 30px;
+    width: 30px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+}
+
+.cards1 a:hover {
+    color: #197a99;
+    text-decoration: none;
+}
+
+.cards2{
+    color: gray;
+}
+.cards1 a{
+    color: white;
+}
+.cards2 a:hover {
+    color: #197a99;
+    text-decoration: none;
+}
+
+.cards2 a{
+    color: black;
+}
+
+
+#stats .card {
+    background: #004e68;
+    padding: 15px;
+}
+
+
+.stats .card h2 {
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.stats .fas {
+    color: #197a99;
+}
+
+@media (min-width: 992px) {
+    .after-loop a.after-loop-item:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: 0 2.25rem 1.5rem -1.5rem rgba(33, 37, 41, .3), 0 0 1.5rem .5rem rgba(33, 37, 41, .05) !important;
+    }
+}
+.after-loop a.after-loop-item:hover {
+    text-decoration: none;
+}
+
+.card-body{
+    border-bottom: 1px solid rgba(0,0,0);
+}
+
+
+.input-group-append{
+    background: none;
+}
+
+#buscador, #stats, #latest-articles, #footer {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+#footer {
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#footer h5{
+    padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color:#ffffff;
+}
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+    padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+    font-size:25px;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+    font-size:30px;
+    margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+    color:#ffffff;
+}
+#footer ul.social li a:hover{
+    color:#eeeeee;
+}
+#footer ul.quick-links li{
+    padding: 3px 0;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+    padding: 3px 0;
+    margin-left:5px;
+    font-weight:700;
+}
+#footer ul.quick-links li a i{
+    margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px){
+    #footer h5 {
+        padding-left: 0;
+        border-left: transparent;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+latest-articles {
+    background: #f1f1f1;
+}
+
+.articles-container {
+    color: #505050;
+}
+
+.article {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.articles-container .title {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.author {
+    color: #505050;
+    font-weight: bold;
+}
+
+/*#eventos {*/
+/*background: #4e4e4e;*/
+/*}*/
+
+.event-container h1 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    color: #455d7a;
+}
+
+.event-description {
+    line-height: 1.2rem;
+    color: #505050;
+}
+
+.event-date {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#contacto .h4, h4 {
+    color: #777;
+}
+
+.small, small {
+    font-size: 16px;
+    font-weight: 400;
+    color: #615e62;
+
 }
 
 
 
-header {
-    width: 100%;
-    height: 70vh;
-    border-bottom-left-radius: 200px;
-    background: #bdc3c7;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-
-}
 
 
 /********************Index Referencia*******************/

@@ -3,6 +3,7 @@
 namespace AppBundle\Command;
 
 use AppBundle\Entity\Author;
+use AppBundle\Entity\Referencia;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -42,7 +43,7 @@ class AppGenerateSlugsCommand extends ContainerAwareCommand
         }
 
 
-        foreach ($manager->getRepository(Author::class)->findAll() as $entity) {
+        foreach ($manager->getRepository(Referencia::class)->findAll() as $entity) {
 
             $entity->setSlug(null);
         }
