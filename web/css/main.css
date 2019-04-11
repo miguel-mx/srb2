@@ -59,37 +59,38 @@ a {
 
 /*Search input*/
 
-input {
+#navbar input {
     outline: none;
 
 }
 
-input[type=search] {
+#navbar input[type=search] {
     font-family: inherit;
     font-size: 115%;
 }
 
 
-input[type=search] {
+#navbar input[type=search] {
     background: #e0e0e0 url(/img/icon.png) no-repeat 95% 50%;
     border: solid 1px #ccc;
     padding: 9px 8px 9px 20px;
-    width: 230px;
+    width: 15%;
     border-radius: 2em;
     transition: all .5s;
 }
 
-input[type=search]:focus {
+#navbar input[type=search]:focus {
     background: white url(/img/iconf.png) no-repeat 95% 50%;
     border-color: #42a5f5;
 }
 
-input:-moz-placeholder {
+#navbar input:-moz-placeholder {
     color: #424242;
 }
-input::-webkit-input-placeholder {
+#navbar input::-webkit-input-placeholder {
     color: #424242;
 }
+
 
 
 #buscador{
@@ -148,12 +149,12 @@ input::-webkit-input-placeholder {
 }
 
 
-.stats .card h2 {
+#stats .card h2 {
     font-size: 42px;
     font-weight: bold;
 }
 
-.stats .fas {
+#stats .fas {
     color: #197a99;
 }
 
