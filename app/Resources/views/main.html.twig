@@ -11,18 +11,27 @@
                 </div>
             </div>
 
-            <div class="row   ">
-                <div class=" col mt-5 input-group input-group-lg mt-lg-5 col-lg-7 col-md-10 offset-md-2" >
-                    <input type="text" class="form-control search " placeholder="Busqueda." aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-                    <div class="input-group-append">
-                        <button class="btn btn-secondary" type="button">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </div>
+            <div class="row">
+                    <form class=" col mt-5 input-group input-group-lg mt-lg-5 col-lg-7 col-md-10 offset-md-2" action="../search2" method="get">
+                        <input type="search" required class="form-control search" name="q" placeholder="Busqueda." aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="submit" value="Search">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
             </div>
         </div>
     </section>
+
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger" role="alert">
+            <div class="container">
+            <h3 class="p-1 text-center"><i class="fas fa-times"></i> {{ message }}</h3>
+            </div>
+        </div>
+    {% endfor %}
+
 
     <section id="stats">
         <div class="container-fluid  cards1">

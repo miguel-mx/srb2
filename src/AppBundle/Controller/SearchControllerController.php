@@ -23,12 +23,42 @@ class SearchControllerController extends Controller
 
         if(!empty($searchQuery))
             $finder  = $this->container->get('fos_elastica.finder.app.referencia');
-            $referencias = $finder->find($searchQuery, 500);
+        $referencias = $finder->find($searchQuery, 500);
 
 
         return $this->render('referencia/data-tables.html.twig', array(
             'referencias' => $referencias,
         ));
     }
+    /**
+     * Lists all referencium entities.
+     *
+     * @Route("/search2", name="referencia_index2")
+     * @Method("GET")
+     */
+    public function search(Request $request)
+    {
+        $searchQuery  = $request->get('q');
 
+        if(!empty($searchQuery)){
+            $finder  = $this->container->get('fos_elastica.finder.app.referencia');
+            $referencias = $finder->find($searchQuery, 500);
+
+            if($referencias == null){
+
+                $this->addFlash(
+                    'error',
+                    'No se encontraron registros!'
+                );
+
+                return $this->render('main.html.twig');
+            }else{
+                return $this->render('referencia/data-tables.html.twig', array(
+                    'referencias' => $referencias,
+                ));
+            }
+        }else{
+            return $this->render('main.html.twig');
+        }
+    }
 }

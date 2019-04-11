@@ -16,6 +16,11 @@ body {
 
 }
 
+a {
+    color: #615e62;
+    text-decoration: none;
+    background-color: transparent;
+}
 .brand p {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -376,6 +381,7 @@ input::-webkit-input-placeholder {
     width: 40%;
     margin-left: 30%;
 }
+
 
 
 /********************Show Referencia*******************/
