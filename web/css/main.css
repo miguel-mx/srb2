@@ -16,11 +16,6 @@ body {
 
 }
 
-a {
-    color: #615e62;
-    text-decoration: none;
-    background-color: transparent;
-}
 .brand p {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -383,8 +378,6 @@ input::-webkit-input-placeholder {
 }
 
 
-
-
 /********************Show Referencia*******************/
 
 .referencia-container h3 {
@@ -409,4 +402,10 @@ input::-webkit-input-placeholder {
 .block {
 
     margin: 25px 0px 25px 0px;
+}
+
+/***********MyTable*********/
+
+.myTab {
+    margin: 110px 0px 50px 0px;
 }
