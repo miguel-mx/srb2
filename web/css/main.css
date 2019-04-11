@@ -57,6 +57,40 @@ a {
     color: white;
 }
 
+
+#navbar input {
+    outline: none;
+
+}
+
+#navbar input[type=search] {
+    font-family: inherit;
+    font-size: 115%;
+}
+
+
+#navbar input[type=search] {
+    background: #e0e0e0 url(/img/icon.png) no-repeat 95% 50%;
+    border: solid 1px #ccc;
+    padding: 9px 8px 9px 20px;
+    width: 15%;
+    border-radius: 2em;
+    transition: all .5s;
+}
+
+#navbar input[type=search]:focus {
+    background: white url(/img/iconf.png) no-repeat 95% 50%;
+    border-color: #42a5f5;
+}
+
+#navbar input:-moz-placeholder {
+    color: #424242;
+}
+#navbar input::-webkit-input-placeholder {
+    color: #424242;
+
+
+}
 .searchbar{
     margin-top: -7px;
     height: 50px;
@@ -88,7 +122,9 @@ input::placeholder {
     width: 85%;
     caret-color: #f9feff;
     transition: width 0.4s linear;
+>>>>>>> 3cd6b8eee2e8424b90fb29082cb6a3bb357b9355
 }
+
 
 
 #buscador{
@@ -147,12 +183,12 @@ input::placeholder {
 }
 
 
-.stats .card h2 {
+#stats .card h2 {
     font-size: 42px;
     font-weight: bold;
 }
 
-.stats .fas {
+#stats .fas {
     color: #197a99;
 }
 
