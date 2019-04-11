@@ -10,45 +10,48 @@
 {% endblock %}
 
 {% block body %}
+    <section id="table">
+        <div class="container myTab">
+            <table id="myTable" class="table">
+                <thead>
+                <tr>
+                    <th>{{ referencias|length }} Resultados</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for referencia in referencias %}
+                    <tr>
+                        <td class="p-4 m-4">
+                            <h5>
+                                <strong><a href="{{ path('referencia_show', { 'slug': referencia.slug }) }}">{{ referencia.title }}</a></strong>
+                            </h5>
+                            {% if  referencia.journal %} {{ referencia.journal }}
+                                <small class="text-muted">{{ referencia.yearPub }}</small>, {% endif %}
+                            {% if  referencia.volume %}Vol: {{ referencia.volume }}, {% endif %}
+                            {% if  referencia.issue %}Issue: {{ referencia.issue }}, {% endif %}
+                            {% if  referencia.pages %}p. {{ referencia.pages }}{% endif %}
+                            {% if referencia.authors %}
+                                <div>
+                                    {% for key in referencia.authors|split(';') %}<a
+                                        href="{{ path('search', {'q': key | trim | url_encode() }) }}"> {{ key|trim }}</a>; {% endfor %}
+                                </div>
+                            {% endif %}
 
 
-    <div class="container mt-5" >
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
 
-    <table id="myTable" class="table ">
-        <thead>
-        <tr>
-            <th>{{ referencias|length }} Resultados</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for referencia in referencias %}
-            <tr>
-                <td class="p-4 m-4">
-                    <h5><strong><a href="{{ path('referencia_show', { 'slug': referencia.slug }) }}">{{ referencia.title }}</a></strong></h5><br>
-                    {% if  referencia.journal %} {{ referencia.journal }} <small class="text-muted">{{ referencia.yearPub }}</small>{% endif %}
-                    {% if  referencia.volume %}, Vol: {{ referencia.volume }} {% endif %}
-                    {% if  referencia.issue %}, Issue: {{ referencia.issue }}{% endif %}
-                    {% if  referencia.pages %}, p. {{ referencia.pages }}{% endif %}
-                    {% if referencia.authors %}
-                        <div style="padding:5px 0px;">
-                            {% for key in referencia.authors|split(';') %}<a href="{{ path('search', {'q': key | trim | url_encode() }) }}"> {{key|trim}}</a>; {% endfor %}
-                        </div>
-                    {% endif %}
+        </div>
+    </section>
 
-
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    </div>
-
-{#    <ul>#}
-{#        <li>#}
-{#            <a href="{{ path('referencia_new') }}">Create a new referencium</a>#}
-{#        </li>#}
-{#    </ul>#}
+    {#    <ul>#}
+    {#        <li>#}
+    {#            <a href="{{ path('referencia_new') }}">Create a new referencium</a>#}
+    {#        </li>#}
+    {#    </ul>#}
 {% endblock %}
 
 
@@ -60,13 +63,13 @@
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#myTable').DataTable(
                 {
                     "lengthMenu": [[5, 10, 15], [5, 10, 15]]
                 }
             );
 
-        } );
+        });
     </script>
 {% endblock %}
