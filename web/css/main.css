@@ -57,37 +57,38 @@ a {
     color: white;
 }
 
-.searchbar{
-    margin-top: -7px;
-    height: 50px;
-    background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border-radius: 40px;
-    padding: 10px;
+/*Search input*/
+
+input {
+    outline: none;
+
 }
 
-input::placeholder {
-    color: #ffffff;
+input[type=search] {
+    font-family: inherit;
+    font-size: 115%;
 }
 
-.search_input{
-    color: white;
-    border: 0;
-    outline: 0;
-    font-size: 20px;
-    background: none;
-    width: 0;
-    caret-color:transparent;
-    line-height: 100%;
-    transition: width 0.4s linear;
+
+input[type=search] {
+    background: #e0e0e0 url(/img/icon.png) no-repeat 95% 50%;
+    border: solid 1px #ccc;
+    padding: 9px 8px 9px 20px;
+    width: 230px;
+    border-radius: 2em;
+    transition: all .5s;
 }
 
-.searchbar:hover > .search_input{
-    padding: 0 10px;
-    width: 85%;
-    caret-color: #f9feff;
-    transition: width 0.4s linear;
+input[type=search]:focus {
+    background: white url(/img/iconf.png) no-repeat 95% 50%;
+    border-color: #42a5f5;
+}
+
+input:-moz-placeholder {
+    color: #424242;
+}
+input::-webkit-input-placeholder {
+    color: #424242;
 }
 
 
@@ -311,76 +312,6 @@ latest-articles {
 }
 
 
-
-
-
-
-/********************Index Referencia*******************/
-.contain{
-    margin-left: 17%;
-    width: 71.5%;
-
-}
-
-
-/*Search input*/
-
-input {
-    outline: none;
-
-}
-
-input[type=search] {
-    font-family: inherit;
-    font-size: 115%;
-}
-
-
-input[type=search] {
-    background: #e0e0e0 url(/img/icon.png) no-repeat 95% 50%;
-    border: solid 1px #ccc;
-    padding: 9px 8px 9px 20px;
-    width: 230px;
-    border-radius: 2em;
-    transition: all .5s;
-}
-
-input[type=search]:focus {
-    background: white url(/img/iconf.png) no-repeat 95% 50%;
-    border-color: #42a5f5;
-}
-
-input:-moz-placeholder {
-    color: #424242;
-}
-input::-webkit-input-placeholder {
-    color: #424242;
-}
-
-.card .card-header p {
-    font-size: 16px;
-    margin-top: 6px;
-    display: block;
-    margin-block-end: 0px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-
-.card h2 {
-    display: inline-block;
-}
-
-
-.card button:active {
-    background: white url(/img/iconf.png) no-repeat;
-
-}
-
-
-.radios {
-    width: 40%;
-    margin-left: 30%;
-}
 
 
 
