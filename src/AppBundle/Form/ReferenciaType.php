@@ -13,7 +13,7 @@ class ReferenciaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('authores')->add('title')->add('type')->add('yearpreprint')->add('yearpub')->add('publication')->add('journal')->add('issue')->add('pages')->add('corporateauthor')->add('address')->add('keywords')->add('abst')->add('publisher')->add('placepub')->add('editor')->add('issn')->add('isbn')->add('medium')->add('notas')->add('revision')->add('file')->add('url')->add('doi')->add('arxiv')->add('mathscinet')->add('zmath')->add('inspires')->add('created')->add('modified')->add('volume')->add('reportnumber')->add('msc')->add('mrnumber')->add('booktitle')->add('school')->add('advisor')->add('thesistype')->add('user')->add('author');
+        $builder->add('type')->add('authors')->add('title')->add('yearpreprint')->add('yearpub')->add('journal')->add('issue')->add('pages')->add('address')->add('keywords')->add('abst')->add('publisher')->add('placepub')->add('editor')->add('thesistype')->add('advisor')->add('school')->add('booktitle')->add('issn')->add('isbn')->add('notas')->add('revision')->add('file')->add('url')->add('doi')->add('arxiv')->add('zmath')->add('created')->add('modified')->add('volume')->add('reportnumber')->add('msc')->add('mrnumber')->add('user')->add('author');
     }/**
      * {@inheritdoc}
      */

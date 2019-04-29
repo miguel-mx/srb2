@@ -76,20 +76,20 @@ class ReferenciaController extends Controller
      */
     public function newAction(Request $request)
     {
-        $referencium = new Referencium();
-        $form = $this->createForm('AppBundle\Form\ReferenciaType', $referencium);
+        $referencia = new Referencia();
+        $form = $this->createForm('AppBundle\Form\ReferenciaType', $referencia);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($referencium);
+            $em->persist($referencia);
             $em->flush();
 
-            return $this->redirectToRoute('referencia_show', array('id' => $referencium->getId()));
+            return $this->redirectToRoute('referencia_show', array('id' => $referencia->getId()));
         }
 
         return $this->render('referencia/new.html.twig', array(
-            'referencium' => $referencium,
+            'referencia' => $referencia,
             'form' => $form->createView(),
         ));
     }

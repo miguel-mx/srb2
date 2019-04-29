@@ -195,4 +195,9 @@ class Author
     {
         return $this->slug;
     }
+
+    public function __toString()
+    {
+        return (string) $this->slug;
+    }
 }
