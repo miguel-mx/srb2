@@ -91,15 +91,7 @@ a {
 
 
 }
-.searchbar{
-    margin-top: -7px;
-    height: 50px;
-    background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border-radius: 40px;
-    padding: 10px;
-}
+
 
 input::placeholder {
     color: #ffffff;
@@ -122,7 +114,6 @@ input::placeholder {
     width: 85%;
     caret-color: #f9feff;
     transition: width 0.4s linear;
->>>>>>> 3cd6b8eee2e8424b90fb29082cb6a3bb357b9355
 }
 
 
@@ -312,10 +303,6 @@ latest-articles {
     font-weight: bold;
 }
 
-/*#eventos {*/
-/*background: #4e4e4e;*/
-/*}*/
-
 .event-container h1 {
     font-size: 18px;
     font-weight: bold;
@@ -345,10 +332,6 @@ latest-articles {
     color: #615e62;
 
 }
-
-
-
-
 
 
 /********************Index Referencia*******************/
