@@ -75,7 +75,7 @@
                             <p><strong>Author</strong> <br>
 
                                 {% for  author in referencia.author %}
-                                    <a href="{{ author.name }}">{{ author.name }}</a><br>
+                                    <a href="{{ path('author_show', { 'slug': author.slug }) }}">{{ author.name }}</a><br>
                                 {% endfor %}
                             </p>
 

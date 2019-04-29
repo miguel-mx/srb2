@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Author;
+use AppBundle\Entity\Referencia;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -29,6 +30,18 @@ class AuthorController extends Controller
         return $this->render('author/index.html.twig', array(
             'authors' => $authors,
         ));
+    }
+
+    public function dataTableAction(Request $request)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $authors = $em->getRepository(Author::class)->findAll();
+
+        return $this->render('author/index.html.twig', array(
+            'authors' => $authors,
+        ));
+
     }
 
     /**
@@ -60,7 +73,7 @@ class AuthorController extends Controller
     /**
      * Finds and displays a author entity.
      *
-     * @Route("/{id}", name="author_show")
+     * @Route("/{slug}", name="author_show")
      * @Method("GET")
      */
     public function showAction(Author $author)

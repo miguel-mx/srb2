@@ -1,43 +1,93 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Authors list</h1>
+    <section id="table">
+        <div class="container myTab">
+            <table id="myTable" class="table">
+                <thead>
+                <tr>
+                    <th>{{ authors|length }} Resultados</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for author in authors %}
+                    <tr>
+                        <td class="p-3 m-2">
+                            <h5>
+                                <strong><a href="{{ path('author_show', { 'slug': author.slug }) }}">{{ author.name }}</a></strong>
+                            </h5>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Alias</th>
-                <th>Id</th>
-                <th>Slug</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for author in authors %}
-            <tr>
-                <td><a href="{{ path('author_show', { 'id': author.id }) }}">{{ author.name }}</a></td>
-                <td>{{ author.alias }}</td>
-                <td>{{ author.id }}</td>
-                <td>{{ author.slug }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('author_show', { 'id': author.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('author_edit', { 'id': author.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                        </td>
+                    </tr>
+                {% endfor %}
 
-    <ul>
-        <li>
-            <a href="{{ path('author_new') }}">Create a new author</a>
-        </li>
-    </ul>
+                </tbody>
+            </table>
+
+        </div>
+    </section>
+
 {% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable(
+                {
+                    "lengthMenu": [[10, 15, 20], [10, 15, 20]]
+                }
+            );
+
+        });
+    </script>
+{% endblock %}
+
+
+{#{% block body %}#}
+{#    <h1>Authors list</h1>#}
+
+{#    <table>#}
+{#        <thead>#}
+{#            <tr>#}
+{#                <th>Name</th>#}
+{#                <th>Alias</th>#}
+{#                <th>Id</th>#}
+{#                <th>Slug</th>#}
+{#                <th>Actions</th>#}
+{#            </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#        {% for author in authors %}#}
+{#            <tr>#}
+{#                <td><a href="{{ path('author_show', { 'id': author.id }) }}">{{ author.name }}</a></td>#}
+{#                <td>{{ author.alias }}</td>#}
+{#                <td>{{ author.id }}</td>#}
+{#                <td>{{ author.slug }}</td>#}
+{#                <td>#}
+{#                    <ul>#}
+{#                        <li>#}
+{#                            <a href="{{ path('author_show', { 'id': author.id }) }}">show</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="{{ path('author_edit', { 'id': author.id }) }}">edit</a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </td>#}
+{#            </tr>#}
+{#        {% endfor %}#}
+{#        </tbody>#}
+{#    </table>#}
+
+{#    <ul>#}
+{#        <li>#}
+{#            <a href="{{ path('author_new') }}">Create a new author</a>#}
+{#        </li>#}
+{#    </ul>#}
+{#{% endblock %}#}
