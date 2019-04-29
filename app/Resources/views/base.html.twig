@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}SRB{% endblock %}</title>
 
 
     {% block stylesheets %}
@@ -20,7 +20,10 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
         <link rel="stylesheet" href="{{ asset('css/main.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>
 
     {% endblock %}
 
@@ -53,10 +56,10 @@
             <div class="collapse navbar-collapse .flex-column  " id="navbarSupportedContent">
                 <ul class="navbar-nav  ml-md-auto  d-md-flex justify-content-around" style="margin-right: 10px">
                     <li class="nav-item active">
-                        <a class="nav-link" href="http://127.0.0.1:8000/index">INICIO <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="http://localhost:8000/index">INICIO <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">Autores </a>
+                        <a class="nav-link" href="http://localhost:8000/author/">Autores </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Revista</a>
@@ -71,8 +74,8 @@
                             Ingresa
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="http://127.0.0.1:8000/login">Iniciar sesión</a>
-                            <a class="dropdown-item" href="http://127.0.0.1:8000/resetting/request">Recuperar Contraseña</a>
+                            <a class="dropdown-item" href="http://localhost:8000/login">Iniciar sesión</a>
+                            <a class="dropdown-item" href="http://localhost:8000/resetting/request">Recuperar Contraseña</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Ayuda</a>
                         </div>

@@ -1,40 +1,119 @@
 {% extends 'base.html.twig' %}
 
+
+
 {% block body %}
-    <h1>Author</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Name</th>
-                <td>{{ author.name }}</td>
-            </tr>
-            <tr>
-                <th>Alias</th>
-                <td>{{ author.alias }}</td>
-            </tr>
-            <tr>
-                <th>Id</th>
-                <td>{{ author.id }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ author.slug }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <section id="show-article">
+        <div class="container-fluid p-5 myTab">
+            <div class="row justify-content-md-center">
+                <div class="col-9" style="background-color: #eeeeee">
+                    <div class="row referencia-container p-5">
+                        <div class="col-md-9 ">
+                            <h3 class="mt-1 text-info">{{ author.name }}</h3>{% if  author.alias %}
+                            <p><strong>Alias:</strong> {{ author.alias }}</p>{% endif %}
+                        </div>
+                    </div>
+                    <section id="table">
+                        <div class="container myTabAuthor">
+                            <table id="myTable" class="table" >
+                                <thead>
+                                <tr>
 
-    <ul>
-        <li>
-            <a href="{{ path('author_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('author_edit', { 'id': author.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                                    <th> {{ author.referencia|length }} Resultados
+                                    </th>
+
+                                </tr>
+                                </thead>
+                                <tbody >
+                                {% for referencia in author.referencia %}
+                                    <tr>
+                                        <td class="p-4 m-4">
+                                            <h5>
+                                                <strong><a href="{{ path('referencia_show', { 'slug': referencia.slug }) }}">{{ referencia.title }}</a></strong>
+                                            </h5>
+                                            {% if  referencia.journal %} {{ referencia.journal }}
+                                                <small class="text-muted">{{ referencia.yearPub }}</small>, {% endif %}
+                                            {% if  referencia.volume %}Vol: {{ referencia.volume }}, {% endif %}
+                                            {% if  referencia.issue %}Issue: {{ referencia.issue }}, {% endif %}
+                                            {% if  referencia.pages %}p. {{ referencia.pages }}{% endif %}
+                                            {% if referencia.authors %}
+                                                <div>
+                                                    {% for key in referencia.authors|split(';') %}<a
+                                                        href="{{ path('search', {'q': key | trim | url_encode() }) }}"> {{ key|trim }}</a>; {% endfor %}
+                                                </div>
+                                            {% endif %}
+
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+    </section>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable(
+                {
+                    "lengthMenu": [[5, 10, 15], [5, 10, 15]]
+                }
+            );
+
+        });
+    </script>
+{% endblock %}
+
+{#{% block body %}#}
+{#    <h1>Author</h1>#}
+
+{#    <table>#}
+{#        <tbody>#}
+{#            <tr>#}
+{#                <th>Name</th>#}
+{#                <td>{{ author.name }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Alias</th>#}
+{#                <td>{{ author.alias }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Id</th>#}
+{#                <td>{{ author.id }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Slug</th>#}
+{#                <td>{{ author.slug }}</td>#}
+{#            </tr>#}
+{#        </tbody>#}
+{#    </table>#}
+
+{#    <ul>#}
+{#        <li>#}
+{#            <a href="{{ path('author_index') }}">Back to the list</a>#}
+{#        </li>#}
+{#        <li>#}
+{#            <a href="{{ path('author_edit', { 'id': author.id }) }}">Edit</a>#}
+{#        </li>#}
+{#        <li>#}
+{#            {{ form_start(delete_form) }}#}
+{#                <input type="submit" value="Delete">#}
+{#            {{ form_end(delete_form) }}#}
+{#        </li>#}
+{#    </ul>#}
+{#{% endblock %}#}

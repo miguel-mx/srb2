@@ -16,11 +16,6 @@ body {
 
 }
 
-a {
-    color: #615e62;
-    text-decoration: none;
-    background-color: transparent;
-}
 .brand p {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -122,7 +117,6 @@ input::placeholder {
     width: 85%;
     caret-color: #f9feff;
     transition: width 0.4s linear;
->>>>>>> 3cd6b8eee2e8424b90fb29082cb6a3bb357b9355
 }
 
 
@@ -347,107 +341,3 @@ latest-articles {
 }
 
 
-
-
-
-
-/********************Index Referencia*******************/
-.contain{
-    margin-left: 17%;
-    width: 71.5%;
-
-}
-
-
-/*Search input*/
-
-input {
-    outline: none;
-
-}
-
-input[type=search] {
-    font-family: inherit;
-    font-size: 115%;
-}
-
-
-input[type=search] {
-    background: #e0e0e0 url(/img/icon.png) no-repeat 95% 50%;
-    border: solid 1px #ccc;
-    padding: 9px 8px 9px 20px;
-    width: 230px;
-    border-radius: 2em;
-    transition: all .5s;
-}
-
-input[type=search]:focus {
-    background: white url(/img/iconf.png) no-repeat 95% 50%;
-    border-color: #42a5f5;
-}
-
-input:-moz-placeholder {
-    color: #424242;
-}
-input::-webkit-input-placeholder {
-    color: #424242;
-}
-
-.card .card-header p {
-    font-size: 16px;
-    margin-top: 6px;
-    display: block;
-    margin-block-end: 0px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-
-.card h2 {
-    display: inline-block;
-}
-
-
-.card button:active {
-    background: white url(/img/iconf.png) no-repeat;
-
-}
-
-
-.radios {
-    width: 40%;
-    margin-left: 30%;
-}
-
-
-
-/********************Show Referencia*******************/
-
-.referencia-container h3 {
-    margin-bottom: .8rem;
-}
-
-.referencia-container p {
-    margin-bottom: .2rem;
-    font-size: 1.1rem;
-}
-
-.referencia-container .small, small {
-    font-size: 60%;
-    font-weight: 400;
-    color: #868686;
-}
-
-.block p {
-    margin: 2px 0px 2px 0px;
-}
-
-.block {
-
-    margin: 25px 0px 25px 0px;
-}
-
-/***********MyTable*********/
-
-.myTab {
-    margin: 110px 0px 50px 0px;
-}
