@@ -27,20 +27,20 @@
 
     {% endblock %}
 
-{#    {% block stylesheets %}#}
-{#        <!-- Fuente CSS -->#}
-{#        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">#}
+    {#    {% block stylesheets %}#}
+    {#        <!-- Fuente CSS -->#}
+    {#        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">#}
 
-{#        <!-- Bootstrap CSS -->#}
-{#        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">#}
-{#        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>#}
-{#        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">#}
-{#        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"/>#}
-{#        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>#}
-{#        <link rel="stylesheet" href="{{ asset('css/main.css') }}"/>#}
-{#        <link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>#}
+    {#        <!-- Bootstrap CSS -->#}
+    {#        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">#}
+    {#        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>#}
+    {#        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">#}
+    {#        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"/>#}
+    {#        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>#}
+    {#        <link rel="stylesheet" href="{{ asset('css/main.css') }}"/>#}
+    {#        <link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>#}
 
-{#    {% endblock %}#}
+    {#    {% endblock %}#}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 
@@ -90,7 +90,7 @@
                         <a class="nav-link" href="http://localhost:8000/index">INICIO <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="http://localhost:8000/author/">Autores</a>
+                        <a class="nav-link" href="http://localhost:8000/author/">Autores </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Revista</a>
@@ -98,11 +98,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Busqueda Avanzada</a>
                     </li>
-                    
-                    <li class="d-flex nav-item  ">
-                        <form action="../search2" method="get">
-                            <div class="input-group">
-                                <input type="search" class="form-control" placeholder="Search" autocomplete="off" name="q" required value="{{ app.request.get('query') }}">
+
                     {% if is_granted('ROLE_USER') %}
                         <li class="nav-item dropdown" hidden="hidden">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
@@ -183,8 +179,8 @@
         </nav>
     </section>
 
-
 {% endblock %}
+
 
 {% block body %}{% endblock %}
 
@@ -235,6 +231,7 @@
     </section>
 {% endblock %}
 
+
 {% block javascripts %}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -244,25 +241,3 @@
 {% endblock %}
 </body>
 </html>
-
-{#{% block nav %}#}
-{#<section id="navbar">#}
-{#    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">#}
-{#        <a class="navbar-brand d-none d-sm-block ml-lg-3" href="http://www.morelia.unam.mx/campus/">#}
-{#            <img src="/img/unamx200.png" height="50" class="d-inline-block align-top" alt="UNAM logo">#}
-{#            <div class="brand d-inline-flex">#}
-{#                <p>Universidad Nacional<br>Autónoma de México</p>#}
-{#            </div>#}
-{#        </a>#}
-
-{#        <a class="navbar-brand d-none d-sm-block ml-lg-1 " href="http://132.248.196.44/acervo2/">#}
-{#            <a class="navbar-brand" href="http://www.matmor.unam.mx">#}
-{#                <img src="/img/ccmlogo.png" height="50" class="d-inline-block align-top" alt="Centro de Ciencias Matemáticas logo">#}
-{#            </a>#}
-{#        </a>#}
-{#        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">#}
-{#            <span class="navbar-toggler-icon"></span>#}
-{#        </button>#}
-
-{#        <div class="collapse navbar-collapse .flex-column  " id="navbarSupportedContent">#}
-{#            <ul class#}
