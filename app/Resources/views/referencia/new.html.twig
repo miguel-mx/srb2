@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Referencium creation</h1>
+    <h1>Nueva referencia</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+
+    {{ form_widget(form) }}
+
     {{ form_end(form) }}
 
     <ul>
@@ -13,4 +14,19 @@
             <a href="{{ path('referencia_index') }}">Back to the list</a>
         </li>
     </ul>
+
+{% endblock %}
+{% block javascripts %}
+
+    {{ parent() }}
+
+      <script>
+        var $tipo = $('#appbundle_referencia_type');
+        $tipo.change(function() {
+            // ... retrieve the corresponding form.
+            var $form = $(this).closest('form');
+            $form.submit();
+        });
+    </script>
+
 {% endblock %}

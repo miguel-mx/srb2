@@ -5,16 +5,80 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
+
 
 class ReferenciaType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('type')->add('authors')->add('title')->add('yearpreprint')->add('yearpub')->add('journal')->add('issue')->add('pages')->add('address')->add('keywords')->add('abst')->add('publisher')->add('placepub')->add('editor')->add('thesistype')->add('advisor')->add('school')->add('booktitle')->add('issn')->add('isbn')->add('notas')->add('revision')->add('file')->add('url')->add('doi')->add('arxiv')->add('zmath')->add('created')->add('modified')->add('volume')->add('reportnumber')->add('msc')->add('mrnumber')->add('user')->add('author');
-    }/**
+        $builder
+            ->add('wos')
+            ->add('title')
+            ->add('type', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType', array(
+                'choices' => array(
+                    'Article' => 'Article',
+                    'Book' => 'Book',
+                ),
+                'choices_as_values' => true,
+                'placeholder' => ''
+            ));
+
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event){
+            $tipo = $event->getData();
+            $form = $event->getForm();
+            if($tipo and $tipo->gettype()){
+                // obtenemos el country por medio del objeto state:
+                if($tipo->gettype()=== "Article"){
+                        $form->add('issn');
+                }
+
+            }
+        });
+    }
+//        $formModifier = function (FormInterface $form,  $type = null) {
+//
+//            if($type == 'Article') {
+//
+//                $form->add('abstract');
+//
+//            }
+//            elseif ($type == 'Book') {
+//                $form->add('title');
+//            }
+//        };
+//
+//         $builder->addEventListener(
+//            FormEvents::PRE_SET_DATA,
+//            function (FormEvent $event) use ($formModifier) {
+//                // this would be your entity, i.e. Reference
+//                $data = $event->getData();
+//
+//                $formModifier($event->getForm(), $data->getType());
+//            }
+//        );
+//
+//        $builder->get('type')->addEventListener(
+//            FormEvents::POST_SUBMIT,
+//            function (FormEvent $event) use ($formModifier) {
+//                // It's important here to fetch $event->getForm()->getData(), as
+//                // $event->getData() will get you the client data (that is, the ID)
+//                $type = $event->getForm()->getData();
+//
+//                // since we've added the listener to the child, we'll have to pass on
+//                // the parent to the callback functions!
+//                $formModifier($event->getForm()->getParent(), $type);
+//            }
+//        );
+//
+//    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
