@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cite</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cite.id }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ cite.reference }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ cite.url }}</td>
+            </tr>
+            <tr>
+                <th>Doi</th>
+                <td>{{ cite.doi }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{% if cite.created %}{{ cite.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cites_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('cites_edit', { 'id': cite.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

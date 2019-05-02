@@ -149,6 +149,27 @@ class Referencia
     /**
      * @var string
      *
+     * @ORM\Column(name="wos", type="string", length=250, nullable=true)
+     */
+    private $wos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="scopus", type="string", length=250, nullable=true)
+     */
+    private $scopus;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="scielo", type="string", length=250, nullable=true)
+     */
+    private $scielo;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="notas", type="string", length=2500, nullable=true)
      */
     private $notas;
@@ -280,6 +301,100 @@ class Referencia
     private $thesistype;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="e_issn", type="string", length=250, nullable=true)
+     */
+    private $e_issn;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="e_isbn", type="string", length=250, nullable=true)
+     */
+    private $e_isbn;
+
+    /**
+     * @return string
+     */
+    public function getWos()
+    {
+        return $this->wos;
+    }
+
+    /**
+     * @param string $wos
+     */
+    public function setWos($wos)
+    {
+        $this->wos = $wos;
+    }
+
+    /**
+     * @return string
+     */
+    public function getScopus()
+    {
+        return $this->scopus;
+    }
+
+    /**
+     * @param string $scopus
+     */
+    public function setScopus($scopus)
+    {
+        $this->scopus = $scopus;
+    }
+
+    /**
+     * @return string
+     */
+    public function getScielo()
+    {
+        return $this->scielo;
+    }
+
+    /**
+     * @param string $scielo
+     */
+    public function setScielo($scielo)
+    {
+        $this->scielo = $scielo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEIssn()
+    {
+        return $this->e_issn;
+    }
+
+    /**
+     * @param string $e_issn
+     */
+    public function setEIssn($e_issn)
+    {
+        $this->e_issn = $e_issn;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEIsbn()
+    {
+        return $this->e_isbn;
+    }
+
+    /**
+     * @param string $e_isbn
+     */
+    public function setEIsbn($e_isbn)
+    {
+        $this->e_isbn = $e_isbn;
+    }
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -319,6 +434,55 @@ class Referencia
      */
     private $slug;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Journal")
+     * @ORM\JoinColumn(name="journal_id", referencedColumnName="id")
+     */
+    private $journals;
+
+    // ...
+    /**
+     * Many features have one product. This is the owning side.
+     * @ORM\ManyToOne(targetEntity="Cites", inversedBy="references")
+     * @ORM\JoinColumn(name="cites_id", referencedColumnName="id")
+     */
+    private $cites;
+
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getCites()
+    {
+        return $this->cites;
+    }
+
+    /**
+     * @param mixed $cites
+     */
+    public function setCites($cites)
+    {
+        $this->cites = $cites;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getJournals()
+    {
+        return $this->journals;
+    }
+
+    /**
+     * @param mixed $journals
+     */
+    public function setJournals($journals)
+    {
+        $this->journals = $journals;
+    }
 
     /**
      * Constructor

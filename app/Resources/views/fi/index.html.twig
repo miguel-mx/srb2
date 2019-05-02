@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fis list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Origen</th>
+                <th>Year</th>
+                <th>Fi</th>
+                <th>Cuartil</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fi in fis %}
+            <tr>
+                <td><a href="{{ path('fi_show', { 'id': fi.id }) }}">{{ fi.id }}</a></td>
+                <td>{{ fi.origen }}</td>
+                <td>{{ fi.year }}</td>
+                <td>{{ fi.fi }}</td>
+                <td>{{ fi.cuartil }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('fi_show', { 'id': fi.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fi_edit', { 'id': fi.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('fi_new') }}">Create a new fi</a>
+        </li>
+    </ul>
+{% endblock %}
