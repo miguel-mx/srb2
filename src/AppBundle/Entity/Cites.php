@@ -49,6 +49,28 @@ class Cites
      */
     private $created;
 
+    /**
+     * One reference has many cites. This is the inverse side.
+     * @ORM\OneToMany(targetEntity="Referencia", mappedBy="cites")
+     */
+    private $references;
+
+    /**
+     * @return mixed
+     */
+    public function getReferences()
+    {
+        return $this->references;
+    }
+
+    /**
+     * @param mixed $references
+     */
+    public function setReferences($references)
+    {
+        $this->references = $references;
+    }
+
 
     /**
      * Get id.

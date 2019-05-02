@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Journal</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ journal.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ journal.name }}</td>
+            </tr>
+            <tr>
+                <th>Publisher</th>
+                <td>{{ journal.publisher }}</td>
+            </tr>
+            <tr>
+                <th>Issn</th>
+                <td>{{ journal.issn }}</td>
+            </tr>
+            <tr>
+                <th>Eissn</th>
+                <td>{{ journal.eissn }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ journal.url }}</td>
+            </tr>
+            <tr>
+                <th>Pais</th>
+                <td>{{ journal.pais }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('journal_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('journal_edit', { 'id': journal.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
