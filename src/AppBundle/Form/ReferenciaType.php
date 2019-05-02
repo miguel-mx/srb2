@@ -41,7 +41,6 @@ class ReferenciaType extends AbstractType
             }
         });
     }
-
 //        $formModifier = function (FormInterface $form,  $type = null) {
 //
 //            if($type == 'Article') {
@@ -54,15 +53,15 @@ class ReferenciaType extends AbstractType
 //            }
 //        };
 //
-////         $builder->addEventListener(
-////            FormEvents::PRE_SET_DATA,
-////            function (FormEvent $event) use ($formModifier) {
-////                // this would be your entity, i.e. Reference
-////                $data = $event->getData();
-////
-////                $formModifier($event->getForm(), $data->getType());
-////            }
-////        );
+//         $builder->addEventListener(
+//            FormEvents::PRE_SET_DATA,
+//            function (FormEvent $event) use ($formModifier) {
+//                // this would be your entity, i.e. Reference
+//                $data = $event->getData();
+//
+//                $formModifier($event->getForm(), $data->getType());
+//            }
+//        );
 //
 //        $builder->get('type')->addEventListener(
 //            FormEvents::POST_SUBMIT,
