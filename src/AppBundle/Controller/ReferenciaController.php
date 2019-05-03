@@ -80,7 +80,7 @@ class ReferenciaController extends Controller
         $form = $this->createForm('AppBundle\Form\ReferenciaType', $referencia);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() && $referencia->getTitle()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($referencia);
             $em->flush();
