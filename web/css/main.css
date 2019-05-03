@@ -18,8 +18,19 @@ body {
     color: #615e62;
 }
 
+<<<<<<< HEAD
 .navbar{
     border-bottom: black;
+=======
+
+
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    margin-top: 65px;
+    min-height: 550px;
+
+>>>>>>> 8c86ae9738b220f608403f298c128b9ad91cb35b
 }
 
 .brand p {

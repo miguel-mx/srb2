@@ -1,13 +1,45 @@
 {% extends 'base.html.twig' %}
 
+ {% block stylesheets %}
+     {{ parent() }}
+     <link rel="stylesheet" href="{{ asset('css/forms.css') }}"/>
+ {% endblock %}
+
 {% block body %}
-    <h1>Nueva referencia</h1>
 
     {{ form_start(form) }}
-
-    {{ form_widget(form) }}
+    <div class="formulario ">
+        <section class="content-header">
+            <h1>Nueva referencia</h1>
+        </section>
+        <div class="container">
+            <div class="alert-danger">{{ form_errors(form) }}</div>
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <div class="box-header">
+                        <h3>Datos personales</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Nombre(s)</label>
+                                {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
+                                <span class="text-dange">{{ form_errors(form.type) }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     {{ form_end(form) }}
+
+
+
+
+
+
 
     <ul>
         <li>
@@ -15,12 +47,16 @@
         </li>
     </ul>
 
+
+
+
 {% endblock %}
+
 {% block javascripts %}
 
     {{ parent() }}
 
-      <script>
+    <script>
         var $tipo = $('#appbundle_referencia_type');
         $tipo.change(function() {
             // ... retrieve the corresponding form.
