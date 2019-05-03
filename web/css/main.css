@@ -1,19 +1,25 @@
 /********************pagina inicio NAV y FOOTER*******************/
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    padding-top: 4.5rem;
+}
+
 .nav-item {
     margin-left: 15px;
     font-weight: normal;
     font-size: 18px;
     color: #615e62;
 }
+
 .navbar{
     border-bottom: black;
-}
-body {
-    font-family: 'Nunito Sans', sans-serif;
-    margin-top: 40px;
-
 }
 
 .brand p {
@@ -211,6 +217,12 @@ section .section-title {
     background: #0F2027;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 160px;
+    /*line-height: 60px; !* Vertically center the text there *!*/
 }
 
 #footer h5{
