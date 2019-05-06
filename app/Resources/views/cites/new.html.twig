@@ -1,16 +1,52 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Cite creation</h1>
+    {#    {{ form_start(form) }}#}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    {{ form_errors(form) }}
+    <div class="container" style="background-color: #eeeeee; border-radius: 10px">
+        <form>
+            <h1>Cites creation</h1>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="reference">{{ form_label(form.reference) }}</label>
+                    {{ form_errors(form.reference) }}
+                    {{ form_widget(form.reference, { 'attr': { 'class': "form-control", 'placeholder': "Reference" , 'id': "reference"  } } ) }}
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="doi">{{ form_label(form.doi) }}</label>
+                    {{ form_errors(form.doi) }}
+                    {{ form_widget(form.doi, { 'attr': { 'class': "form-control", 'placeholder': "DOI" , 'id': "doi"  } } ) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="url">{{ form_label(form.url) }}</label>
+                {{ form_errors(form.url) }}
+                {{ form_widget(form.url, { 'attr': { 'class': "form-control", 'placeholder': "Url" , 'id': "url"  } } ) }}
+            </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('cites_index') }}">Back to the list</a>
-        </li>
-    </ul>
+            <div>
+
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                {#                {{ form_end(form) }}#}
+            </div>
+            {#        <ul>#}
+            {#            <li>#}
+            {#                <a href="{{ path('fi_index') }}">Back to the list</a>#}
+            {#            </li>#}
+            {#        </ul>#}
+        </form>
+    </div>
+    {#    <h1>Cite creation</h1>#}
+
+    {#    {{ form_start(form) }}#}
+    {#        {{ form_widget(form) }}#}
+    {#        <input type="submit" value="Create" />#}
+    {#    {{ form_end(form) }}#}
+
+    {#    <ul>#}
+    {#        <li>#}
+    {#            <a href="{{ path('cites_index') }}">Back to the list</a>#}
+    {#        </li>#}
+    {#    </ul>#}
 {% endblock %}
