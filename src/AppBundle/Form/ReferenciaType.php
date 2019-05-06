@@ -168,7 +168,17 @@ class ReferenciaType extends AbstractType
                 }
             }
         );
-//     ('yearpreprint')('issue')'address')-'publisher')-('placepub')('editor')('thesistype')('advisor')('school')('booktitle')('isbn')('revision')('created')('modified')('reportnumber')('user')
+
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event){
+            $tipo = $event->getData();
+            $form = $event->getForm();
+            if($tipo and $tipo->gettype()){
+                // obtenemos el country por medio del objeto state:
+                if($tipo->gettype()=== "Avanzado"){
+                }
+
+            }
+        });
 
     }
 
