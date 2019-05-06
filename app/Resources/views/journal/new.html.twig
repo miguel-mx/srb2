@@ -1,16 +1,77 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Journal creation</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('journal_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    {{ form_errors(form) }}
+    <div class="container" style="background-color: #eeeeee; border-radius: 10px">
+        <form>
+            <h1>Journal creation</h1>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">{{ form_label(form.name) }}</label>
+                    {{ form_errors(form.name) }}
+                    {{ form_widget(form.name, { 'attr': { 'class': "form-control", 'placeholder': "Name" , 'id': "name"  } } ) }}
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="publisher">{{ form_label(form.publisher) }}</label>
+                    {{ form_errors(form.publisher) }}
+                    {{ form_widget(form.publisher, { 'attr': { 'class': "form-control", 'placeholder': "Publisher" , 'id': "publisher"  } } ) }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="issn">{{ form_label(form.issn) }}</label>
+                    {{ form_errors(form.issn) }}
+                    {{ form_widget(form.issn, { 'attr': { 'class': "form-control", 'placeholder': "Issn" , 'id': "issn"  } } ) }}
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="eissn">{{ form_label(form.eissn) }}</label>
+                    {{ form_errors(form.eissn) }}
+                    {{ form_widget(form.eissn, { 'attr': { 'class': "form-control", 'placeholder': "E-issn" , 'id': "eissn"  } } ) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="url">{{ form_label(form.url) }}</label>
+                {{ form_errors(form.url) }}
+                {{ form_widget(form.url, { 'attr': { 'class': "form-control", 'placeholder': "Url" , 'id': "url"  } } ) }}
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="pais">{{ form_label(form.pais) }}</label>
+                    {{ form_errors(form.pais) }}
+                    {{ form_widget(form.pais, { 'attr': { 'class': "form-control", 'placeholder': "País" , 'id': "pais"  } } ) }}
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="fi">{{ form_label(form.fi) }}</label>
+                    {{ form_errors(form.fi) }}
+                    {{ form_widget(form.fi, { 'attr': { 'class': "form-control", 'placeholder': "Fi" , 'id': "fi"  } } ) }}
+                </div>
+            </div>
+
+            <div>
+                {{ form_widget(form) }}
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                {{ form_end(form) }}
+            </div>
+            {#        <ul>#}
+            {#            <li>#}
+            {#                <a href="{{ path('journal_index') }}">Back to the list</a>#}
+            {#            </li>#}
+            {#        </ul>#}
+        </form>
+    </div>
+
+    {#    {{ form_start(form) }}#}
+    {#        {{ form_widget(form) }}#}
+    {#        <input type="submit" value="Create" />#}
+    {#    {{ form_end(form) }}#}
+
+    {#    <ul>#}
+    {#        <li>#}
+    {#            <a href="{{ path('journal_index') }}">Back to the list</a>#}
+    {#        </li>#}
+    {#    </ul>#}
 {% endblock %}

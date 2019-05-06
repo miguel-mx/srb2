@@ -13,10 +13,38 @@ class JournalType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('publisher')->add('issn')->add('eissn')->add('url')->add('pais')->add('fi');
+        $builder->add('name',null, [
+            'required' => true,
+
+        ])
+            ->add('publisher',null, [
+                'required' => true,
+
+            ])
+            ->add('issn',null, [
+                'required' => true,
+
+            ])
+            ->add('eissn',null, [
+                'required' => true,
+                'label' => 'E-issn',
+
+            ])
+            ->add('url',null, [
+                'required' => true,
+
+            ])
+            ->add('pais',null, [
+                'required' => true,
+
+            ])
+            ->add('fi',null, [
+                'required' => true,
+
+            ]);
     }/**
-     * {@inheritdoc}
-     */
+ * {@inheritdoc}
+ */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
@@ -31,6 +59,4 @@ class JournalType extends AbstractType
     {
         return 'appbundle_journal';
     }
-
-
 }

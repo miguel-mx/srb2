@@ -1,16 +1,63 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Fi creation</h1>
-
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('fi_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    {{ form_errors(form) }}
+    <div class="container" style="background-color: #eeeeee; border-radius: 10px">
+        <form>
+            <h1>Fi creation</h1>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="origen">{{ form_label(form.origen) }}</label>
+                    {{ form_errors(form.origen) }}
+                    {{ form_widget(form.origen, { 'attr': { 'class': "form-control", 'placeholder': "Origen" , 'id': "origen"  } } ) }}
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="year">{{ form_label(form.year) }}</label>
+                    {{ form_errors(form.year) }}
+                    {{ form_widget(form.year, { 'attr': { 'class': "form-control", 'placeholder': "Year" , 'id': "year"  } } ) }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="fi">{{ form_label(form.fi) }}</label>
+                    {{ form_errors(form.fi) }}
+                    {{ form_widget(form.fi, { 'attr': { 'class': "form-control", 'placeholder': "Fi" , 'id': "fi"  } } ) }}
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="cuartil">{{ form_label(form.cuartil) }}</label>
+                    {{ form_errors(form.cuartil) }}
+                    {{ form_widget(form.cuartil, { 'attr': { 'class': "form-control", 'placeholder': "Cuartil" , 'id': "cuartil"  } } ) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="journal">{{ form_label(form.journal) }}</label>
+                {{ form_errors(form.journal) }}
+                {{ form_widget(form.journal, { 'attr': { 'class': "form-control", 'placeholder': "Journal" , 'id': "journal"  } } ) }}
+            </div>
+
+            <div>
+                {{ form_widget(form) }}
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                {{ form_end(form) }}
+            </div>
+            {#        <ul>#}
+            {#            <li>#}
+            {#                <a href="{{ path('fi_index') }}">Back to the list</a>#}
+            {#            </li>#}
+            {#        </ul>#}
+        </form>
+    </div>
+
+    {#    {{ form_start(form) }}#}
+    {#        {{ form_widget(form) }}#}
+    {#        <input type="submit" value="Create" />#}
+    {#    {{ form_end(form) }}#}
+
+    {#    <ul>#}
+    {#        <li>#}
+    {#            <a href="{{ path('fi_index') }}">Back to the list</a>#}
+    {#        </li>#}
+    {#    </ul>#}
 {% endblock %}

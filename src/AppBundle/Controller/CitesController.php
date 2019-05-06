@@ -39,7 +39,7 @@ class CitesController extends Controller
      */
     public function newAction(Request $request)
     {
-        $cite = new Cite();
+        $cite = new Cites();
         $form = $this->createForm('AppBundle\Form\CitesType', $cite);
         $form->handleRequest($request);
 

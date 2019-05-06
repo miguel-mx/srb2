@@ -13,10 +13,29 @@ class FiType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('origen')->add('year')->add('fi')->add('cuartil')->add('journal');
+        $builder->add('origen',null, [
+            'required' => true,
+
+        ])
+            ->add('year',null, [
+                'required' => true,
+
+            ])
+            ->add('fi',null, [
+                'required' => true,
+
+            ])
+            ->add('cuartil',null, [
+                'required' => true,
+
+            ])
+            ->add('journal',null, [
+                'required' => true,
+
+            ]);
     }/**
-     * {@inheritdoc}
-     */
+ * {@inheritdoc}
+ */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
