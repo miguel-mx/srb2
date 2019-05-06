@@ -1,5 +1,9 @@
 
 .formulario{
     min-height: 800px;
-    margin-top: 75px;
+    margin-top: 8%;
+}
+
+.form-group{
+    margin-top: 20px;
 }
