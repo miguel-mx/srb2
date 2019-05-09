@@ -1,44 +1,98 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Fi</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ fi.id }}</td>
-            </tr>
-            <tr>
-                <th>Origen</th>
-                <td>{{ fi.origen }}</td>
-            </tr>
-            <tr>
-                <th>Year</th>
-                <td>{{ fi.year }}</td>
-            </tr>
-            <tr>
-                <th>Fi</th>
-                <td>{{ fi.fi }}</td>
-            </tr>
-            <tr>
-                <th>Cuartil</th>
-                <td>{{ fi.cuartil }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <section id="show-cite">
+        <div class="container-fluid myTab" >
+            <div class="row justify-content-md-center">
+                <div class="col-9" style="background-color: #eeeeee">
+                    <div class="row referencia-container p-5">
+                        <div class="col-md-11 ">
+                            <form>
+                                <h1>Fi</h1>
+                                {#                                <h3>{{ cite.references.title }}</h3>#}
 
-    <ul>
-        <li>
-            <a href="{{ path('fi_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('fi_edit', { 'id': fi.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                                {% if fi.origen %}
+                                <div class="form-group">
+                                    <p><strong>Origen</strong><br>
+                                        <label for="origen">{{ fi.origen }}</label>
+                                        {% endif %}
+                                </div>
+                                {% if fi.year %}
+                                    <div class="form-group">
+                                        <p><strong>Year</strong><br>
+                                            <label for="year">{{ fi.year }}</label>
+                                    </div>
+                                {% endif %}
+                                {% if fi.fi %}
+                                    <div class="form-group">
+                                        <p><strong>FI</strong><br>
+                                            <label for="fi">{{ fi.fi }}</label>
+                                    </div>
+                                {% endif %}
+                                {% if fi.cuartil %}
+                                    <div class="form-group">
+                                        <p><strong>Cuartil</strong><br>
+                                            <label for="cuartil">{{ fi.cuartil }}</label>
+                                    </div>
+                                {% endif %}
+                                {% if fi.journal %}
+                                    <div class="form-group">
+                                        <p><strong>Journal</strong><br>
+                                            <label for="cuartil">{{ fi.journal }}</label>
+                                    </div>
+                                {% endif %}
+
+
+                                <div>
+                                    <a href="{{ path('fi_edit', { id : fi.id})}}" class="btn btn-primary">Edit <i class="fas fa-edit fa-x3"></i></a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {#    <h1>Fi</h1>#}
+
+    {#    <table>#}
+    {#        <tbody>#}
+    {#            <tr>#}
+    {#                <th>Id</th>#}
+    {#                <td>{{ fi.id }}</td>#}
+    {#            </tr>#}
+    {#            <tr>#}
+    {#                <th>Origen</th>#}
+    {#                <td>{{ fi.origen }}</td>#}
+    {#            </tr>#}
+    {#            <tr>#}
+    {#                <th>Year</th>#}
+    {#                <td>{{ fi.year }}</td>#}
+    {#            </tr>#}
+    {#            <tr>#}
+    {#                <th>Fi</th>#}
+    {#                <td>{{ fi.fi }}</td>#}
+    {#            </tr>#}
+    {#            <tr>#}
+    {#                <th>Cuartil</th>#}
+    {#                <td>{{ fi.cuartil }}</td>#}
+    {#            </tr>#}
+    {#        </tbody>#}
+    {#    </table>#}
+
+    {#    <ul>#}
+    {#        <li>#}
+    {#            <a href="{{ path('fi_index') }}">Back to the list</a>#}
+    {#        </li>#}
+    {#        <li>#}
+    {#            <a href="{{ path('fi_edit', { 'id': fi.id }) }}">Edit</a>#}
+    {#        </li>#}
+    {#        <li>#}
+    {#            {{ form_start(delete_form) }}#}
+    {#                <input type="submit" value="Delete">#}
+    {#            {{ form_end(delete_form) }}#}
+    {#        </li>#}
+    {#    </ul>#}
 {% endblock %}

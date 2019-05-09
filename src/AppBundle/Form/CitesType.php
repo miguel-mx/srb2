@@ -13,19 +13,15 @@ class CitesType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('reference',null, [
-            'required' => true,
+        $builder->add('url',null, [
+                'required' => true,
 
-        ])
-            ->add('url',null, [
+            ])
+            ->add('cite',null, [
                 'required' => true,
 
             ])
             ->add('doi',null, [
-                'required' => true,
-
-            ])
-            ->add('created',null, [
                 'required' => true,
 
             ]);

@@ -49,12 +49,13 @@ class Fi
      */
     private $cuartil;
 
-
     /**
-     * One Customer has One Cart.
-     * @ORM\OneToOne(targetEntity="Journal", mappedBy="fi")
+     * Many fi have one journal. This is the owning side.
+     * @ORM\ManyToOne(targetEntity="Journal", inversedBy="fi")
+     * @ORM\JoinColumn(name="journal_id", referencedColumnName="id")
      */
     private $journal;
+
 
     /**
      * @return mixed
@@ -176,5 +177,10 @@ class Fi
     public function getCuartil()
     {
         return $this->cuartil;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->origen;
     }
 }

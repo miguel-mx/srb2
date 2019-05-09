@@ -55,19 +55,19 @@
                 <ul class="navbar-nav  ml-md-auto  d-md-flex justify-content-around" style="margin-right: 10px">
                     {% if is_granted('ROLE_USER') %}
                         <li class="d-flex nav-item" hidden="hidden">
-                            <form hidden="hidden">
+                            <form hidden="hidden" action="../search2" method="get">
                                 <div class="input-group">
                                     <input type="search" class="form-control" placeholder="Search" autocomplete="off"
-                                           name="query" required value="{{ app.request.get('query') }}">
+                                           name="q" value="{{ app.request.get('query') }}">
                                 </div>
                             </form>
                         </li >
                     {% else %}
                         <li class="d-flex nav-item">
-                            <form>
+                            <form action="../search2" method="get">
                                 <div class="input-group">
                                     <input type="search" class="form-control" placeholder="Search" autocomplete="off"
-                                           name="query" required value="{{ app.request.get('query') }}">
+                                           name="q" value="{{ app.request.get('query') }}">
                                 </div>
                             </form>
                         </li >

@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Cites;
+use AppBundle\Entity\Referencia;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -34,12 +35,16 @@ class CitesController extends Controller
     /**
      * Creates a new cite entity.
      *
-     * @Route("/new", name="cites_new")
+     * @Route("/new/{id}", name="cites_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Referencia $referencia)
     {
         $cite = new Cites();
+
+//        $cite->setReference($referencia);
+        $cite->setReferences($referencia);
+
         $form = $this->createForm('AppBundle\Form\CitesType', $cite);
         $form->handleRequest($request);
 

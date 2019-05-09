@@ -1,21 +1,70 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Cite edit</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('cites_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    {{ form_errors(edit_form) }}
+    <section id="edit-cite">
+        <div class="container-fluid myTab" >
+            <div class="row justify-content-md-center">
+                <div class="col-9" style="background-color: #eeeeee">
+                    <div class="row referencia-container p-5">
+                        <div class="col-md-12">
+                            <form>
+                                <h1>Cite edit</h1>
+                                <h3>{{ cite.references.title }}</h3>
+
+
+
+                                <div class="form-group">
+                                    <label for="reference">{{ form_label(edit_form.cite) }}</label>
+                                    {{ form_errors(edit_form.cite) }}
+                                    {{ form_widget(edit_form.cite, { 'attr': { 'class': "form-control", 'placeholder': "Reference" , 'id': "reference", 'rows': 8  } } ) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="doi">{{ form_label(edit_form.doi) }}</label>
+                                    {{ form_errors(edit_form.doi) }}
+                                    {{ form_widget(edit_form.doi, { 'attr': { 'class': "form-control", 'placeholder': "DOI" , 'id': "doi"  } } ) }}
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="url">{{ form_label(edit_form.url) }}</label>
+                                    {{ form_errors(edit_form.url) }}
+                                    {{ form_widget(edit_form.url, { 'attr': { 'class': "form-control", 'placeholder': "Url" , 'id': "url"  } } ) }}
+                                </div>
+                                <div>
+                                    {#                                {{ form_widget(edit_form) }}#}
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <a href="javascript:history.back(-1);" title="Ir la página anterior" class="btn btn-danger">Cancelar <i class="fas fa-times fa-x3"></i></a>
+                                    {#                                {{ form_end(form) }}#}
+                                </div>
+                                {#        <ul>#}
+                                {#            <li>#}
+                                {#                <a href="{{ path('fi_index') }}">Back to the list</a>#}
+                                {#            </li>#}
+                                {#        </ul>#}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {#    <h1>Cite edit</h1>#}
+
+    {#    {{ form_start(edit_form) }}#}
+    {#        {{ form_widget(edit_form) }}#}
+    {#        <input type="submit" value="Edit" />#}
+    {#    {{ form_end(edit_form) }}#}
+
+    {#    <ul>#}
+    {#        <li>#}
+    {#            <a href="{{ path('cites_index') }}">Back to the list</a>#}
+    {#        </li>#}
+    {#        <li>#}
+    {#            {{ form_start(delete_form) }}#}
+    {#                <input type="submit" value="Delete">#}
+    {#            {{ form_end(delete_form) }}#}
+    {#        </li>#}
+    {#    </ul>#}
 {% endblock %}

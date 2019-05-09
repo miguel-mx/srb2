@@ -60,6 +60,13 @@
                                     <p> {{ referencia.journal }}</p>{% endif %}
 
                             </div>
+                            <div class="block">
+                                <h5><strong>Citas</strong> <a href="{{ path('cites_new', { id : referencia.id}) }}"><i class="fas fa-plus-circle fa-x3"></i></a></h5>
+                                {% for cites in  referencia.cites %}
+
+                                <p><a href="{{ path('cites_show', { id: cites.id }) }}">{{ cites.cite }}</a>
+                                    {% endfor %}
+                            </div>
                         </div>
 
                         <div class="col-md-3 p-3 mb-auto" style="background-color: #e0e0e0">

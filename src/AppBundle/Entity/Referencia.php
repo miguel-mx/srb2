@@ -314,6 +314,63 @@ class Referencia
      */
     private $e_isbn;
 
+
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Author", inversedBy="referencia")
+     * @ORM\JoinTable(name="referencia_author",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="referencia_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="author_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $author;
+
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(length=128, unique=false)
+     */
+    private $slug;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Journal")
+     * @ORM\JoinColumn(name="journal_id", referencedColumnName="id")
+     */
+    private $journals;
+
+    // ...
+    /**
+     * One reference has many cites. This is the inverse side.
+     * @ORM\OneToMany(targetEntity="Cites", mappedBy="references")
+     */
+    private $cites;
+
+
     /**
      * @return string
      */
@@ -393,64 +450,6 @@ class Referencia
     {
         $this->e_isbn = $e_isbn;
     }
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
-
-    /**
-     * @var \AppBundle\Entity\User
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * })
-     */
-    private $user;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Author", inversedBy="referencia")
-     * @ORM\JoinTable(name="referencia_author",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="referencia_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="author_id", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $author;
-
-    /**
-     * @Gedmo\Slug(fields={"title"})
-     * @ORM\Column(length=128, unique=false)
-     */
-    private $slug;
-
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Journal")
-     * @ORM\JoinColumn(name="journal_id", referencedColumnName="id")
-     */
-    private $journals;
-
-    // ...
-    /**
-     * Many features have one product. This is the owning side.
-     * @ORM\ManyToOne(targetEntity="Cites", inversedBy="references")
-     * @ORM\JoinColumn(name="cites_id", referencedColumnName="id")
-     */
-    private $cites;
-
-
-
 
     /**
      * @return mixed
@@ -1484,4 +1483,10 @@ class Referencia
     {
         return $this->slug;
     }
+
+    public function __toString()
+    {
+        return (string) $this->title;
+    }
+
 }

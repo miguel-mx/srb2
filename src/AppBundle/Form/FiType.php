@@ -29,10 +29,7 @@ class FiType extends AbstractType
                 'required' => true,
 
             ])
-            ->add('journal',null, [
-                'required' => true,
-
-            ]);
+            ->add('journal');
     }/**
  * {@inheritdoc}
  */
