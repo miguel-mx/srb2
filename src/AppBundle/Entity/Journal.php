@@ -65,11 +65,11 @@ class Journal
 
 
     /**
-     * One Cart has One Customer.
-     * @ORM\OneToOne(targetEntity="Fi", inversedBy="journal")
-     * @ORM\JoinColumn(name="fi_id", referencedColumnName="id")
+     * One journal has many fi. This is the inverse side.
+     * @ORM\OneToMany(targetEntity="Fi", mappedBy="journal")
      */
     private $fi;
+
 
     /**
      * @return mixed
@@ -216,5 +216,10 @@ class Journal
     public function getIssn()
     {
         return $this->issn;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->title;
     }
 }

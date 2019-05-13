@@ -198,6 +198,6 @@ class Author
 
     public function __toString()
     {
-        return (string) $this->slug;
+        return (string) $this->name;
     }
 }

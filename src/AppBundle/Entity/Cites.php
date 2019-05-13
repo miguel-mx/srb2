@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="cites")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CitesRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Cites
 {
@@ -24,9 +25,9 @@ class Cites
     /**
      * @var string
      *
-     * @ORM\Column(name="reference", type="string", length=255)
+     * @ORM\Column(name="cite", type="text")
      */
-    private $reference;
+    private $cite;
 
     /**
      * @var string
@@ -50,10 +51,12 @@ class Cites
     private $created;
 
     /**
-     * One reference has many cites. This is the inverse side.
-     * @ORM\OneToMany(targetEntity="Referencia", mappedBy="cites")
+     * Many cites have one reference. This is the owning side.
+     * @ORM\ManyToOne(targetEntity="Referencia", inversedBy="cites")
+     * @ORM\JoinColumn(name="references_id", referencedColumnName="id")
      */
     private $references;
+
 
     /**
      * @return mixed
@@ -83,27 +86,27 @@ class Cites
     }
 
     /**
-     * Set reference.
+     * Set cite.
      *
-     * @param string $reference
+     * @param string $cite
      *
      * @return Cites
      */
-    public function setReference($reference)
+    public function setCite($cite)
     {
-        $this->reference = $reference;
+        $this->cite = $cite;
 
         return $this;
     }
 
     /**
-     * Get reference.
+     * Get cite.
      *
      * @return string
      */
-    public function getReference()
+    public function getCite()
     {
-        return $this->reference;
+        return $this->cite;
     }
 
     /**
@@ -157,15 +160,11 @@ class Cites
     /**
      * Set created.
      *
-     * @param \DateTime $created
-     *
-     * @return Cites
+     * @ORM\PrePersist
      */
-    public function setCreated($created)
+    public function setCreated()
     {
-        $this->created = $created;
-
-        return $this;
+        $this->created = new \DateTime();
     }
 
     /**
@@ -176,5 +175,10 @@ class Cites
     public function getCreated()
     {
         return $this->created;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->reference;
     }
 }

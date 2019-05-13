@@ -37,10 +37,6 @@ class JournalType extends AbstractType
             ->add('pais',null, [
                 'required' => true,
 
-            ])
-            ->add('fi',null, [
-                'required' => true,
-
             ]);
     }/**
  * {@inheritdoc}

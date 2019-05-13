@@ -1,52 +1,112 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Journal</h1>
+    <section id="show-journal">
+        <div class="container-fluid myTab" >
+            <div class="row justify-content-md-center">
+                <div class="col-9" style="background-color: #eeeeee">
+                    <div class="row referencia-container p-5">
+                        <div class="col-md-11 ">
+                            <form>
+                                <h1>Cite</h1>
+                                {#                                <h3>{{ cite.references.title }}</h3>#}
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ journal.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ journal.name }}</td>
-            </tr>
-            <tr>
-                <th>Publisher</th>
-                <td>{{ journal.publisher }}</td>
-            </tr>
-            <tr>
-                <th>Issn</th>
-                <td>{{ journal.issn }}</td>
-            </tr>
-            <tr>
-                <th>Eissn</th>
-                <td>{{ journal.eissn }}</td>
-            </tr>
-            <tr>
-                <th>Url</th>
-                <td>{{ journal.url }}</td>
-            </tr>
-            <tr>
-                <th>Pais</th>
-                <td>{{ journal.pais }}</td>
-            </tr>
-        </tbody>
-    </table>
+                                {% if journal.name %}
+                                    <div class="form-group">
+                                        <p><strong>Journal</strong><br>
+                                            <label for="name">{{ journal.name }}</label>
+                                    </div>
+                                {% endif %}
+                                <div class="form-row">
+                                    {% if journal.publisher %}
+                                        <div class="form-group col-md-6">
+                                            <p><strong>Publisher</strong><br>
+                                                <label for="publisher">{{ journal.publisher }}</label>
+                                        </div>
+                                    {% endif %}
+                                    {% if journal.issn %}
+                                        <div class="form-group col-md-3">
+                                            <p><strong>Issn</strong><br>
+                                                <label for="issn">{{ journal.issn }}</label>
+                                        </div>
+                                    {% endif %}
+                                    {% if journal.eissn %}
+                                        <div class="form-group col-md-3">
+                                            <p><strong>E-issn</strong><br>
+                                                <label for="eissn">{{ journal.eissn }}</label>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                {% if journal.url %}
+                                    <div class="form-group">
+                                        <p><strong>Url</strong><br>
+                                            <label for="url">{{ journal.url }}</label>
+                                    </div>
+                                {% endif %}
+                                {% if journal.eissn %}
+                                    <div class="form-group">
+                                        <p><strong>Pais</strong><br>
+                                            <label for="pais">{{ journal.pais }}</label>
+                                    </div>
+                                {% endif %}
 
-    <ul>
-        <li>
-            <a href="{{ path('journal_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('journal_edit', { 'id': journal.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                                <div>
+                                    <a href="{{ path('journal_edit', { id : journal.id})}}" class="btn btn-primary">Edit <i class="fas fa-edit fa-x3"></i></a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {#    <h1>Journal</h1>#}
+
+    {#    <table>#}
+    {#        <tbody>#}
+    {#            <tr>#}
+    {#                <th>Id</th>#}
+    {#                <td>{{ journal.id }}</td>#}
+    {#            </tr>#}
+    {#            <tr>#}
+    {#                <th>Name</th>#}
+    {#                <td>{{ journal.name }}</td>#}
+    {#            </tr>#}
+    {#            <tr>#}
+    {#                <th>Publisher</th>#}
+    {#                <td>{{ journal.publisher }}</td>#}
+    {#            </tr>#}
+    {#            <tr>#}
+    {#                <th>Issn</th>#}
+    {#                <td>{{ journal.issn }}</td>#}
+    {#            </tr>#}
+    {#            <tr>#}
+    {#                <th>Eissn</th>#}
+    {#                <td>{{ journal.eissn }}</td>#}
+    {#            </tr>#}
+    {#            <tr>#}
+    {#                <th>Url</th>#}
+    {#                <td>{{ journal.url }}</td>#}
+    {#            </tr>#}
+    {#            <tr>#}
+    {#                <th>Pais</th>#}
+    {#                <td>{{ journal.pais }}</td>#}
+    {#            </tr>#}
+    {#        </tbody>#}
+    {#    </table>#}
+
+    {#    <ul>#}
+    {#        <li>#}
+    {#            <a href="{{ path('journal_index') }}">Back to the list</a>#}
+    {#        </li>#}
+    {#        <li>#}
+    {#            <a href="{{ path('journal_edit', { 'id': journal.id }) }}">Edit</a>#}
+    {#        </li>#}
+    {#        <li>#}
+    {#            {{ form_start(delete_form) }}#}
+    {#                <input type="submit" value="Delete">#}
+    {#            {{ form_end(delete_form) }}#}
+    {#        </li>#}
+    {#    </ul>#}
 {% endblock %}

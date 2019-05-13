@@ -1,42 +1,56 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {#    {{ form_start(form) }}#}
+    {{ form_start(form) }}
 
     {{ form_errors(form) }}
-    <div class="container" style="background-color: #eeeeee; border-radius: 10px">
-        <form>
-            <h1>Cites creation</h1>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="reference">{{ form_label(form.reference) }}</label>
-                    {{ form_errors(form.reference) }}
-                    {{ form_widget(form.reference, { 'attr': { 'class': "form-control", 'placeholder': "Reference" , 'id': "reference"  } } ) }}
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="doi">{{ form_label(form.doi) }}</label>
-                    {{ form_errors(form.doi) }}
-                    {{ form_widget(form.doi, { 'attr': { 'class': "form-control", 'placeholder': "DOI" , 'id': "doi"  } } ) }}
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="url">{{ form_label(form.url) }}</label>
-                {{ form_errors(form.url) }}
-                {{ form_widget(form.url, { 'attr': { 'class': "form-control", 'placeholder': "Url" , 'id': "url"  } } ) }}
-            </div>
+    <section id="new-cite">
+        <div class="container-fluid myTab" >
+            <div class="row justify-content-md-center">
+                <div class="col-9" style="background-color: #eeeeee">
+                    <div class="row referencia-container p-5">
+                        <div class="col-md-12 ">
+                            <form>
+                                <h1>Cites creation</h1>
+                                <h3>{{ cite.references.title }}</h3>
 
-            <div>
+                                <div class="form-group">
+                                    <label for="doi">{{ form_label(form.cite) }}</label>
+                                    {{ form_errors(form.cite) }}
+                                    {{ form_widget(form.cite, { 'attr': { 'class': "form-control", 'placeholder': "Cite" , 'id': "cite", 'rows': 8  } } ) }}
+                                </div>
 
-                <button type="submit" class="btn btn-primary">Guardar</button>
-                {#                {{ form_end(form) }}#}
+                                <div class="form-group">
+                                    <label for="doi">{{ form_label(form.doi) }}</label>
+                                    {{ form_errors(form.doi) }}
+                                    {{ form_widget(form.doi, { 'attr': { 'class': "form-control", 'placeholder': "DOI" , 'id': "doi"  } } ) }}
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="url">{{ form_label(form.url) }}</label>
+                                    {{ form_errors(form.url) }}
+                                    {{ form_widget(form.url, { 'attr': { 'class': "form-control", 'placeholder': "Url" , 'id': "url"  } } ) }}
+                                </div>
+
+
+                                <div>
+                                    {{ form_widget(form) }}
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <a href="javascript:history.back(-1);" title="Ir la página anterior" class="btn btn-danger">Cancelar <i class="fas fa-times fa-x3"></i></a>
+                                    {{ form_end(form) }}
+                                </div>
+                                {#        <ul>#}
+                                {#            <li>#}
+                                {#                <a href="{{ path('fi_index') }}">Back to the list</a>#}
+                                {#            </li>#}
+                                {#        </ul>#}
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            {#        <ul>#}
-            {#            <li>#}
-            {#                <a href="{{ path('fi_index') }}">Back to the list</a>#}
-            {#            </li>#}
-            {#        </ul>#}
-        </form>
-    </div>
+        </div>
+    </section>
     {#    <h1>Cite creation</h1>#}
 
     {#    {{ form_start(form) }}#}

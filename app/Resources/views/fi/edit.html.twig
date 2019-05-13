@@ -1,21 +1,77 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Fi edit</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    {{ form_errors(edit_form) }}
+    <section id="edit-fi">
+        <div class="container-fluid myTab" >
+            <div class="row justify-content-md-center">
+                <div class="col-9" style="background-color: #eeeeee">
+                    <div class="row referencia-container p-5">
+                        <div class="col-md-12">
+                            <form>
+                                <h1>Fi edit</h1>
+                                {#                                <h3>{{ cite.references.title }}</h3>#}
 
-    <ul>
-        <li>
-            <a href="{{ path('fi_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="reference">{{ form_label(edit_form.origen) }}</label>
+                                        {{ form_errors(edit_form.origen) }}
+                                        {{ form_widget(edit_form.origen, { 'attr': { 'class': "form-control", 'placeholder': "Reference" , 'id': "origen" } } ) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="doi">{{ form_label(edit_form.year) }}</label>
+                                        {{ form_errors(edit_form.year) }}
+                                        {{ form_widget(edit_form.year, { 'attr': { 'class': "form-control", 'placeholder': "Year" , 'id': "year"  } } ) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="url">{{ form_label(edit_form.fi) }}</label>
+                                        {{ form_errors(edit_form.fi) }}
+                                        {{ form_widget(edit_form.fi, { 'attr': { 'class': "form-control", 'placeholder': "Fi" , 'id': "fi"  } } ) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="url">{{ form_label(edit_form.cuartil) }}</label>
+                                        {{ form_errors(edit_form.cuartil) }}
+                                        {{ form_widget(edit_form.cuartil, { 'attr': { 'class': "form-control", 'placeholder': "Cuartil" , 'id': "cuartil"  } } ) }}
+                                    </div>
+                                </div>
+                                <div>
+                                    {{ form_widget(edit_form) }}
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <a href="javascript:history.back(-1);" title="Ir la página anterior" class="btn btn-danger">Cancelar <i class="fas fa-times fa-x3"></i></a>
+                                    {#                                                                    {{ form_end(form) }}#}
+                                </div>
+                                {#        <ul>#}
+                                {#            <li>#}
+                                {#                <a href="{{ path('fi_index') }}">Back to the list</a>#}
+                                {#            </li>#}
+                                {#        </ul>#}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {#    <h1>Fi edit</h1>#}
+
+    {#    {{ form_start(edit_form) }}#}
+    {#        {{ form_widget(edit_form) }}#}
+    {#        <input type="submit" value="Edit" />#}
+    {#    {{ form_end(edit_form) }}#}
+
+    {#    <ul>#}
+    {#        <li>#}
+    {#            <a href="{{ path('fi_index') }}">Back to the list</a>#}
+    {#        </li>#}
+    {#        <li>#}
+    {#            {{ form_start(delete_form) }}#}
+    {#                <input type="submit" value="Delete">#}
+    {#            {{ form_end(delete_form) }}#}
+    {#        </li>#}
+    {#    </ul>#}
 {% endblock %}
