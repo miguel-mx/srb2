@@ -20,17 +20,17 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="reference">{{ form_label(edit_form.publisher) }}</label>
+                                        <label for="publisher">{{ form_label(edit_form.publisher) }}</label>
                                         {{ form_errors(edit_form.publisher) }}
                                         {{ form_widget(edit_form.publisher, { 'attr': { 'class': "form-control", 'placeholder': "Publisher" , 'id': "publisher" } } ) }}
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="doi">{{ form_label(edit_form.issn) }}</label>
+                                        <label for="issn">{{ form_label(edit_form.issn) }}</label>
                                         {{ form_errors(edit_form.issn) }}
                                         {{ form_widget(edit_form.issn, { 'attr': { 'class': "form-control", 'placeholder': "Issn" , 'id': "issn"  } } ) }}
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="doi">{{ form_label(edit_form.eissn) }}</label>
+                                        <label for="eissn">{{ form_label(edit_form.eissn) }}</label>
                                         {{ form_errors(edit_form.eissn) }}
                                         {{ form_widget(edit_form.eissn, { 'attr': { 'class': "form-control", 'placeholder': "E-issn" , 'id': "eissn"  } } ) }}
                                     </div>
@@ -43,7 +43,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="url">{{ form_label(edit_form.pais) }}</label>
+                                    <label for="pais">{{ form_label(edit_form.pais) }}</label>
                                     {{ form_errors(edit_form.pais) }}
                                     {{ form_widget(edit_form.pais, { 'attr': { 'class': "form-control", 'placeholder': "Pais" , 'id': "pais"  } } ) }}
                                 </div>
