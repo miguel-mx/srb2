@@ -3,10 +3,150 @@
  {% block stylesheets %}
      {{ parent() }}
      <link rel="stylesheet" href="{{ asset('css/forms.css') }}"/>
+     <!-- select2 -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+     <link href="https://cdn.jsdelivr.net/gh/ttskch/select2-bootstrap4-theme@master/dist/select2-bootstrap4.min.css" rel="stylesheet">
+
+
+
  {% endblock %}
 
 
-{% endblock %}
+
+
+ {% block body %}
+    {{ form_start(form) }}
+    <div class="formulario  ">
+        <section class=" d-flex content-header justify-content-center ">
+            <h1>Nueva referencia</h1>
+        </section>
+
+        <div class="container" id="box1">
+            <div class="alert-danger">{{ form_errors(form) }}</div>
+            <div class=" row d-flex flex-column ">
+
+                <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
+
+                    <div class="form-group  col-lg-3 ">
+                        <h5 class="etiqueta2">Datos de Publicación</h5>
+                    </div>
+
+                    <div class="row form-group col-lg-6 offset-xl-2 offset-md-1 ">
+                        <div class="form-group  col-12 " id="header1">
+                            <label class="etiqueta">Tipo de Publicación</label>
+                            {{ form_widget(form.type, {'attr': {'class': 'form-control ', }}) }}
+                            <span class="text-dange">{{ form_errors(form.type) }}</span>
+                        </div>
+
+                        {% if form.title is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12 ">
+                                <label class="etiqueta">Titulo</label>
+                                {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                                <span class="text-dange">{{ form_errors(form.title) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.author is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">Autor academico </label>
+                                {{ form_widget(form.author, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.author) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.author is defined %}
+                            <div class="form-group  col-xl-6  col-sm-12">
+                                <label class="etiqueta">Autor academico </label>
+                                {{ form_widget(form.authors, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.authors) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.author is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">Autor academico </label>
+                                {{ form_widget(form.yearpub, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.yearpub) }}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                </div>
+                <div><hr color="#BDBDBD" size=3></div>
+                <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
+
+                    <div class="form-group  col-lg-3 ">
+                        <h5 class="etiqueta2">Datos de Publicación</h5>
+                    </div>
+
+                    <div class="row form-group col-lg-6 offset-xl-2 offset-md-1 ">
+                        <div class="form-group  col-12 " id="header1">
+                            <label class="etiqueta">Tipo de Publicación</label>
+                            {{ form_widget(form.type, {'attr': {'class': 'form-control ', }}) }}
+                            <span class="text-dange">{{ form_errors(form.type) }}</span>
+                        </div>
+
+                        {% if form.title is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12 ">
+                                <label class="etiqueta">Titulo</label>
+                                {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                                <span class="text-dange">{{ form_errors(form.title) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.author is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">Autor academico </label>
+                                {{ form_widget(form.author, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.author) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.author is defined %}
+                            <div class="form-group  col-xl-6  col-sm-12">
+                                <label class="etiqueta">Autor academico </label>
+                                {{ form_widget(form.authors, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.authors) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.author is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">Autor academico </label>
+                                {{ form_widget(form.yearpub, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.yearpub) }}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {{ form_end(form) }}
+ {% endblock %}
+    {#        $form->add('author');#}
+    {#    $form->add('authors');#}
+    {#    $form->add('yearpub');#}
+    {#    $form->add('keywords');#}
+    {#    $form->add('msc');#}
+    {#    $form->add('notas');#}
+    {#    $form->add('mrnumber');#}
+    {#    $form->add('zmath');#}
+    {#    $form->add('arxiv');#}
+    {#    $form->add('file');#}
+    {#    $form->add('url');#}
+    {#    $form->add('wos');#}
+    {#    $form->add('scopus');#}
+    {#    $form->add('scielo');#}
+    {#    $form->add('cites');#}
+
+
+
+
+
+    <ul>
+        <li>
+            <a href="{{ path('referencia_index') }}">Back to the list</a>
+        </li>
+    </ul>
+
 
 
 
@@ -15,13 +155,27 @@
 {% block javascripts %}
 
     {{ parent() }}
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script>
         var $tipo = $('#appbundle_referencia_type');
         $tipo.change(function() {
             // ... retrieve the corresponding form.
             var $form = $(this).closest('form');
             $form.submit();
+        });
+    </script>
+
+    {#<script type="text/javascript">#}
+    {#    $(".multiple-author").select2({#}
+    {#        theme: "bootstrap"#}
+    {#    });#}
+    {#    </script>#}
+    <script>
+        $('select').each(function(idx, ele) {
+            $(ele).select2({
+                theme: 'bootstrap4',
+                placeholder: ele.getAttribute('placeholder')
+            });
         });
     </script>
 

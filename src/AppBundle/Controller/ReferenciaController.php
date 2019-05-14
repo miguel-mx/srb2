@@ -77,6 +77,8 @@ class ReferenciaController extends Controller
     public function newAction(Request $request)
     {
         $referencia = new Referencia();
+
+
         $form = $this->createForm('AppBundle\Form\ReferenciaType', $referencia);
         $form->handleRequest($request);
 
