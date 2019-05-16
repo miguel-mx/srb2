@@ -8,8 +8,7 @@
                     <div class="row referencia-container p-5">
                         <div class="col-md-11 ">
                             <form>
-                                <h1>Cite</h1>
-                                {#                                <h3>{{ cite.references.title }}</h3>#}
+                                <h1>Journal</h1>
 
                                 {% if journal.name %}
                                     <div class="form-group">
@@ -50,9 +49,19 @@
                                     </div>
                                 {% endif %}
 
+                                <div class="block">
+                                    <h5><strong>FI</strong>
+                                        {% if is_granted('ROLE_ADMIN') %}<a href="{{ path('fi_new', { id : journal.id}) }}"><i class="fas fa-plus-circle fa-x3"></i></a></h5>
+                                    {% endif %}
+                                    {% for fi in  journal.fi %}
+                                    <p><a href="{{ path('fi_show', { id: fi.id }) }}">{{ fi.fi }}</a>
+                                        {% endfor %}
+                                </div>
+                                {% if is_granted('ROLE_ADMIN') %}
                                 <div>
                                     <a href="{{ path('journal_edit', { id : journal.id})}}" class="btn btn-primary">Edit <i class="fas fa-edit fa-x3"></i></a>
                                 </div>
+                                {% endif %}
                             </form>
                         </div>
                     </div>

@@ -61,12 +61,22 @@
 
                             </div>
                             <div class="block">
-                                <h5><strong>Citas</strong> <a href="{{ path('cites_new', { id : referencia.id}) }}"><i class="fas fa-plus-circle fa-x3"></i></a></h5>
+                                <h5><strong>Citas</strong>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('cites_new', { id : referencia.id}) }}"><i
+                                                class="fas fa-plus-circle fa-x3"></i></a></h5>
+                                {% endif %}
                                 {% for cites in  referencia.cites %}
 
                                 <p><a href="{{ path('cites_show', { id: cites.id }) }}">{{ cites.cite }}</a>
                                     {% endfor %}
                             </div>
+
+{#                            {% if is_granted('ROLE_ADMIN') %}#}
+                                <div>
+                                    <a href="{{ path('referencia_edit', { slug : referencia.slug})}}" class="btn btn-primary">Edit <i class="fas fa-edit fa-x3"></i></a>
+                                </div>
+{#                            {% endif %}#}
                         </div>
 
                         <div class="col-md-3 p-3 mb-auto" style="background-color: #e0e0e0">
@@ -82,7 +92,8 @@
                             <p><strong>Author</strong> <br>
 
                                 {% for  author in referencia.author %}
-                                    <a href="{{ path('author_show', { 'slug': author.slug }) }}">{{ author.name }}</a><br>
+                                    <a href="{{ path('author_show', { 'slug': author.slug }) }}">{{ author.name }}</a>
+                                    <br>
                                 {% endfor %}
                             </p>
 

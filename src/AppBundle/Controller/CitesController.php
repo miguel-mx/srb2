@@ -7,6 +7,7 @@ use AppBundle\Entity\Referencia;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * Cite controller.
@@ -34,6 +35,14 @@ class CitesController extends Controller
 
     /**
      * Creates a new cite entity.
+     *
+     * Will throw a normal AccessDeniedException:
+     *
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
+     *
+     * Will throw an HttpException with a 404 status code:
+     *
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Post not found")
      *
      * @Route("/new/{id}", name="cites_new")
      * @Method({"GET", "POST"})
@@ -80,6 +89,14 @@ class CitesController extends Controller
 
     /**
      * Displays a form to edit an existing cite entity.
+     *
+     * Will throw a normal AccessDeniedException:
+     *
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
+     *
+     * Will throw an HttpException with a 404 status code:
+     *
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Post not found")
      *
      * @Route("/{id}/edit", name="cites_edit")
      * @Method({"GET", "POST"})

@@ -23,7 +23,9 @@
 
                 </tbody>
             </table>
-
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('author_new') }}">Agregar author</a>
+            {% endif %}
         </div>
     </section>
 

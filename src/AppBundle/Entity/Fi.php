@@ -181,6 +181,6 @@ class Fi
 
     public function __toString()
     {
-        return (string) $this->origen;
+        return (string) $this->name;
     }
 }

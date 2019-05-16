@@ -1,49 +1,99 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Journals list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Publisher</th>
-                <th>Issn</th>
-                <th>Eissn</th>
-                <th>Url</th>
-                <th>Pais</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for journal in journals %}
-            <tr>
-                <td><a href="{{ path('journal_show', { 'id': journal.id }) }}">{{ journal.id }}</a></td>
-                <td>{{ journal.name }}</td>
-                <td>{{ journal.publisher }}</td>
-                <td>{{ journal.issn }}</td>
-                <td>{{ journal.eissn }}</td>
-                <td>{{ journal.url }}</td>
-                <td>{{ journal.pais }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('journal_show', { 'id': journal.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('journal_edit', { 'id': journal.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <section id="table">
+        <div class="container myTab">
+            <table id="myTable" class="table">
+                <thead>
+                <tr>
+                    <th>{{ journals|length }} Resultados</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for journal in journals %}
+                    <tr>
+                        <td class="p-3 m-2">
+                            <h5>
+                                <strong><a href="{{ path('journal_show', { 'id': journal.id }) }}">{{ journal.name }}</a></strong>
+                            </h5>
 
-    <ul>
-        <li>
-            <a href="{{ path('journal_new') }}">Create a new journal</a>
-        </li>
-    </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+            {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('journal_new') }}">Agregar journal</a>
+            {% endif %}
+
+        </div>
+    </section>
+
+    {#    <h1>Journals list</h1>#}
+
+    {#    <table>#}
+    {#        <thead>#}
+    {#            <tr>#}
+    {#                <th>Id</th>#}
+    {#                <th>Name</th>#}
+    {#                <th>Publisher</th>#}
+    {#                <th>Issn</th>#}
+    {#                <th>Eissn</th>#}
+    {#                <th>Url</th>#}
+    {#                <th>Pais</th>#}
+    {#                <th>Actions</th>#}
+    {#            </tr>#}
+    {#        </thead>#}
+    {#        <tbody>#}
+    {#        {% for journal in journals %}#}
+    {#            <tr>#}
+    {#                <td><a href="{{ path('journal_show', { 'id': journal.id }) }}">{{ journal.id }}</a></td>#}
+    {#                <td>{{ journal.name }}</td>#}
+    {#                <td>{{ journal.publisher }}</td>#}
+    {#                <td>{{ journal.issn }}</td>#}
+    {#                <td>{{ journal.eissn }}</td>#}
+    {#                <td>{{ journal.url }}</td>#}
+    {#                <td>{{ journal.pais }}</td>#}
+    {#                <td>#}
+    {#                    <ul>#}
+    {#                        <li>#}
+    {#                            <a href="{{ path('journal_show', { 'id': journal.id }) }}">show</a>#}
+    {#                        </li>#}
+    {#                        <li>#}
+    {#                            <a href="{{ path('journal_edit', { 'id': journal.id }) }}">edit</a>#}
+    {#                        </li>#}
+    {#                    </ul>#}
+    {#                </td>#}
+    {#            </tr>#}
+    {#        {% endfor %}#}
+    {#        </tbody>#}
+    {#    </table>#}
+
+    {#    <ul>#}
+    {#        <li>#}
+    {#            <a href="{{ path('journal_new') }}">Create a new journal</a>#}
+    {#        </li>#}
+    {#    </ul>#}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable(
+                {
+                    "lengthMenu": [[10, 15, 20], [10, 15, 20]]
+                }
+            );
+
+        });
+    </script>
 {% endblock %}
