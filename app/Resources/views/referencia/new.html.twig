@@ -12,10 +12,10 @@
 
  {% endblock %}
 
+{% block body %}
 
 
 
- {% block body %}
     {{ form_start(form) }}
     <div class="formulario  ">
         <section class=" d-flex content-header justify-content-center ">
@@ -27,135 +27,246 @@
             <div class=" row d-flex flex-column ">
 
                 <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
-
                     <div class="form-group  col-lg-3 ">
-                        <h5 class="etiqueta2">Datos de Publicación</h5>
+                        <h5 class="etiqueta2">Publicación</h5>
                     </div>
-
-                    <div class="row form-group col-lg-6 offset-xl-2 offset-md-1 ">
-                        <div class="form-group  col-12 " id="header1">
+                    <div class="row form-group col-lg-6 offset-xl-2 offset-md-1 col-sm-12 ">
+                        <div class="form-group  col-12 " >
                             <label class="etiqueta">Tipo de Publicación</label>
-                            {{ form_widget(form.type, {'attr': {'class': 'form-control ', }}) }}
+                            {{ form_widget(form.type, {'attr': {'class': 'form-control' , 'style':"background-color:white;"}}) }}
                             <span class="text-dange">{{ form_errors(form.type) }}</span>
                         </div>
-
-                        {% if form.title is defined %}
-                            <div class="form-group  col-xl-6 col-sm-12 ">
-                                <label class="etiqueta">Titulo</label>
-                                {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
-                                <span class="text-dange">{{ form_errors(form.title) }}</span>
-                            </div>
-                        {% endif %}
-                        {% if form.author is defined %}
-                            <div class="form-group  col-xl-6 col-sm-12">
-                                <label class="etiqueta">Autor academico </label>
-                                {{ form_widget(form.author, {'attr': {'class': 'form-control '}}) }}
-                                <span class="text-dange">{{ form_errors(form.author) }}</span>
-                            </div>
-                        {% endif %}
-                        {% if form.author is defined %}
-                            <div class="form-group  col-xl-6  col-sm-12">
-                                <label class="etiqueta">Autor academico </label>
-                                {{ form_widget(form.authors, {'attr': {'class': 'form-control '}}) }}
-                                <span class="text-dange">{{ form_errors(form.authors) }}</span>
-                            </div>
-                        {% endif %}
-                        {% if form.author is defined %}
-                            <div class="form-group  col-xl-6 col-sm-12">
-                                <label class="etiqueta">Autor academico </label>
-                                {{ form_widget(form.yearpub, {'attr': {'class': 'form-control '}}) }}
-                                <span class="text-dange">{{ form_errors(form.yearpub) }}</span>
-                            </div>
-                        {% endif %}
                     </div>
-
                 </div>
-                <div><hr color="#BDBDBD" size=3></div>
-                <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
 
+                <div><hr color="#BDBDBD" size=3></div>
+
+                <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
                     <div class="form-group  col-lg-3 ">
                         <h5 class="etiqueta2">Datos de Publicación</h5>
                     </div>
 
                     <div class="row form-group col-lg-6 offset-xl-2 offset-md-1 ">
-                        <div class="form-group  col-12 " id="header1">
-                            <label class="etiqueta">Tipo de Publicación</label>
-                            {{ form_widget(form.type, {'attr': {'class': 'form-control ', }}) }}
-                            <span class="text-dange">{{ form_errors(form.type) }}</span>
-                        </div>
 
                         {% if form.title is defined %}
-                            <div class="form-group  col-xl-6 col-sm-12 ">
+                            <div class="form-group col-12 ">
                                 <label class="etiqueta">Titulo</label>
-                                {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_widget(form.title, {'attr': {'class': 'form-control' }}) }}
                                 <span class="text-dange">{{ form_errors(form.title) }}</span>
                             </div>
                         {% endif %}
+
                         {% if form.author is defined %}
-                            <div class="form-group  col-xl-6 col-sm-12">
-                                <label class="etiqueta">Autor academico </label>
-                                {{ form_widget(form.author, {'attr': {'class': 'form-control '}}) }}
+                            <div class="form-group  col-12 ">
+                                <label class="etiqueta">Autores Academicos </label>
+                                {{ form_widget(form.author, {'attr': {'class': 'form-control ' }}) }}
                                 <span class="text-dange">{{ form_errors(form.author) }}</span>
                             </div>
                         {% endif %}
-                        {% if form.author is defined %}
-                            <div class="form-group  col-xl-6  col-sm-12">
-                                <label class="etiqueta">Autor academico </label>
-                                {{ form_widget(form.authors, {'attr': {'class': 'form-control '}}) }}
+                        {% if form.authors is defined %}
+                            <div class="form-group  col-12">
+                                <label class="etiqueta">Autores externos</label>
+                                {{ form_widget(form.authors, {'attr': {'class': 'form-control'}}) }}
                                 <span class="text-dange">{{ form_errors(form.authors) }}</span>
                             </div>
                         {% endif %}
-                        {% if form.author is defined %}
+                        {% if form.abst is defined %}
+                            <div class="form-group  col-12">
+                                <label class="etiqueta">Resumen</label>
+                                {{ form_widget(form.abst, {'attr': {'class': 'form-control'}}) }}
+                                <span class="text-dange">{{ form_errors(form.abst) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.journals is defined %}
+                            <div class="form-group  col-12">
+                                <label class="etiqueta">Revista</label>
+                                {{ form_widget(form.journals, {'attr': {'class': 'form-control'}}) }}
+                                <span class="text-dange">{{ form_errors(form.journals) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.volume is defined %}
                             <div class="form-group  col-xl-6 col-sm-12">
-                                <label class="etiqueta">Autor academico </label>
+                                <label class="etiqueta">Volumen</label>
+                                {{ form_widget(form.volume, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.volume) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.pages is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">Páginas</label>
+                                {{ form_widget(form.pages, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.pages) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.yearpub is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">Año de publicación</label>
                                 {{ form_widget(form.yearpub, {'attr': {'class': 'form-control '}}) }}
                                 <span class="text-dange">{{ form_errors(form.yearpub) }}</span>
                             </div>
                         {% endif %}
+                        {% if form.keywords is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">Palabras clave</label>
+                                {{ form_widget(form.keywords, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.keywords) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.url is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">URL</label>
+                                {{ form_widget(form.url, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.url) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.file is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">Archivo</label>
+                                {{ form_widget(form.file, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.file) }}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div><hr color="#BDBDBD" size=3></div>
+
+                <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
+                    <div class="form-group  col-lg-3 ">
+                        <h5 class="etiqueta2">Identificadores</h5>
+                    </div>
+                    <div class="row form-group col-lg-6 offset-xl-2 offset-md-1 ">
+                        {% if form.doi is defined %}
+                            <div class="form-group  col-12 " >
+                                <label class="etiqueta">DOI</label>
+                                {{ form_widget(form.doi, {'attr': {'class': 'form-control ', }}) }}
+                                <span class="text-dange">{{ form_errors(form.doi) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.issn is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12 ">
+                                <label class="etiqueta">ISSN</label>
+                                {{ form_widget(form.issn, {'attr': {'class': 'form-control'}}) }}
+                                <span class="text-dange">{{ form_errors(form.issn) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.e_issn is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">E-ISSN </label>
+                                {{ form_widget(form.e_issn, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.e_issn) }}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div><hr color="#BDBDBD" size=3></div>
+
+                <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
+                    <div class="form-group  col-lg-3 ">
+                        <h5 class="etiqueta2">Bases de datos</h5>
+                    </div>
+                    <div class="row form-group col-lg-6 offset-xl-2 offset-md-1 ">
+                        {% if form.msc is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12" >
+                                <label class="etiqueta">MathSciNet</label>
+                                {{ form_widget(form.msc, {'attr': {'class': 'form-control ', }}) }}
+                                <span class="text-dange">{{ form_errors(form.msc) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.mrnumber is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12 ">
+                                <label class="etiqueta">MrNumber</label>
+                                {{ form_widget(form.mrnumber, {'attr': {'class': 'form-control'}}) }}
+                                <span class="text-dange">{{ form_errors(form.mrnumber) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.zmath is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">zbMATH  </label>
+                                {{ form_widget(form.zmath, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.zmath) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.arxiv is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">arXiv  </label>
+                                {{ form_widget(form.arxiv, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.arxiv) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.wos is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">Web of Science</label>
+                                {{ form_widget(form.wos, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.wos) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.scopus is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">Scopus</label>
+                                {{ form_widget(form.scopus, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.scopus) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.scielo is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">SciELO</label>
+                                {{ form_widget(form.scielo, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.scielo) }}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div><hr color="#BDBDBD" size=3></div>
+
+                <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
+                    <div class="form-group  col-lg-3 ">
+                        <h5 class="etiqueta2">Adicionales</h5>
+                    </div>
+                    <div class="row form-group col-lg-6 offset-xl-2 offset-md-1 ">
+                        {% if form.notas is defined %}
+                            <div class="form-group  col-12 " >
+                                <label class="etiqueta">Notas</label>
+                                {{ form_widget(form.notas, {'attr': {'class': 'form-control ', }}) }}
+                                <span class="text-dange">{{ form_errors(form.notas) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.cites is defined %}
+                            <div class="form-group  col-12 " >
+                                <label class="etiqueta">Citas</label>
+                                {{ form_widget(form.cites, {'attr': {'class': 'form-control ', }}) }}
+                                <span class="text-dange">{{ form_errors(form.cites) }}</span>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+
+                <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
+                    <div>
+                        {{ form_widget(form) }}
+                        <button type="submit" class="btn btn-primary ml-5 mr-2 mb-3">Guardar</button>
+                        <a href="{{ path('referencia_index') }}" class="btn btn-danger mb-3">Cancelar <i class="fas fa-times fa-x3"></i></a>
+                        {{ form_end(form) }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
     {{ form_end(form) }}
- {% endblock %}
-    {#        $form->add('author');#}
-    {#    $form->add('authors');#}
-    {#    $form->add('yearpub');#}
-    {#    $form->add('keywords');#}
-    {#    $form->add('msc');#}
-    {#    $form->add('notas');#}
-    {#    $form->add('mrnumber');#}
-    {#    $form->add('zmath');#}
-    {#    $form->add('arxiv');#}
-    {#    $form->add('file');#}
-    {#    $form->add('url');#}
-    {#    $form->add('wos');#}
-    {#    $form->add('scopus');#}
-    {#    $form->add('scielo');#}
-    {#    $form->add('cites');#}
 
 
-
-
-
-    <ul>
-        <li>
-            <a href="{{ path('referencia_index') }}">Back to the list</a>
-        </li>
-    </ul>
-
-
-
-
-
+{% endblock %}
 
 {% block javascripts %}
 
     {{ parent() }}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
     <script>
         var $tipo = $('#appbundle_referencia_type');
         $tipo.change(function() {
@@ -165,11 +276,7 @@
         });
     </script>
 
-    {#<script type="text/javascript">#}
-    {#    $(".multiple-author").select2({#}
-    {#        theme: "bootstrap"#}
-    {#    });#}
-    {#    </script>#}
+
     <script>
         $('select').each(function(idx, ele) {
             $(ele).select2({
