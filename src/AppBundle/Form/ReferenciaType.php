@@ -59,7 +59,7 @@ class ReferenciaType extends AbstractType
                         ->add('scielo')
                         ->add('cites')
 //                    diferentes en articulo
-                        ->add('journals')
+                        ->add('journal')
                         ->add('volume')
                         ->add('abst')
                         ->add('pages')
@@ -67,107 +67,160 @@ class ReferenciaType extends AbstractType
                         ->add('issn')
                         ->add('e_issn');
                 } else if ($tipo === "Incollection") {
-                    $form->add('title');
-                    $form->add('author');
-                    $form->add('authors');
-                    $form->add('yearpub');
-                    $form->add('keywords');
-                    $form->add('msc');
-                    $form->add('notas');
-                    $form->add('mrnumber');
-                    $form->add('zmath');
-                    $form->add('arxiv');
-                    $form->add('file');
-                    $form->add('url');
-                    $form->add('wos');
-                    $form->add('scopus');
-                    $form->add('scielo');
-                    $form->add('cites');
+                    $form->add('title')
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpub')
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas')
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('file')
+                        ->add('url')
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+                        ->add('cites')
+//                  diferentes en incollection
+                        ->add('booktitle')
+                        ->add('publisher')
+                        ->add('editor')
+                        ->add('address')
+                        ->add('abst')
+                        ->add('volume')
+                        ->add('pages')
+                        ->add('doi');
+
                 } else if ($tipo === "Proceedings") {
-                    $form->add('title');
-                    $form->add('author');
-                    $form->add('authors');
-                    $form->add('yearpub');
-                    $form->add('keywords');
-                    $form->add('msc');
-                    $form->add('notas');
-                    $form->add('mrnumber');
-                    $form->add('zmath');
-                    $form->add('arxiv');
-                    $form->add('file');
-                    $form->add('url');
-                    $form->add('wos');
-                    $form->add('scopus');
-                    $form->add('scielo');
-                    $form->add('cites');
+                    $form->add('title')
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpub')
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas')
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('file')
+                        ->add('url')
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+                        ->add('cites')
+//                  diferentes en proceedings
+                        ->add('publisher')
+                        ->add('editor')
+                        ->add('journal')
+                        ->add('address')
+                        ->add('issn')
+                        ->add('volume')
+                        ->add('pages')
+                        ->add('doi');
+
+
+
                 } else if ($tipo === "Book") {
-                    $form->add('title');
-                    $form->add('author');
-                    $form->add('authors');
-                    $form->add('yearpub');
-                    $form->add('keywords');
-                    $form->add('msc');
-                    $form->add('notas');
-                    $form->add('mrnumber');
-                    $form->add('zmath');
-                    $form->add('arxiv');
-                    $form->add('file');
-                    $form->add('url');
-                    $form->add('wos');
-                    $form->add('scopus');
-                    $form->add('scielo');
-                    $form->add('cites');
+                    $form->add('title')
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpub')
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas')
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('file')
+                        ->add('url')
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+                        ->add('cites')
+//                    diferentes en book
+                        ->add('publisher')
+                        ->add('editor')
+                        ->add('address')
+                        ->add('pages')
+                        ->add('doi')
+                        ->add('isbn')
+                        ->add('e_isbn');
+
+
                 } else if ($tipo === "Inproceedings") {
-                    $form->add('title');
-                    $form->add('author');
-                    $form->add('authors');
-                    $form->add('yearpub');
-                    $form->add('keywords');
-                    $form->add('msc');
-                    $form->add('notas');
-                    $form->add('mrnumber');
-                    $form->add('zmath');
-                    $form->add('arxiv');
-                    $form->add('file');
-                    $form->add('url');
-                    $form->add('wos');
-                    $form->add('scopus');
-                    $form->add('scielo');
-                    $form->add('cites');
+                    $form->add('title')
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpub')
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas')
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('file')
+                        ->add('url')
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+                        ->add('cites')
+//                  diferentes en Inproceedings
+                        ->add('booktitle')
+                        ->add('publisher')
+                        ->add('editor')
+                        ->add('address')
+                        ->add('abst')
+                        ->add('volume')
+                        ->add('pages')
+                        ->add('journal')
+                        ->add('issn')
+                        ->add('doi');
                 } else if ($tipo === "Preprint") {
-                    $form->add('title');
-                    $form->add('author');
-                    $form->add('authors');
-                    $form->add('yearpub');
-                    $form->add('keywords');
-                    $form->add('msc');
-                    $form->add('notas');
-                    $form->add('mrnumber');
-                    $form->add('zmath');
-                    $form->add('arxiv');
-                    $form->add('file');
-                    $form->add('url');
-                    $form->add('wos');
-                    $form->add('scopus');
-                    $form->add('scielo');
-                    $form->add('cites');
+                    $form->add('title')
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpreprint')
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas')
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('file')
+                        ->add('url')
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+                        ->add('cites')
+//                  diferentes en Preprint
+                        ->add('abst')
+                        ->add('pages')
+                        ->add('reportnumber');
+
+
                 } else if ($tipo === "Thesis") {
-                    $form->add('title');
-                    $form->add('author');
-                    $form->add('authors');
-                    $form->add('yearpub');
-                    $form->add('keywords');
-                    $form->add('msc');
-                    $form->add('notas');
-                    $form->add('mrnumber');
-                    $form->add('zmath');
-                    $form->add('arxiv');
-                    $form->add('file');
-                    $form->add('url');
-                    $form->add('wos');
-                    $form->add('scopus');
-                    $form->add('scielo');
-                    $form->add('cites');
+                    $form->add('title')
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpub')
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas')
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('file')
+                        ->add('url')
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+                        ->add('cites')
+//                  diferentes en Preprint
+                        ->add('advisor')
+                        ->add('thesistype')
+                        ->add('school');
                 }
             }
         );

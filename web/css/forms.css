@@ -11,7 +11,10 @@
 /*}*/
 
 
+body{
+    background-color: #f6f6f6;
 
+}
 .etiqueta{
     font-size: .950rem ;
     color: #1e1e1e;
@@ -24,8 +27,9 @@
 }
 @media (min-width: 576px){
     #box1 {
+        border: 1px solid rgba(188, 188, 188, 0.87);
         width: 100%;
-        background-color: #eeeeee;
+        background-color: #ffffff;
         border-radius: 20px;
         margin-bottom: 35px;
     }

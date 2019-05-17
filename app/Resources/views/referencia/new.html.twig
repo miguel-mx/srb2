@@ -23,16 +23,15 @@
         </section>
 
         <div class="container" id="box1">
-            <div class="alert-danger">{{ form_errors(form) }}</div>
             <div class=" row d-flex flex-column ">
 
                 <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
                     <div class="form-group  col-lg-3 ">
-                        <h5 class="etiqueta2">Publicación</h5>
+                        <h5 class="etiqueta2 ml-lg-4">Publicación</h5>
                     </div>
-                    <div class="row form-group col-lg-6 offset-xl-2 offset-md-1 col-sm-12 ">
+                    <div class="row form-group col-lg-7 offset-md-1 col-sm-12 d-flex justify-content-center ">
                         <div class="form-group  col-12 " >
-                            <label class="etiqueta">Tipo de Publicación</label>
+                            <label class="etiqueta ">Tipo de Publicación</label>
                             {{ form_widget(form.type, {'attr': {'class': 'form-control' , 'style':"background-color:white;"}}) }}
                             <span class="text-dange">{{ form_errors(form.type) }}</span>
                         </div>
@@ -43,16 +42,40 @@
 
                 <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
                     <div class="form-group  col-lg-3 ">
-                        <h5 class="etiqueta2">Datos de Publicación</h5>
+                        <h5 class="etiqueta2 ml-lg-4">Datos de Publicación</h5>
                     </div>
 
-                    <div class="row form-group col-lg-6 offset-xl-2 offset-md-1 ">
+                    <div class="row form-group col-lg-7  offset-md-1 ">
+
+                        {% if form.thesistype is defined %}
+                            <div class="form-group col-12 ">
+                                <label class="etiqueta">Tipo de Tesis</label>
+                                {{ form_widget(form.thesistype, {'attr': {'class': 'form-control' }}) }}
+                                <span class="text-dange">{{ form_errors(form.thesistype) }}</span>
+                            </div>
+                        {% endif %}
 
                         {% if form.title is defined %}
                             <div class="form-group col-12 ">
                                 <label class="etiqueta">Titulo</label>
                                 {{ form_widget(form.title, {'attr': {'class': 'form-control' }}) }}
                                 <span class="text-dange">{{ form_errors(form.title) }}</span>
+                            </div>
+                        {% endif %}
+
+                        {% if form.school is defined %}
+                            <div class="form-group col-12 ">
+                                <label class="etiqueta">Escuela</label>
+                                {{ form_widget(form.school, {'attr': {'class': 'form-control' }}) }}
+                                <span class="text-dange">{{ form_errors(form.school) }}</span>
+                            </div>
+                        {% endif %}
+
+                        {% if form.booktitle is defined %}
+                            <div class="form-group col-12 ">
+                                <label class="etiqueta">Titulo del libro</label>
+                                {{ form_widget(form.booktitle, {'attr': {'class': 'form-control' }}) }}
+                                <span class="text-dange">{{ form_errors(form.booktitle) }}</span>
                             </div>
                         {% endif %}
 
@@ -63,13 +86,47 @@
                                 <span class="text-dange">{{ form_errors(form.author) }}</span>
                             </div>
                         {% endif %}
+
                         {% if form.authors is defined %}
-                            <div class="form-group  col-12">
-                                <label class="etiqueta">Autores externos</label>
-                                {{ form_widget(form.authors, {'attr': {'class': 'form-control'}}) }}
+                            <div class="form-group col-12 ">
+                                <label class="etiqueta">Autores Externos</label>
+                                {{ form_widget(form.authors, {'attr': {'class': 'form-control' }}) }}
                                 <span class="text-dange">{{ form_errors(form.authors) }}</span>
                             </div>
                         {% endif %}
+
+                        {% if form.advisor is defined %}
+                            <div class="form-group col-12 ">
+                                <label class="etiqueta">Asesor</label>
+                                {{ form_widget(form.advisor, {'attr': {'class': 'form-control' }}) }}
+                                <span class="text-dange">{{ form_errors(form.advisor) }}</span>
+                            </div>
+                        {% endif %}
+
+                        {% if form.publisher is defined %}
+                            <div class="form-group  col-12">
+                                <label class="etiqueta">publicó</label>
+                                {{ form_widget(form.publisher, {'attr': {'class': 'form-control'}}) }}
+                                <span class="text-dange">{{ form_errors(form.publisher) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.editor is defined %}
+                            <div class="form-group  col-12">
+                                <label class="etiqueta">Editor</label>
+                                {{ form_widget(form.editor, {'attr': {'class': 'form-control'}}) }}
+                                <span class="text-dange">{{ form_errors(form.editor) }}</span>
+                            </div>
+                        {% endif %}
+
+                        {% if form.address is defined %}
+                            <div class="form-group  col-12">
+                                <label class="etiqueta">Dirección</label>
+                                {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
+                                <span class="text-dange">{{ form_errors(form.address) }}</span>
+                            </div>
+                        {% endif %}
+
+
                         {% if form.abst is defined %}
                             <div class="form-group  col-12">
                                 <label class="etiqueta">Resumen</label>
@@ -77,11 +134,11 @@
                                 <span class="text-dange">{{ form_errors(form.abst) }}</span>
                             </div>
                         {% endif %}
-                        {% if form.journals is defined %}
+                        {% if form.journal is defined %}
                             <div class="form-group  col-12">
                                 <label class="etiqueta">Revista</label>
-                                {{ form_widget(form.journals, {'attr': {'class': 'form-control'}}) }}
-                                <span class="text-dange">{{ form_errors(form.journals) }}</span>
+                                {{ form_widget(form.journal, {'attr': {'class': 'form-control'}}) }}
+                                <span class="text-dange">{{ form_errors(form.journal) }}</span>
                             </div>
                         {% endif %}
                         {% if form.volume is defined %}
@@ -91,6 +148,15 @@
                                 <span class="text-dange">{{ form_errors(form.volume) }}</span>
                             </div>
                         {% endif %}
+
+                        {% if form.reportnumber is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">Número de reporte</label>
+                                {{ form_widget(form.reportnumber, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.reportnumber) }}</span>
+                            </div>
+                        {% endif %}
+
                         {% if form.pages is defined %}
                             <div class="form-group  col-xl-6 col-sm-12">
                                 <label class="etiqueta">Páginas</label>
@@ -133,9 +199,9 @@
 
                 <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
                     <div class="form-group  col-lg-3 ">
-                        <h5 class="etiqueta2">Identificadores</h5>
+                        <h5 class="etiqueta2 ml-lg-4">Identificadores</h5>
                     </div>
-                    <div class="row form-group col-lg-6 offset-xl-2 offset-md-1 ">
+                    <div class="row form-group col-lg-7  offset-md-1 ">
                         {% if form.doi is defined %}
                             <div class="form-group  col-12 " >
                                 <label class="etiqueta">DOI</label>
@@ -157,6 +223,21 @@
                                 <span class="text-dange">{{ form_errors(form.e_issn) }}</span>
                             </div>
                         {% endif %}
+
+                        {% if form.isbn is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12 ">
+                                <label class="etiqueta">ISBN</label>
+                                {{ form_widget(form.isbn, {'attr': {'class': 'form-control'}}) }}
+                                <span class="text-dange">{{ form_errors(form.isbn) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if form.e_isbn is defined %}
+                            <div class="form-group  col-xl-6 col-sm-12">
+                                <label class="etiqueta">E-ISBN </label>
+                                {{ form_widget(form.e_isbn, {'attr': {'class': 'form-control '}}) }}
+                                <span class="text-dange">{{ form_errors(form.e_isbn) }}</span>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
 
@@ -164,9 +245,9 @@
 
                 <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
                     <div class="form-group  col-lg-3 ">
-                        <h5 class="etiqueta2">Bases de datos</h5>
+                        <h5 class="etiqueta2 ml-lg-4">Bases de datos</h5>
                     </div>
-                    <div class="row form-group col-lg-6 offset-xl-2 offset-md-1 ">
+                    <div class="row form-group col-lg-7  offset-md-1 ">
                         {% if form.msc is defined %}
                             <div class="form-group  col-xl-6 col-sm-12" >
                                 <label class="etiqueta">MathSciNet</label>
@@ -223,9 +304,9 @@
 
                 <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
                     <div class="form-group  col-lg-3 ">
-                        <h5 class="etiqueta2">Adicionales</h5>
+                        <h5 class="etiqueta2 ml-lg-4">Adicionales</h5>
                     </div>
-                    <div class="row form-group col-lg-6 offset-xl-2 offset-md-1 ">
+                    <div class="row form-group col-lg-7  offset-md-1 ">
                         {% if form.notas is defined %}
                             <div class="form-group  col-12 " >
                                 <label class="etiqueta">Notas</label>

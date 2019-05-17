@@ -62,12 +62,17 @@ class Referencia
      */
     private $journal;
 
+
+
+// falta*****************************************************************************************+
     /**
      * @var string
      *
      * @ORM\Column(name="issue", type="string", length=10, nullable=true)
      */
+
     private $issue;
+//   ***********************************************************************************************
 
     /**
      * @var string
@@ -111,12 +116,16 @@ class Referencia
      */
     private $publisher;
 
+
+    // falta*****************************************************************************************+
     /**
      * @var string
      *
      * @ORM\Column(name="placePub", type="string", length=250, nullable=true)
      */
     private $placepub;
+    // falta*****************************************************************************************+
+
 
     /**
      * @var string
@@ -174,12 +183,15 @@ class Referencia
      */
     private $notas;
 
+    // falta*****************************************************************************************+
     /**
      * @var boolean
      *
      * @ORM\Column(name="revision", type="boolean", nullable=true)
      */
     private $revision;
+    // falta*****************************************************************************************+
+
 
     /**
      * @var string
@@ -230,6 +242,9 @@ class Referencia
 //     */
 //    private $inspires;
 
+
+
+    // falta*****************************************************************************************+
     /**
      * @var \DateTime
      *
@@ -243,6 +258,9 @@ class Referencia
      * @ORM\Column(name="modified", type="datetime", nullable=true)
      */
     private $modified;
+    // falta*****************************************************************************************+
+
+
 
     /**
      * @var string
