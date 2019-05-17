@@ -3,9 +3,11 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Fi;
+use AppBundle\Entity\Journal;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * Fi controller.
@@ -34,12 +36,21 @@ class FiController extends Controller
     /**
      * Creates a new fi entity.
      *
-     * @Route("/new", name="fi_new")
+     * Will throw a normal AccessDeniedException:
+     *
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
+     *
+     * Will throw an HttpException with a 404 status code:
+     *
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Post not found")
+     *
+     * @Route("/new/{id}", name="fi_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Journal $journal)
     {
         $fi = new Fi();
+        $fi->setJournal($journal);
         $form = $this->createForm('AppBundle\Form\FiType', $fi);
         $form->handleRequest($request);
 
@@ -75,6 +86,14 @@ class FiController extends Controller
 
     /**
      * Displays a form to edit an existing fi entity.
+     *
+     * Will throw a normal AccessDeniedException:
+     *
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
+     *
+     * Will throw an HttpException with a 404 status code:
+     *
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Post not found")
      *
      * @Route("/{id}/edit", name="fi_edit")
      * @Method({"GET", "POST"})

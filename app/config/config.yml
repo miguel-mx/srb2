@@ -111,7 +111,7 @@ fos_elastica:
             types:
                 referencia:
                     properties:
-#                        title: ~
+                        title: ~
                         authors: ~
                     persistence:
                         driver: orm

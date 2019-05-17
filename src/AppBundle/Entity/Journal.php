@@ -220,6 +220,6 @@ class Journal
 
     public function __toString()
     {
-        return (string) $this->title;
+        return (string) $this->name;
     }
 }

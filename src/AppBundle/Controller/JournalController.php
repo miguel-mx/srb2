@@ -6,6 +6,7 @@ use AppBundle\Entity\Journal;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * Journal controller.
@@ -33,6 +34,14 @@ class JournalController extends Controller
 
     /**
      * Creates a new journal entity.
+     *
+     * Will throw a normal AccessDeniedException:
+     *
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
+     *
+     * Will throw an HttpException with a 404 status code:
+     *
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Post not found")
      *
      * @Route("/new", name="journal_new")
      * @Method({"GET", "POST"})
@@ -75,6 +84,14 @@ class JournalController extends Controller
 
     /**
      * Displays a form to edit an existing journal entity.
+     *
+     * Will throw a normal AccessDeniedException:
+     *
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
+     *
+     * Will throw an HttpException with a 404 status code:
+     *
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Post not found")
      *
      * @Route("/{id}/edit", name="journal_edit")
      * @Method({"GET", "POST"})
