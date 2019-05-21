@@ -35,12 +35,20 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/busqueda_avanzada")
+     */
+    public function busqueda(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('busquedaAvanzada.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+        ]);
+    }
+
     public function logout(Request $request)
     {
         return $this->redirectToRoute('/login');
     }
-
-
-
 
 }

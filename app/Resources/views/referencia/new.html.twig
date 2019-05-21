@@ -14,9 +14,6 @@
 
 {% block body %}
 
-
-
-    {{ form_start(form) }}
     <div class="formulario  ">
         <section class=" d-flex content-header justify-content-center ">
             <h1>Nueva referencia</h1>
@@ -257,7 +254,7 @@
                         {% endif %}
                         {% if form.mrnumber is defined %}
                             <div class="form-group  col-xl-6 col-sm-12 ">
-                                <label class="etiqueta">MrNumber</label>
+                                <label class="etiqueta">MR Number</label>
                                 {{ form_widget(form.mrnumber, {'attr': {'class': 'form-control'}}) }}
                                 <span class="text-dange">{{ form_errors(form.mrnumber) }}</span>
                             </div>
@@ -314,13 +311,7 @@
                                 <span class="text-dange">{{ form_errors(form.notas) }}</span>
                             </div>
                         {% endif %}
-                        {% if form.cites is defined %}
-                            <div class="form-group  col-12 " >
-                                <label class="etiqueta">Citas</label>
-                                {{ form_widget(form.cites, {'attr': {'class': 'form-control ', }}) }}
-                                <span class="text-dange">{{ form_errors(form.cites) }}</span>
-                            </div>
-                        {% endif %}
+
 
                     </div>
                 </div>
@@ -328,17 +319,14 @@
 
                 <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
                     <div>
-                        {{ form_widget(form) }}
                         <button type="submit" class="btn btn-primary ml-5 mr-2 mb-3">Guardar</button>
                         <a href="{{ path('referencia_index') }}" class="btn btn-danger mb-3">Cancelar <i class="fas fa-times fa-x3"></i></a>
-                        {{ form_end(form) }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    {{ form_end(form) }}
 
 
 {% endblock %}

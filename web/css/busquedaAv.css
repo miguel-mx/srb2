@@ -1,0 +1,33 @@
+
+
+#busquedaAv{
+    min-height: 800px;
+    margin-top: 7%;
+    background-color: #e1e1e1;
+    border-radius: 20px;
+}
+
+.hero2-text {
+    padding-top: 50px;
+}
+.hero2-text h1 {
+    text-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
+    font-size: 48px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: white;
+    margin-bottom: 0.1rem;
+}
+.hero2-text h2 {
+    text-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
+    font-size: 42px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: white;
+}

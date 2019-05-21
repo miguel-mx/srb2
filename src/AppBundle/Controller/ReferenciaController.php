@@ -79,6 +79,7 @@ class ReferenciaController extends Controller
         $referencia = new Referencia();
 
 
+
         $form = $this->createForm('AppBundle\Form\ReferenciaType', $referencia);
         $form->handleRequest($request);
 
@@ -118,20 +119,21 @@ class ReferenciaController extends Controller
      * @Route("/{slug}/edit", name="referencia_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Referencia $referencium)
+    public function editAction(Request $request, Referencia $referencia)
     {
-        $deleteForm = $this->createDeleteForm($referencium);
-        $editForm = $this->createForm('AppBundle\Form\ReferenciaType', $referencium);
+        $deleteForm = $this->createDeleteForm($referencia);
+        $editForm = $this->createForm('AppBundle\Form\ReferenciaType', $referencia);
         $editForm->handleRequest($request);
+
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('referencia_edit', array('slug' => $referencium->getSlug()));
+            return $this->redirectToRoute('referencia_show', array('slug' => $referencia->getSlug()));
         }
 
         return $this->render('referencia/edit.html.twig', array(
-            'referencium' => $referencium,
+            'referencia' => $referencia,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
@@ -147,6 +149,7 @@ class ReferenciaController extends Controller
     {
         $form = $this->createDeleteForm($referencium);
         $form->handleRequest($request);
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();

@@ -24,13 +24,13 @@ class ReferenciaType extends AbstractType
             ->add('type', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType', array(
                 'choices' => array(
                     '' => '',
-                    'Article' => 'Article',
-                    'Incollection' => 'Incollection',
-                    'Proceedings' => 'Proceedings',
-                    'Book' => 'Book',
-                    'Inproceedings' => 'Inproceedings',
-                    'Preprint' => 'Preprint',
-                    'Thesis' => 'Thesis',
+                    'Article' => 'article',
+                    'Incollection' => 'incollection',
+                    'Proceedings' => 'proceedings',
+                    'Book' => 'book',
+                    'Inproceedings' => 'inproceedings',
+                    'Preprint' => 'preprint',
+                    'Thesis' => 'thesis',
                 ),
                 'choices_as_values' => true
             ));
@@ -41,7 +41,7 @@ class ReferenciaType extends AbstractType
                 $form = $event->getForm()->getParent();
                 $tipo = $event->getData();
 
-                if ($tipo === 'Article') {
+                if ($tipo === 'article') {
                     $form->add('title')
                         ->add('author')
                         ->add('authors')
@@ -57,7 +57,6 @@ class ReferenciaType extends AbstractType
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
-                        ->add('cites')
 //                    diferentes en articulo
                         ->add('journal')
                         ->add('volume')
@@ -66,7 +65,7 @@ class ReferenciaType extends AbstractType
                         ->add('doi')
                         ->add('issn')
                         ->add('e_issn');
-                } else if ($tipo === "Incollection") {
+                } else if ($tipo === "incollection") {
                     $form->add('title')
                         ->add('author')
                         ->add('authors')
@@ -82,7 +81,6 @@ class ReferenciaType extends AbstractType
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
-                        ->add('cites')
 //                  diferentes en incollection
                         ->add('booktitle')
                         ->add('publisher')
@@ -93,7 +91,7 @@ class ReferenciaType extends AbstractType
                         ->add('pages')
                         ->add('doi');
 
-                } else if ($tipo === "Proceedings") {
+                } else if ($tipo === "proceedings") {
                     $form->add('title')
                         ->add('author')
                         ->add('authors')
@@ -109,7 +107,6 @@ class ReferenciaType extends AbstractType
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
-                        ->add('cites')
 //                  diferentes en proceedings
                         ->add('publisher')
                         ->add('editor')
@@ -122,7 +119,7 @@ class ReferenciaType extends AbstractType
 
 
 
-                } else if ($tipo === "Book") {
+                } else if ($tipo === "book") {
                     $form->add('title')
                         ->add('author')
                         ->add('authors')
@@ -138,7 +135,6 @@ class ReferenciaType extends AbstractType
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
-                        ->add('cites')
 //                    diferentes en book
                         ->add('publisher')
                         ->add('editor')
@@ -149,7 +145,7 @@ class ReferenciaType extends AbstractType
                         ->add('e_isbn');
 
 
-                } else if ($tipo === "Inproceedings") {
+                } else if ($tipo === "inproceedings") {
                     $form->add('title')
                         ->add('author')
                         ->add('authors')
@@ -165,7 +161,6 @@ class ReferenciaType extends AbstractType
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
-                        ->add('cites')
 //                  diferentes en Inproceedings
                         ->add('booktitle')
                         ->add('publisher')
@@ -177,7 +172,7 @@ class ReferenciaType extends AbstractType
                         ->add('journal')
                         ->add('issn')
                         ->add('doi');
-                } else if ($tipo === "Preprint") {
+                } else if ($tipo === "preprint") {
                     $form->add('title')
                         ->add('author')
                         ->add('authors')
@@ -193,14 +188,13 @@ class ReferenciaType extends AbstractType
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
-                        ->add('cites')
 //                  diferentes en Preprint
                         ->add('abst')
                         ->add('pages')
                         ->add('reportnumber');
 
 
-                } else if ($tipo === "Thesis") {
+                } else if ($tipo === "thesis") {
                     $form->add('title')
                         ->add('author')
                         ->add('authors')
@@ -216,7 +210,6 @@ class ReferenciaType extends AbstractType
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
-                        ->add('cites')
 //                  diferentes en Preprint
                         ->add('advisor')
                         ->add('thesistype')
@@ -225,144 +218,185 @@ class ReferenciaType extends AbstractType
             }
         );
 
-//        $builder->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event) {
-//            $tipo = $event->getData();
-//            $form = $event->getForm();
-//            if ($tipo and $tipo->getType()) {
-//                // obtenemos el country por medio del objeto state:
-//                if ($tipo->getType() === "Article") {
-//                    $form->add('title')
-//                        ->add('author', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType', array(
-//                            'expanded' => true,
-//                            'multiple' => true
-//                        ))
-//                        ->add('authors')
-//                        ->add('yearpub')
-//                        ->add('keywords')
-//                        ->add('msc')
-//                        ->add('notas')
-//                        ->add('mrnumber')
-//                        ->add('zmath')
-//                        ->add('arxiv')
-//                        ->add('file')
-//                        ->add('url')
-//                        ->add('wos')
-//                        ->add('scopus')
-//                        ->add('scielo')
-//                        ->add('cites')
-////                    diferentes en articulo
-//                        ->add('journals')
-//                        ->add('volume')
-//                        ->add('abst')
-//                        ->add('pages')
-//                        ->add('doi')
-//                        ->add('issn')
-//                        ->add('e_issn');
-//                } else if ($tipo->getType() === "Incollection") {
-//                    $form->add('title');
-//                    $form->add('author');
-//                    $form->add('authors');
-//                    $form->add('yearpub');
-//                    $form->add('keywords');
-//                    $form->add('msc');
-//                    $form->add('notas');
-//                    $form->add('mrnumber');
-//                    $form->add('zmath');
-//                    $form->add('arxiv');
-//                    $form->add('file');
-//                    $form->add('url');
-//                    $form->add('wos');
-//                    $form->add('scopus');
-//                    $form->add('scielo');
-//                    $form->add('cites');
-//                } else if ($tipo->getType() === "Proceedings") {
-//                    $form->add('title');
-//                    $form->add('author');
-//                    $form->add('authors');
-//                    $form->add('yearpub');
-//                    $form->add('keywords');
-//                    $form->add('msc');
-//                    $form->add('notas');
-//                    $form->add('mrnumber');
-//                    $form->add('zmath');
-//                    $form->add('arxiv');
-//                    $form->add('file');
-//                    $form->add('url');
-//                    $form->add('wos');
-//                    $form->add('scopus');
-//                    $form->add('scielo');
-//                    $form->add('cites');
-//                } else if ($tipo->getType() === "Book") {
-//                    $form->add('title');
-//                    $form->add('author');
-//                    $form->add('authors');
-//                    $form->add('yearpub');
-//                    $form->add('keywords');
-//                    $form->add('msc');
-//                    $form->add('notas');
-//                    $form->add('mrnumber');
-//                    $form->add('zmath');
-//                    $form->add('arxiv');
-//                    $form->add('file');
-//                    $form->add('url');
-//                    $form->add('wos');
-//                    $form->add('scopus');
-//                    $form->add('scielo');
-//                    $form->add('cites');
-//                } else if ($tipo->getType() === "Inproceedings") {
-//                    $form->add('title');
-//                    $form->add('author');
-//                    $form->add('authors');
-//                    $form->add('yearpub');
-//                    $form->add('keywords');
-//                    $form->add('msc');
-//                    $form->add('notas');
-//                    $form->add('mrnumber');
-//                    $form->add('zmath');
-//                    $form->add('arxiv');
-//                    $form->add('file');
-//                    $form->add('url');
-//                    $form->add('wos');
-//                    $form->add('scopus');
-//                    $form->add('scielo');
-//                    $form->add('cites');
-//                } else if ($tipo->getType() === "Preprint") {
-//                    $form->add('title');
-//                    $form->add('author');
-//                    $form->add('authors');
-//                    $form->add('yearpub');
-//                    $form->add('keywords');
-//                    $form->add('msc');
-//                    $form->add('notas');
-//                    $form->add('mrnumber');
-//                    $form->add('zmath');
-//                    $form->add('arxiv');
-//                    $form->add('file');
-//                    $form->add('url');
-//                    $form->add('wos');
-//                    $form->add('scopus');
-//                    $form->add('scielo');
-//                    $form->add('cites');
-//                } else if ($tipo->getType() === "Thesis") {
-//                    $form->add('title');
-//                    $form->add('author');
-//                    $form->add('authors');
-//                    $form->add('yearpub');
-//                    $form->add('keywords');
-//                    $form->add('msc');
-//                    $form->add('notas');
-//                    $form->add('mrnumber');
-//                    $form->add('zmath');
-//                    $form->add('arxiv');
-//                    $form->add('file');
-//                    $form->add('url');
-//                    $form->add('wos');
-//                    $form->add('scopus');
-//                    $form->add('scielo');
-//                    $form->add('cites');
-//                }
-//            }
-//        });
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event) {
+            $tipo = $event->getData();
+            $form = $event->getForm();
+            if ($tipo and $tipo->getType()) {
+                if ($tipo->getType() === "article") {
+                    $form->add('title')
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpub')
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas')
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('file')
+                        ->add('url')
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+//                    diferentes en articulo
+                        ->add('journal')
+                        ->add('volume')
+                        ->add('abst')
+                        ->add('pages')
+                        ->add('doi')
+                        ->add('issn')
+                        ->add('e_issn');
+                } else if ($tipo->getType() === "incollection") {
+                    $form->add('title')
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpub')
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas')
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('file')
+                        ->add('url')
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+//                  diferentes en incollection
+                        ->add('booktitle')
+                        ->add('publisher')
+                        ->add('editor')
+                        ->add('address')
+                        ->add('abst')
+                        ->add('volume')
+                        ->add('pages')
+                        ->add('doi');
+
+                } else if ($tipo->getType() === "proceedings") {
+                    $form->add('title')
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpub')
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas')
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('file')
+                        ->add('url')
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+//                  diferentes en proceedings
+                        ->add('publisher')
+                        ->add('editor')
+                        ->add('journal')
+                        ->add('address')
+                        ->add('issn')
+                        ->add('volume')
+                        ->add('pages')
+                        ->add('doi');
+
+                } else if ($tipo->getType() === "book") {
+                    $form->add('title')
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpub')
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas')
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('file')
+                        ->add('url')
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+//                    diferentes en book
+                        ->add('publisher')
+                        ->add('editor')
+                        ->add('address')
+                        ->add('pages')
+                        ->add('doi')
+                        ->add('isbn')
+                        ->add('e_isbn');
+
+                } else if ($tipo->getType() === "inproceedings") {
+                    $form->add('title')
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpub')
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas')
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('file')
+                        ->add('url')
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+//                  diferentes en Inproceedings
+                        ->add('booktitle')
+                        ->add('publisher')
+                        ->add('editor')
+                        ->add('address')
+                        ->add('abst')
+                        ->add('volume')
+                        ->add('pages')
+                        ->add('journal')
+                        ->add('issn')
+                        ->add('doi');
+                } else if ($tipo->getType() === "preprint") {
+                    $form->add('title')
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpreprint')
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas')
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('file')
+                        ->add('url')
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+//                  diferentes en Preprint
+                        ->add('abst')
+                        ->add('pages')
+                        ->add('reportnumber');
+                } else if ($tipo->getType() === "thesis") {
+                    $form->add('title')
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpub')
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas')
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('file')
+                        ->add('url')
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+//                  diferentes en Preprint
+                        ->add('advisor')
+                        ->add('thesistype')
+                        ->add('school');
+                }
+            }
+        });
+
+        $builder->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
+            $event->stopPropagation();
+        }, 900); // Always set a higher priority than ValidationListener
     }
 
     /**
