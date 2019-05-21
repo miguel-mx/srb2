@@ -5,9 +5,9 @@
     <section id="show-article">
         <div class="container-fluid myTab">
             <div class="row justify-content-md-center">
-                <div class="col-9" style="background-color: #eeeeee">
+                <div class="col-md-9" style="background-color: #eeeeee">
                     <div class="row referencia-container p-5">
-                        <div class="col-md-9 ">
+                        <div class="col-xs-11 col-sm-11 col-lg-9 ">
                             <h3 class="mt-1 text-info">{{ referencia.title }}
                                 <small>{{ referencia.type }}</small>
                             </h3>
@@ -61,7 +61,7 @@
 
                             </div>
                             <div class="block">
-                                <h5><strong>Citas</strong>
+                                <h5><strong>Cites</strong>
                                     {% if is_granted('ROLE_ADMIN') %}
                                     <a href="{{ path('cites_new', { id : referencia.id}) }}"><i
                                                 class="fas fa-plus-circle fa-x3"></i></a></h5>
@@ -71,17 +71,11 @@
                                 <p><a href="{{ path('cites_show', { id: cites.id }) }}">{{ cites.cite }}</a>
                                     {% endfor %}
                             </div>
-
-{#                            {% if is_granted('ROLE_ADMIN') %}#}
-                                <div>
-                                    <a href="{{ path('referencia_edit', { slug : referencia.slug})}}" class="btn btn-primary">Edit <i class="fas fa-edit fa-x3"></i></a>
-                                </div>
-{#                            {% endif %}#}
                         </div>
 
-                        <div class="col-md-3 p-3 mb-auto" style="background-color: #e0e0e0">
-                            {% if  referencia.doi %} <p><strong>DOI</strong><br> <a
-                                        href="https://dx.doi.org/{{ referencia.doi }}">{{ referencia.doi }}</a>
+                        <div class="col-xs-2 col-sm-7 col-lg-3 p-3 mb-auto" style="background-color: #e0e0e0">
+                            {% if  referencia.doi %} <p><strong>DOI</strong><br> <p><a
+                                        href="https://dx.doi.org/{{ referencia.doi }}">{{ referencia.doi }}</a></p>
                                 </p>{% endif %}
                             {% if  referencia.url %} <p><strong>Url</strong> <br> <a
                                         href="{{ referencia.url }}">{{ referencia.url |truncate(30) }}</a>

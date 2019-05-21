@@ -51,8 +51,8 @@ class CitesController extends Controller
     {
         $cite = new Cites();
 
-//        $cite->setReference($referencia);
         $cite->setReferences($referencia);
+
 
         $form = $this->createForm('AppBundle\Form\CitesType', $cite);
         $form->handleRequest($request);

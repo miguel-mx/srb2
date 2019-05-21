@@ -1,5 +1,14 @@
 {% extends 'base.html.twig' %}
 
+ {% block stylesheets %}
+     {{ parent() }}
+     <!-- select2 -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+     <link href="https://cdn.jsdelivr.net/gh/ttskch/select2-bootstrap4-theme@master/dist/select2-bootstrap4.min.css" rel="stylesheet">
+
+ {% endblock %}
+
 {% block body %}
 
         {{ form_errors(edit_form) }}
@@ -22,7 +31,7 @@
                                     <div class="form-group col-md-6">
                                         <label for="user">{{ form_label(edit_form.user) }}</label>
                                         {{ form_errors(edit_form.user) }}
-                                        {{ form_widget(edit_form.user, { 'attr': { 'class': "form-control", 'id': "user" } } ) }}
+                                        {{ form_widget(edit_form.user, { 'attr': { 'class': "form-control", 'placeholder': "User" , 'id': "user"  } } ) }}
                                     </div>
                                     </div>
                                     <div class="form-group">
@@ -37,8 +46,9 @@
                                     </div>
                                     <div>
 {#                                        {{ form_widget(edit_form) }}#}
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
-                                        <a href="javascript:history.back(-1);" title="Ir la página anterior" class="btn btn-danger">Cancelar <i class="fas fa-times fa-x3"></i></a>
+                                        <button type="submit" class="btn btn-primary">Save <i class="fas fa-save fa-x3"></i></button>
+                                        <a href="javascript:history.back(-1);" title="Ir la página anterior"
+                                           class="btn btn-danger">Cancel <i class="fas fa-times fa-x3"></i></a>
                                         {#                                                                    {{ form_end(form) }}#}
                                     </div>
                                     {#        <ul>#}
@@ -71,4 +81,21 @@
 {#            {{ form_end(delete_form) }}#}
 {#        </li>#}
 {#    </ul>#}
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+
+    <script>
+        $('select').each(function(idx, ele) {
+            $(ele).select2({
+                theme: 'bootstrap4',
+                placeholder: ele.getAttribute('placeholder')
+            });
+        });
+    </script>
+
 {% endblock %}

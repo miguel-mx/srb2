@@ -1,5 +1,15 @@
 {% extends 'base.html.twig' %}
 
+ {% block stylesheets %}
+     {{ parent() }}
+     <!-- select2 -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+     <link href="https://cdn.jsdelivr.net/gh/ttskch/select2-bootstrap4-theme@master/dist/select2-bootstrap4.min.css" rel="stylesheet">
+
+ {% endblock %}
+
+
 {% block body %}
 
     {{ form_errors(edit_form) }}
@@ -42,16 +52,21 @@
                                     {{ form_widget(edit_form.url, { 'attr': { 'class': "form-control", 'placeholder': "Url" , 'id': "url"  } } ) }}
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="pais">{{ form_label(edit_form.pais) }}</label>
-                                    {{ form_errors(edit_form.pais) }}
-                                    {{ form_widget(edit_form.pais, { 'attr': { 'class': "form-control", 'placeholder': "Pais" , 'id': "pais"  } } ) }}
+                                <div class="form-row">
+                                    <div class="form-group col-md-6" >
+                                        <label for="pais">{{ form_label(edit_form.pais) }}</label>
+                                        {{ form_errors(edit_form.pais) }}
+                                        {{ form_widget(edit_form.pais, { 'attr': { 'class': "form-control", 'placeholder': "País" , 'id': "pais"  } } ) }}
+                                    </div>
                                 </div>
+                                <input type="submit" value="Edit" />
+
                                 <div>
-                                    {{ form_widget(edit_form) }}
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                    <a href="javascript:history.back(-1);" title="Ir la página anterior" class="btn btn-danger">Cancelar <i class="fas fa-times fa-x3"></i></a>
-                                    {#                                                                    {{ form_end(form) }}#}
+{#                                    {{ form_widget(edit_form) }}#}
+                                    <button type="submit" class="btn btn-primary">Save <i class="fas fa-save fa-x3"></i></button>
+                                    <a href="javascript:history.back(-1);" title="Ir la página anterior"
+                                       class="btn btn-danger">Cancel <i class="fas fa-times fa-x3"></i></a>
+{#                                                                                                        {{ form_end(form) }}#}
                                 </div>
                                 {#        <ul>#}
                                 {#            <li>#}
@@ -82,4 +97,22 @@
     {#            {{ form_end(delete_form) }}#}
     {#        </li>#}
     {#    </ul>#}
+{% endblock %}
+
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+
+    <script>
+        $('select').each(function(idx, ele) {
+            $(ele).select2({
+                theme: 'bootstrap4',
+                placeholder: ele.getAttribute('placeholder')
+            });
+        });
+    </script>
+
 {% endblock %}

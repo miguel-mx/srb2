@@ -1,12 +1,21 @@
 {% extends 'base.html.twig' %}
 
+ {% block stylesheets %}
+     {{ parent() }}
+     <!-- select2 -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+     <link href="https://cdn.jsdelivr.net/gh/ttskch/select2-bootstrap4-theme@master/dist/select2-bootstrap4.min.css" rel="stylesheet">
+
+ {% endblock %}
+
 {% block body %}
 
     {{ form_start(form) }}
 
     {{ form_errors(form) }}
     <section id="new-cite">
-        <div class="container-fluid myTab" >
+        <div class="container-fluid myTab">
             <div class="row justify-content-md-center">
                 <div class="col-9" style="background-color: #eeeeee">
                     <div class="row referencia-container p-5">
@@ -49,12 +58,13 @@
                                         {{ form_errors(form.pais) }}
                                         {{ form_widget(form.pais, { 'attr': { 'class': "form-control", 'placeholder': "País" , 'id': "pais"  } } ) }}
                                     </div>
-
                                 </div>
 
                                 <div>
                                     {{ form_widget(form) }}
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <button type="submit" class="btn btn-primary">Save <i class="fas fa-save fa-x3"></i></button>
+                                    <a href="javascript:history.back(-1);" title="Ir la página anterior"
+                                       class="btn btn-danger">Cancel <i class="fas fa-times fa-x3"></i></a>
                                     {{ form_end(form) }}
                                 </div>
                                 {#        <ul>#}
@@ -80,4 +90,23 @@
     {#            <a href="{{ path('journal_index') }}">Back to the list</a>#}
     {#        </li>#}
     {#    </ul>#}
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+
+    <script>
+        $('select').each(function(idx, ele) {
+            $(ele).select2({
+                theme: 'bootstrap4',
+                placeholder: ele.getAttribute('placeholder')
+            });
+        });
+    </script>
+
 {% endblock %}

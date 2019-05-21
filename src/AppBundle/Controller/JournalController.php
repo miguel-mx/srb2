@@ -105,7 +105,7 @@ class JournalController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('journal_edit', array('id' => $journal->getId()));
+            return $this->redirectToRoute('journal_show', array('id' => $journal->getId()));
         }
 
         return $this->render('journal/edit.html.twig', array(

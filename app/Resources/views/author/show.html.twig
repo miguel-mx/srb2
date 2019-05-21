@@ -9,23 +9,28 @@
             <div class="row justify-content-md-center">
                 <div class="col-9" style="background-color: #eeeeee">
                     <div class="row referencia-container p-5">
-                        <div class="col-md-9 ">
-                            <h3 class="mt-1 text-info">{{ author.name }}</h3>{% if  author.alias %}
-                            <p><strong>Alias:</strong> {{ author.alias }}</p>{% endif %}
+                        <div class="col-md-12 ">
+                            <div class="d-inline-block">
+                                <h3 class="mt-1 text-info">{{ author.name }} {% if is_granted('ROLE_ADMIN') %}
+                                        <a href="{{ path('author_edit', { id : author.id}) }}"><i class="fas fa-pen-square fa-x3"></i></a>
+                                    {% endif %}</h3>
+                                {% if  author.alias %}
+                                    <p><strong>Alias:</strong> {{ author.alias }}</p>{% endif %}
+                            </div>
                         </div>
                     </div>
                     <section id="table">
                         <div class="container myTabAuthor">
-                            <table id="myTable" class="table" >
+                            <table id="myTable" class="table">
                                 <thead>
                                 <tr>
 
-                                    <th> {{ author.referencia|length }} Resultados
+                                    <th> {{ author.referencia|length }} Results
                                     </th>
 
                                 </tr>
                                 </thead>
-                                <tbody >
+                                <tbody>
                                 {% for referencia in author.referencia %}
                                     <tr>
                                         <td class="p-4 m-4">

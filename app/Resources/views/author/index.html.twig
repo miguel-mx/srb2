@@ -6,7 +6,7 @@
             <table id="myTable" class="table">
                 <thead>
                 <tr>
-                    <th>{{ authors|length }} Resultados</th>
+                    <th>{{ authors|length }} Results</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -24,7 +24,7 @@
                 </tbody>
             </table>
             {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('author_new') }}">Agregar author</a>
+                <a href="{{ path('author_new') }}">New author</a>
             {% endif %}
         </div>
     </section>

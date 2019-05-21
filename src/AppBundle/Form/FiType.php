@@ -15,6 +15,7 @@ class FiType extends AbstractType
     {
         $builder->add('origen',null, [
             'required' => true,
+            'label' => 'Origin',
 
         ])
             ->add('year',null, [
@@ -26,10 +27,11 @@ class FiType extends AbstractType
 
             ])
             ->add('cuartil',null, [
-                'required' => true,
 
             ])
-            ->add('journal');
+            ->add('journal', null, [
+                'disabled' => 'disabled',
+            ]);
     }/**
  * {@inheritdoc}
  */
