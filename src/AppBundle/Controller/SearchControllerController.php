@@ -61,4 +61,52 @@ class SearchControllerController extends Controller
             return $this->render('main.html.twig');
         }
     }
+
+
+    /**
+     * Lists all referencium entities.
+     *
+     * @Route("/searchAv", name="referencia_index2")
+     * @Method("GET")
+     */
+    public function searchAV(Request $request)
+    {
+        $searchTerms = $request->query->all();
+
+        $repository = $this->getDoctrine()
+            ->getRepository(Referencia::class);
+
+        $queryBuilder = $repository->createQueryBuilder('r');
+
+        foreach ($searchTerms as $key => $term) {
+
+
+
+            $queryBuilder
+                ->andWhere('r.' .$key.'  LIKE :r_'.$key)
+                ->setParameter('r_'. $key, '%'.strtolower($term).'%');
+
+
+        }
+
+        $query = $queryBuilder->orderBy('r.title', 'ASC')
+            ->getQuery();
+
+        $referencias = $query->getResult();
+
+
+        if($referencias == null){
+            $this->addFlash(
+                'error',
+                'No se encontraron registros!'
+            );
+            return $this->render('busquedaAvanzada.html.twig');
+
+        }else{
+            return $this->render('referencia/data-tables.html.twig', array(
+                'referencias' => $referencias,
+            ));
+        }
+
+    }
 }

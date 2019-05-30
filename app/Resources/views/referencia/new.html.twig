@@ -13,6 +13,7 @@
  {% endblock %}
 
 {% block body %}
+    {{ form_start(form) }}
 
     <div class="formulario  ">
         <section class=" d-flex content-header justify-content-center ">
@@ -328,7 +329,7 @@
     </div>
 
 
-
+    {{ form_end(form) }}
 {% endblock %}
 
 {% block javascripts %}
