@@ -70,7 +70,7 @@ class AuthorController extends Controller
             $em->persist($author);
             $em->flush();
 
-            return $this->redirectToRoute('author_show', array('id' => $author->getId()));
+            return $this->redirectToRoute('author_show', array('slug' => $author->getSlug()));
         }
 
         return $this->render('author/new.html.twig', array(
@@ -118,7 +118,7 @@ class AuthorController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('author_edit', array('id' => $author->getId()));
+            return $this->redirectToRoute('author_show', array('slug' => $author->getSlug()));
         }
 
         return $this->render('author/edit.html.twig', array(

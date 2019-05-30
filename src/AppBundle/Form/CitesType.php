@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class CitesType extends AbstractType
 {
@@ -24,6 +25,12 @@ class CitesType extends AbstractType
             ->add('doi',null, [
                 'required' => true,
 
+            ])
+            ->add('type', ChoiceType::class, [
+                'choices'  => [
+                    'A' => "A",
+                    'B' => "B",
+                ],
             ]);
     }/**
  * {@inheritdoc}

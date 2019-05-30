@@ -67,8 +67,7 @@
                                                 class="fas fa-plus-circle fa-x3"></i></a></h5>
                                 {% endif %}
                                 {% for cites in  referencia.cites %}
-
-                                <p><a href="{{ path('cites_show', { id: cites.id }) }}">{{ cites.cite }}</a>
+                                    <p><a href="{{ path('cites_show', { id: cites.id }) }}">{{ cites.cite }}</a></p>
                                     {% endfor %}
                             </div>
                         </div>
@@ -77,14 +76,40 @@
                             {% if  referencia.doi %} <p><strong>DOI</strong><br> <p><a
                                         href="https://dx.doi.org/{{ referencia.doi }}">{{ referencia.doi }}</a></p>
                                 </p>{% endif %}
+
                             {% if  referencia.url %} <p><strong>Url</strong> <br> <a
                                         href="{{ referencia.url }}">{{ referencia.url |truncate(30) }}</a>
                                 </p>{% endif %}
+
                             {% if  referencia.mrNumber %} <p><strong>Mr Number</strong> <br><a
                                         href="https://mathscinet.ams.org/mathscinet-getitem?mr={{ referencia.mrNumber }}">{{ referencia.mrNumber }}</a>
                                 </p>{% endif %}
-                            <p><strong>Author</strong> <br>
 
+                            {% if  referencia.wos %} <p><strong>Web of Science</strong><br> <p><a
+                                        href="#{{ referencia.wos }}">{{ referencia.wos }}</a></p>
+                                </p>{% endif %}
+
+                            {% if  referencia.scopus %} <p><strong>Scopus</strong><br> <p><a
+                                        href="#{{ referencia.scopus }}">{{ referencia.scopus }}</a></p>
+                                </p>{% endif %}
+
+                            {% if  referencia.scielo %} <p><strong>SciELO</strong><br> <p><a
+                                        href="#{{ referencia.scielo }}">{{ referencia.scielo }}</a></p>
+                                </p>{% endif %}
+
+                            {% if  referencia.arxiv %} <p><strong>ArXiv</strong><br> <p><a
+                                        href="https://arxiv.org/abs/{{ referencia.arxiv }}">{{ referencia.arxiv }}</a></p>
+                                </p>{% endif %}
+
+                            {% if  referencia.zmath %} <p><strong>zbMATH </strong><br> <p><a
+                                        href="https://zbmath.org/?q=en%3Aan%3A{{ referencia.zmath }}">{{ referencia.zmmath }}</a></p>
+                                </p>{% endif %}
+
+                            {% if  referencia.msc %} <p><strong>MathSciNet </strong><br> <p><a
+                                        href="https://mathscinet.ams.org/mathscinet/search/mscdoc.html?code={{ referencia.msc }}">{{ referencia.msc }}</a></p>
+                                </p>{% endif %}
+
+                            <p><strong>Author</strong> <br>
                                 {% for  author in referencia.author %}
                                     <a href="{{ path('author_show', { 'slug': author.slug }) }}">{{ author.name }}</a>
                                     <br>

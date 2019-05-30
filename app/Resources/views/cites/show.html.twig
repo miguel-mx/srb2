@@ -2,21 +2,37 @@
 
 {% block body %}
     <section id="show-cite">
-        <div class="container-fluid myTab" >
+        <div class="container-fluid myTab">
             <div class="row justify-content-md-center">
                 <div class="col-md-9 col-sm-12 col-xs-12" style="background-color: #eeeeee">
                     <div class="row referencia-container p-5">
                         <div class="col-md-11 col-sm-12 col-xs-12 ">
                             <form>
                                 <h1>Cite {% if is_granted('ROLE_ADMIN') %}
-                                        <a href="{{ path('cites_edit', { id : cite.id}) }}"><i class="fas fa-pen-square fa-x3"></i></a>
+                                        <a href="{{ path('cites_edit', { id : cite.id}) }}"><i
+                                                    class="fas fa-pen-square fa-x3"></i></a>
                                     {% endif %}</h1>
                                 <h3>{{ cite.references.title }}</h3>
+
+                                {% if cite.type %}
+                                    <div class="form-group">
+                                        <p><strong>Type
+
+                                                {% if cite.type == 'A' %}
+                                                    A
+                                                {% else %}
+                                                    B
+                                                {% endif %}
+
+                                            </strong></p>
+                                    </div>
+                                {% endif %}
+
                                 {% if cite.cite %}
-                                <div class="form-group">
-                                    <p><strong>Cite</strong><br>
-                                    <label for="doi">{{ cite.cite }}</label>
-                                </div>
+                                    <div class="form-group">
+                                        <p><strong>Cite</strong><br>
+                                            <label for="doi">{{ cite.cite }}</label>
+                                    </div>
                                 {% endif %}
                                 {% if cite.url %}
                                     <div class="form-group">
@@ -30,6 +46,8 @@
                                             <a href="{{ cite.doi }}"> {{ cite.doi }}</a>
                                     </div>
                                 {% endif %}
+
+
                             </form>
                         </div>
                     </div>

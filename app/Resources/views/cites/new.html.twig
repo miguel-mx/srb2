@@ -1,5 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+{% endblock %}
+
 {% block body %}
     {{ form_start(form) }}
 
@@ -14,26 +20,29 @@
                                 <h1>Cites creation</h1>
                                 <h3>{{ cite.references.title }}</h3>
 
+                                <div class="form-group mb-4 mt-4">
+                                    {{ form_errors(form.type) }}
+                                    {{ form_widget(form.type, { 'attr': { 'class': "form-control", 'id': "type"} } ) }}
+                                </div>
                                 <div class="form-group">
                                     <label for="cite">{{ form_label(form.cite) }}</label>
                                     {{ form_errors(form.cite) }}
-                                    {{ form_widget(form.cite, { 'attr': { 'class': "form-control", 'placeholder': "Cite" , 'id': "cite", 'rows': 8  } } ) }}
+                                    {{ form_widget(form.cite, { 'attr': { 'class': "form-control", 'placeholder': "Cite" , 'id': "cite", 'rows': 8 , 'autocomplete':"off" } } ) }}
                                 </div>
 
                                 <div class="form-group">
                                     <label for="doi">{{ form_label(form.doi) }}</label>
                                     {{ form_errors(form.doi) }}
-                                    {{ form_widget(form.doi, { 'attr': { 'class': "form-control", 'placeholder': "DOI" , 'id': "doi"  } } ) }}
+                                    {{ form_widget(form.doi, { 'attr': { 'class': "form-control", 'placeholder': "DOI" , 'id': "doi", 'autocomplete':"off"  } } ) }}
                                 </div>
 
                                 <div class="form-group">
                                     <label for="url">{{ form_label(form.url) }}</label>
                                     {{ form_errors(form.url) }}
-                                    {{ form_widget(form.url, { 'attr': { 'class': "form-control", 'placeholder': "Url" , 'id': "url"  } } ) }}
+                                    {{ form_widget(form.url, { 'attr': { 'class': "form-control", 'placeholder': "Url" , 'id': "url", 'autocomplete':"off"  } } ) }}
                                 </div>
 
-
-                                <div>
+                                <div class="form-group">
                                     {{ form_widget(form) }}
                                     <button type="submit" class="btn btn-primary">Save <i class="fas fa-save fa-x3"></i></button>
                                     <a href="javascript:history.back(-1);" title="Ir la página anterior" class="btn btn-danger">Cancel <i class="fas fa-times fa-x3"></i></a>
@@ -63,4 +72,13 @@
     {#            <a href="{{ path('cites_index') }}">Back to the list</a>#}
     {#        </li>#}
     {#    </ul>#}
+{% endblock %}
+
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+
 {% endblock %}

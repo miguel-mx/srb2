@@ -15,12 +15,7 @@ class AuthorType extends AbstractType
     {
         $builder->add('name')
             ->add('alias')
-            ->add('slug')
-            ->add('user')
-            ->add('referencia',null, [
-                'label' => 'References',
-
-            ]);
+            ->add('user');
     }/**
      * {@inheritdoc}
      */

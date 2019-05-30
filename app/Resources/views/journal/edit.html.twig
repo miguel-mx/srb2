@@ -4,8 +4,9 @@
      {{ parent() }}
      <!-- select2 -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-     <link href="https://cdn.jsdelivr.net/gh/ttskch/select2-bootstrap4-theme@master/dist/select2-bootstrap4.min.css" rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+     <link href="https://cdn.jsdelivr.net/gh/ttskch/select2-bootstrap4-theme@master/dist/select2-bootstrap4.min.css"
+           rel="stylesheet">
 
  {% endblock %}
 
@@ -13,66 +14,64 @@
 {% block body %}
 
     {{ form_errors(edit_form) }}
+    {{ form_start(edit_form) }}
+
     <section id="edit-journal">
-        <div class="container-fluid myTab" >
+        <div class="container-fluid myTab">
             <div class="row justify-content-md-center">
                 <div class="col-9" style="background-color: #eeeeee">
                     <div class="row referencia-container p-5">
                         <div class="col-md-12">
                             <form>
                                 <h1>Journal edit</h1>
-                                {#                                <h3>{{ cite.references.title }}</h3>#}
 
                                 <div class="form-group">
                                     <label for="reference">{{ form_label(edit_form.name) }}</label>
                                     {{ form_errors(edit_form.name) }}
-                                    {{ form_widget(edit_form.name, { 'attr': { 'class': "form-control", 'placeholder': "Name" , 'id': "name" } } ) }}
+                                    {{ form_widget(edit_form.name, { 'attr': { 'class': "form-control", 'placeholder': "Name" , 'id': "name",'autocomplete':"off"  } } ) }}
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="publisher">{{ form_label(edit_form.publisher) }}</label>
                                         {{ form_errors(edit_form.publisher) }}
-                                        {{ form_widget(edit_form.publisher, { 'attr': { 'class': "form-control", 'placeholder': "Publisher" , 'id': "publisher" } } ) }}
+                                        {{ form_widget(edit_form.publisher, { 'attr': { 'class': "form-control", 'placeholder': "Publisher" , 'id': "publisher", 'autocomplete':"off"  } } ) }}
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="issn">{{ form_label(edit_form.issn) }}</label>
                                         {{ form_errors(edit_form.issn) }}
-                                        {{ form_widget(edit_form.issn, { 'attr': { 'class': "form-control", 'placeholder': "Issn" , 'id': "issn"  } } ) }}
+                                        {{ form_widget(edit_form.issn, { 'attr': { 'class': "form-control", 'placeholder': "Issn" , 'id': "issn", 'autocomplete':"off"   } } ) }}
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="eissn">{{ form_label(edit_form.eissn) }}</label>
                                         {{ form_errors(edit_form.eissn) }}
-                                        {{ form_widget(edit_form.eissn, { 'attr': { 'class': "form-control", 'placeholder': "E-issn" , 'id': "eissn"  } } ) }}
+                                        {{ form_widget(edit_form.eissn, { 'attr': { 'class': "form-control", 'placeholder': "E-issn" , 'id': "eissn",'autocomplete':"off"   } } ) }}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="url">{{ form_label(edit_form.url) }}</label>
                                     {{ form_errors(edit_form.url) }}
-                                    {{ form_widget(edit_form.url, { 'attr': { 'class': "form-control", 'placeholder': "Url" , 'id': "url"  } } ) }}
+                                    {{ form_widget(edit_form.url, { 'attr': { 'class': "form-control", 'placeholder': "Url" , 'id': "url", 'autocomplete':"off"   } } ) }}
                                 </div>
 
                                 <div class="form-row">
-                                    <div class="form-group col-md-6" >
+                                    <div class="form-group col-md-6">
                                         <label for="pais">{{ form_label(edit_form.pais) }}</label>
                                         {{ form_errors(edit_form.pais) }}
                                         {{ form_widget(edit_form.pais, { 'attr': { 'class': "form-control", 'placeholder': "País" , 'id': "pais"  } } ) }}
                                     </div>
                                 </div>
-                                <input type="submit" value="Edit" />
+
 
                                 <div>
-{#                                    {{ form_widget(edit_form) }}#}
-                                    <button type="submit" class="btn btn-primary">Save <i class="fas fa-save fa-x3"></i></button>
+                                    {{ form_widget(edit_form) }}
+                                    <button type="submit" class="btn btn-primary">Save <i class="fas fa-save fa-x3"></i>
+                                    </button>
                                     <a href="javascript:history.back(-1);" title="Ir la página anterior"
                                        class="btn btn-danger">Cancel <i class="fas fa-times fa-x3"></i></a>
-{#                                                                                                        {{ form_end(form) }}#}
+                                    {{ form_end(edit_form) }}
                                 </div>
-                                {#        <ul>#}
-                                {#            <li>#}
-                                {#                <a href="{{ path('fi_index') }}">Back to the list</a>#}
-                                {#            </li>#}
-                                {#        </ul>#}
+
                             </form>
                         </div>
                     </div>
@@ -80,23 +79,7 @@
             </div>
         </div>
     </section>
-    {#    <h1>Journal edit</h1>#}
-
-    {#    {{ form_start(edit_form) }}#}
-    {#        {{ form_widget(edit_form) }}#}
-    {#        <input type="submit" value="Edit" />#}
-    {#    {{ form_end(edit_form) }}#}
-
-    {#    <ul>#}
-    {#        <li>#}
-    {#            <a href="{{ path('journal_index') }}">Back to the list</a>#}
-    {#        </li>#}
-    {#        <li>#}
-    {#            {{ form_start(delete_form) }}#}
-    {#                <input type="submit" value="Delete">#}
-    {#            {{ form_end(delete_form) }}#}
-    {#        </li>#}
-    {#    </ul>#}
+    {{ form_end(edit_form) }}
 {% endblock %}
 
 
@@ -107,7 +90,7 @@
 
 
     <script>
-        $('select').each(function(idx, ele) {
+        $('select').each(function (idx, ele) {
             $(ele).select2({
                 theme: 'bootstrap4',
                 placeholder: ele.getAttribute('placeholder')

@@ -24,45 +24,11 @@ class ReferenciaController extends Controller
     public function indexAction(Request $request)
     {
 
-        $searchQuery  = $request->get('query');
-
-        if(!empty($searchQuery)){
-            $finder  = $this->container->get('fos_elastica.finder.app.referencia');
-            $referencias = $finder->createPaginatorAdapter($searchQuery);
-        }else{
-            $em = $this->getDoctrine()->getManager();
-            $referencias = $em->getRepository(Referencia::class)->findByYearpub('2018');
-
-        }
-
-
-        $paginator = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-          $referencias, $request->query->getInt('page',1),
-            10
-        );
-
-
-        return $this->render('referencia/index.html.twig', array(
-            'pagination' => $pagination,
-        ));
-
-
-    }
-
-    /**
-     * Lists all referencium entities.
-     *
-     * @Route("/data-tables", name="referencia_index2")
-     * @Method("GET")
-     */
-    public function dataTableAction(Request $request)
-    {
 
         $em = $this->getDoctrine()->getManager();
         $referencias = $em->getRepository(Referencia::class)->findByYearpub('2018');
 
-        return $this->render('referencia/data-tables.html.twig', array(
+        return $this->render('referencia/index.html.twig', array(
             'referencias' => $referencias,
         ));
 
@@ -77,7 +43,6 @@ class ReferenciaController extends Controller
     public function newAction(Request $request)
     {
         $referencia = new Referencia();
-
 
 
         $form = $this->createForm('AppBundle\Form\ReferenciaType', $referencia);
@@ -106,6 +71,7 @@ class ReferenciaController extends Controller
     public function showAction(Referencia $referencia)
     {
         $deleteForm = $this->createDeleteForm($referencia);
+
 
         return $this->render('referencia/show.html.twig', array(
             'referencia' => $referencia,
@@ -172,7 +138,8 @@ class ReferenciaController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('referencia_delete', array('id' => $referencium->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
+
+
 }

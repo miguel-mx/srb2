@@ -5,8 +5,9 @@
      {{ parent() }}
      <!-- select2 -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-     <link href="https://cdn.jsdelivr.net/gh/ttskch/select2-bootstrap4-theme@master/dist/select2-bootstrap4.min.css" rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+     <link href="https://cdn.jsdelivr.net/gh/ttskch/select2-bootstrap4-theme@master/dist/select2-bootstrap4.min.css"
+           rel="stylesheet">
 
  {% endblock %}
 
@@ -27,7 +28,7 @@
                                     <div class="form-group col-md-6">
                                         <label for="name">{{ form_label(form.name) }}</label>
                                         {{ form_errors(form.name) }}
-                                        {{ form_widget(form.name, { 'attr': { 'class': "form-control", 'placeholder': "Name" , 'id': "name" } } ) }}
+                                        {{ form_widget(form.name, { 'attr': { 'class': "form-control", 'placeholder': "Name" , 'id': "name", 'autocomplete':"off"} } ) }}
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="user">{{ form_label(form.user) }}</label>
@@ -39,19 +40,15 @@
                                 <div class="form-group">
                                     <label for="alias">{{ form_label(form.alias) }}</label>
                                     {{ form_errors(form.alias) }}
-                                    {{ form_widget(form.alias, { 'attr': { 'class': "form-control", 'placeholder': "Alias" , 'id': "alias" } } ) }}
-                                </div>
-                                <div class="form-group">
-                                    <label for="reference">{{ form_label(form.referencia) }}</label>
-                                    {{ form_errors(form.referencia) }}
-                                    {{ form_widget(form.referencia, { 'attr': { 'class': "form-control", 'placeholder': "Reference" , 'id': "reference"  } } ) }}
+                                    {{ form_widget(form.alias, { 'attr': { 'class': "form-control", 'placeholder': "Alias" , 'id': "alias", 'autocomplete':"off" } } ) }}
                                 </div>
                                 <div>
-                                    {#                                        {{ form_widget(edit_form) }}#}
-                                    <button type="submit" class="btn btn-primary">Save <i class="fas fa-save fa-x3"></i></button>
+                                    {{ form_widget(form) }}
+                                    <button type="submit" class="btn btn-primary">Save <i class="fas fa-save fa-x3"></i>
+                                    </button>
                                     <a href="javascript:history.back(-1);" title="Ir la página anterior"
                                        class="btn btn-danger">Cancel <i class="fas fa-times fa-x3"></i></a>
-                                    {#                                                                    {{ form_end(form) }}#}
+                                    {{ form_end(form) }}
                                 </div>
                             </form>
                         </div>
@@ -82,7 +79,7 @@
 
 
     <script>
-        $('select').each(function(idx, ele) {
+        $('select').each(function (idx, ele) {
             $(ele).select2({
                 theme: 'bootstrap4',
                 placeholder: ele.getAttribute('placeholder')

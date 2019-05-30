@@ -110,7 +110,7 @@ class CitesController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('cites_edit', array('id' => $cite->getId()));
+            return $this->redirectToRoute('cites_show', array('id' => $cite->getId()));
         }
 
         return $this->render('cites/edit.html.twig', array(

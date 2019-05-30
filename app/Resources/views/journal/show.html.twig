@@ -13,6 +13,7 @@
                                         <a href="{{ path('journal_edit', { id : journal.id}) }}"><i class="fas fa-pen-square fa-x3"></i></a>
                                     {% endif %}</h1>
 
+
                                 <div class="form-row">
                                     {% if journal.name %}
                                         <div class="form-group col-md-3 col-sm-3 col-xs-3">
@@ -64,7 +65,16 @@
                                         </div>
                                     {% endif %}
                                 </div>
+                                <div class="block">
+                                    <h5><strong>Referencias</strong></h5>
 
+                                    {% for journals in referencia.journals %}
+                                        <p><a href="{{ path('referencia_show', { id: journals.id }) }}">{{ journals.referencia }}</a></p>
+                                    {% endfor %}
+                                </div>
+{#                                {% for cites in  referencia.cites %}#}
+{#                                    <p><a href="{{ path('cites_show', { id: cites.id }) }}">{{ cites.cite }}</a></p>#}
+{#                                {% endfor %}#}
                             </form>
                         </div>
                     </div>
