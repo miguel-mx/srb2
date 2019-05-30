@@ -2,66 +2,79 @@
 
 {% block body %}
     <section id="show-journal">
-        <div class="container-fluid myTab" >
+        <div class="container-fluid myTab">
             <div class="row justify-content-md-center">
-                <div class="col-9" style="background-color: #eeeeee">
+                <div class="col-md-9 col-sm-12 col-xs-12" style="background-color: #eeeeee">
                     <div class="row referencia-container p-5">
-                        <div class="col-md-11 ">
+                        <div class="col-md-12 ">
                             <form>
-                                <h1>Journal</h1>
 
-                                {% if journal.name %}
-                                    <div class="form-group">
-                                        <p><strong>Journal</strong><br>
-                                            <label for="name">{{ journal.name }}</label>
-                                    </div>
-                                {% endif %}
+                                <h1>Journal {% if is_granted('ROLE_ADMIN') %}
+                                        <a href="{{ path('journal_edit', { id : journal.id}) }}"><i class="fas fa-pen-square fa-x3"></i></a>
+                                    {% endif %}</h1>
+
+
                                 <div class="form-row">
+                                    {% if journal.name %}
+                                        <div class="form-group col-md-3 col-sm-3 col-xs-3">
+                                            <p><strong>Journal</strong><br>
+                                                <label for="name">{{ journal.name }}</label>
+                                        </div>
+                                    {% endif %}
                                     {% if journal.publisher %}
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-3 col-sm-3 col-xs-3">
                                             <p><strong>Publisher</strong><br>
                                                 <label for="publisher">{{ journal.publisher }}</label>
                                         </div>
                                     {% endif %}
+                                    {% if journal.pais %}
+                                        <div class="form-group col-md-3 col-sm-3 col-xs-3">
+                                            <p><strong>Country</strong><br>
+                                                <label for="pais">{{ journal.pais }}</label>
+                                        </div>
+                                    {% endif %}
+                                    <div class="form-group col-md-3 col-sm-3 col-xs-3">
+                                        <h5><strong>FI</strong>
+                                            {% if is_granted('ROLE_ADMIN') %}<a
+                                                    href="{{ path('fi_new', { id : journal.id}) }}"><i
+                                                        class="fas fa-plus-circle fa-x3"></i></a></h5>
+                                        {% endif %}
+                                        {% for fi in  journal.fi %}
+                                        <p><a href="{{ path('fi_show', { id: fi.id }) }}">{{ fi.fi }}</a>
+                                            {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="form-row">
+
                                     {% if journal.issn %}
-                                        <div class="form-group col-md-3">
-                                            <p><strong>Issn</strong><br>
+                                        <div class="form-group col-md-3 col-sm-3 col-xs-3">
+                                            <p><strong>ISSN</strong><br>
                                                 <label for="issn">{{ journal.issn }}</label>
                                         </div>
                                     {% endif %}
                                     {% if journal.eissn %}
-                                        <div class="form-group col-md-3">
-                                            <p><strong>E-issn</strong><br>
+                                        <div class="form-group col-md-3 col-sm-3 col-xs-3">
+                                            <p><strong>E-ISSN</strong><br>
                                                 <label for="eissn">{{ journal.eissn }}</label>
                                         </div>
                                     {% endif %}
-                                </div>
-                                {% if journal.url %}
-                                    <div class="form-group">
-                                        <p><strong>Url</strong><br>
-                                            <label for="url">{{ journal.url }}</label>
-                                    </div>
-                                {% endif %}
-                                {% if journal.eissn %}
-                                    <div class="form-group">
-                                        <p><strong>Pais</strong><br>
-                                            <label for="pais">{{ journal.pais }}</label>
-                                    </div>
-                                {% endif %}
-
-                                <div class="block">
-                                    <h5><strong>FI</strong>
-                                        {% if is_granted('ROLE_ADMIN') %}<a href="{{ path('fi_new', { id : journal.id}) }}"><i class="fas fa-plus-circle fa-x3"></i></a></h5>
+                                    {% if journal.url %}
+                                        <div class="form-group col-md-6 col-sm-12 col-xs-12">
+                                            <p><strong>Url</strong><br>
+                                                <label for="url">{{ journal.url }}</label>
+                                        </div>
                                     {% endif %}
-                                    {% for fi in  journal.fi %}
-                                    <p><a href="{{ path('fi_show', { id: fi.id }) }}">{{ fi.fi }}</a>
-                                        {% endfor %}
                                 </div>
-                                {% if is_granted('ROLE_ADMIN') %}
-                                <div>
-                                    <a href="{{ path('journal_edit', { id : journal.id})}}" class="btn btn-primary">Edit <i class="fas fa-edit fa-x3"></i></a>
+                                <div class="block">
+                                    <h5><strong>Referencias</strong></h5>
+
+                                    {% for journals in referencia.journals %}
+                                        <p><a href="{{ path('referencia_show', { id: journals.id }) }}">{{ journals.referencia }}</a></p>
+                                    {% endfor %}
                                 </div>
-                                {% endif %}
+{#                                {% for cites in  referencia.cites %}#}
+{#                                    <p><a href="{{ path('cites_show', { id: cites.id }) }}">{{ cites.cite }}</a></p>#}
+{#                                {% endfor %}#}
                             </form>
                         </div>
                     </div>

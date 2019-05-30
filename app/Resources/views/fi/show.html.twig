@@ -3,49 +3,50 @@
 {% block body %}
 
     <section id="show-cite">
-        <div class="container-fluid myTab" >
+        <div class="container-fluid myTab">
             <div class="row justify-content-md-center">
-                <div class="col-9" style="background-color: #eeeeee">
+                <div class="col-md-9 col-sm-12 col-xs-12" style="background-color: #eeeeee">
                     <div class="row referencia-container p-5">
                         <div class="col-md-11 ">
                             <form>
-                                <h1>Fi</h1>
+                                <h1>Fi {% if is_granted('ROLE_ADMIN') %}
+                                        <a href="{{ path('fi_edit', { id : fi.id}) }}"><i class="fas fa-pen-square fa-x3"></i></a>
+                                    {% endif %}</h1>
                                 <h3>{{ fi.journal.name }}</h3>
+                                <div class="row">
+                                    {% if fi.origen %}
+                                        <div class="form-group col-md-4 col-sm-4 col-xs-4">
+                                            <p><strong>Origin</strong><br>
+                                                <label for="origen">{{ fi.origen }}</label>
 
-                                {% if fi.origen %}
-                                <div class="form-group">
-                                    <p><strong>Origen</strong><br>
-                                        <label for="origen">{{ fi.origen }}</label>
-                                        {% endif %}
+                                        </div>
+                                    {% endif %}
+                                    {% if fi.fi %}
+                                        <div class="form-group col-md-4 col-sm-4 col-xs-4">
+                                            <p><strong>FI</strong><br>
+                                                <label for="fi">{{ fi.fi }}</label>
+                                        </div>
+                                    {% endif %}
+                                    {% if fi.cuartil %}
+                                        <div class="form-group col-md-4 col-sm-4 col-xs-4">
+                                            <p><strong>Cuartil</strong><br>
+                                                <label for="cuartil">{{ fi.cuartil }}</label>
+                                        </div>
+                                    {% endif %}
                                 </div>
-                                {% if fi.year %}
-                                    <div class="form-group">
-                                        <p><strong>Year</strong><br>
-                                            <label for="year">{{ fi.year }}</label>
-                                    </div>
-                                {% endif %}
-                                {% if fi.fi %}
-                                    <div class="form-group">
-                                        <p><strong>FI</strong><br>
-                                            <label for="fi">{{ fi.fi }}</label>
-                                    </div>
-                                {% endif %}
-                                {% if fi.cuartil %}
-                                    <div class="form-group">
-                                        <p><strong>Cuartil</strong><br>
-                                            <label for="cuartil">{{ fi.cuartil }}</label>
-                                    </div>
-                                {% endif %}
-                                {% if fi.journal %}
-                                    <div class="form-group">
-                                        <p><strong>Journal</strong><br>
-                                            <label for="journal">{{ fi.journal }}</label>
-                                    </div>
-                                {% endif %}
-
-
-                                <div>
-                                    <a href="{{ path('fi_edit', { id : fi.id})}}" class="btn btn-primary">Edit <i class="fas fa-edit fa-x3"></i></a>
+                                <div class="row">
+                                    {% if fi.journal %}
+                                        <div class="form-group col-md-4 col-sm-4 col-xs-4">
+                                            <p><strong>Journal</strong><br>
+                                                <label for="journal">{{ fi.journal }}</label>
+                                        </div>
+                                    {% endif %}
+                                    {% if fi.year %}
+                                        <div class="form-group col-md-4 col-sm-4 col-xs-4">
+                                            <p><strong>Year</strong><br>
+                                                <label for="year">{{ fi.year }}</label>
+                                        </div>
+                                    {% endif %}
                                 </div>
                             </form>
                         </div>

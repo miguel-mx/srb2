@@ -5,21 +5,23 @@
     <section id="buscador">
         <div class="container-fluid   mt-3 mb-5  ">
             <div class="row  justify-content-md-center ">
-                <div class="hero-text mt-lg-5 col-lg-8 col-md-10 " >
+                <div class="hero-text mt-lg-5 col-lg-8 col-md-10 ">
                     <h1>Unidad de Documentación</h1>
                     <h2>Sistema de Referencias Bibliográficas</h2>
                 </div>
             </div>
 
             <div class="row">
-                    <form class=" col mt-5 input-group input-group-lg mt-lg-5 col-lg-7 col-md-10 offset-md-2" action="../search2" method="get">
-                        <input type="search" required class="form-control search" name="q" placeholder="Búsqueda" autocomplete="off" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-                        <div class="input-group-append">
-                            <button class="btn btn-secondary" type="submit" value="Search">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                    </form>
+                <form class=" col mt-5 input-group input-group-lg mt-lg-5 col-lg-7 col-md-10 offset-md-2"
+                      action="../index" method="get">
+                    <input type="search" required class="form-control search" name="q" placeholder="Búsqueda"
+                           autocomplete="off" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="submit" value="Search">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -27,7 +29,7 @@
     {% for message in app.flashes('error') %}
         <div class="alert alert-danger" role="alert">
             <div class="container">
-            <h3 class="p-1 text-center"><i class="fas fa-times"></i> {{ message }}</h3>
+                <h3 class="p-1 text-center"><i class="fas fa-times"></i> {{ message }}</h3>
             </div>
         </div>
     {% endfor %}
@@ -41,8 +43,10 @@
                         <div class="d-flex justify-content-between mb-lg-3">
                             <div class="class= d-inline-flex p-2 bd-highlight flex-column justify-content-end">
                                 <div>
-                                    <h2>1800</h2>
+                                    <h2>{{ articlesTotal | length }}</h2>
                                 </div>
+
+
                                 <div>
                                     <h5>Articulos</h5>
                                 </div>
@@ -50,7 +54,7 @@
 
                             <div class="d-flex align-items-center mr-5 ">
                                 <div>
-                                    <i class="fas fa-newspaper fa-5x" ></i>
+                                    <i class="fas fa-newspaper fa-5x"></i>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +66,7 @@
                         <div class="d-flex justify-content-between mb-lg-3 ">
                             <div class="class= d-inline-flex p-2 bd-highlight flex-column justify-content-end">
                                 <div>
-                                    <h2>40</h2>
+                                    <h2>{{ authorTotal | length }}</h2>
                                 </div>
                                 <div>
                                     <h5>Autores</h5>
@@ -71,7 +75,7 @@
 
                             <div class="d-flex align-items-center mr-5 ">
                                 <div>
-                                    <i class="fas fa-user-tie fa-5x" ></i>
+                                    <i class="fas fa-user-tie fa-5x"></i>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +86,7 @@
                         <div class="d-flex justify-content-between mb-lg-3 ">
                             <div class="class= d-inline-flex p-2 bd-highlight flex-column justify-content-end">
                                 <div>
-                                    <h2>40</h2>
+                                    <h2>{{ thesisTotal | length }}</h2>
                                 </div>
                                 <div>
                                     <h5>Tesis</h5>
@@ -91,7 +95,7 @@
 
                             <div class="d-flex align-items-center  ">
                                 <div>
-                                    <i class="fas fa-book fa-5x" ></i>
+                                    <i class="fas fa-book fa-5x"></i>
                                 </div>
                             </div>
                         </div>
@@ -102,34 +106,25 @@
     </section>
     <section id="latest-articles">
         <div class="container-fluid ">
-            <h1 class="text-center">Artículos Recientes <small><br>Últimos artículos publicados</small></h1>
+            <h1 class="text-center">{{ referencias | length }} Artículos Recientes
+                <small><br>Últimos artículos publicados</small>
+            </h1>
+
             <div class="row articles-container justify-content-center">
                 <div class="col-lg-9">
-                    <div class="article ">
-                        <div class="title">Inhomogeneous Dirichlet-boundary value problem for one dimensional nonlinear Schrödinger equations via factorization techniques</div>
-                        <div class="data">Journal of Differential Equations, Vol. 266, Issue 2-3, 2019, p. 1121-1152</div>
-                        <div class="author">Esquivel, L; Hayashi, N; Kaikina, E.I.</div>
-                    </div>
-                    <div class="article">
-                        <div class="title">Exhaustion of the curve grad via rigid expansions</div>
-                        <div class="data">Glasqow Mathematical Journal, Vol. 61, Issue 1, 2019, p. 195-230</div>
-                        <div class="author">Hernández-Hernández, Jesús; </div>
-                    </div>
-                    <div class="article">
-                        <div class="title"> On a construction of Malykhin</div>
-                        <div class="data">Topology Proceedings, Vol. 53, 2019, p. 209-218</div>
-                        <div class="author">Martínez-Ranero, C.A., Ramos-Garcia, U. A.</div>
-                    </div>
-                    <div class="article">
-                        <div class="title"> The -+ and -+ constructions for biset functors</div>
-                        <div class="data">Journal of Algebra, Vol. 523, 2019, p. 241-273</div>
-                        <div class="author">Boltje, Robert; Raggi-Cardenas, Gerardo, Valero-Elizondo, Luis;</div>
-                    </div>
-                    <div class="article">
-                        <div class="title">Double exponential sums and congruences with intervals and exponential functions modulo a prime</div>
-                        <div class="data">Journal of Number Thoery, Vol. 199, 2019, p. 377-389</div>
-                        <div class="author">Garaev, M. Z.</div>
-                    </div>
+                    {% for referencia in referencias %}
+                        <div class="article ">
+                            <div class="title">{{ referencia.title }}</div>
+                            <div class="data"> {% if  referencia.journal %} {{ referencia.journal }},{% endif %}
+                                {% if  referencia.volume %} Vol. {{ referencia.volume }},{% endif %}
+                                {% if  referencia.issue %} Issue  {{ referencia.issue }},{% endif %}
+                                {% if  referencia.yearPub %} {{ referencia.yearPub }},{% endif %}
+                                {% if  referencia.pages %} p. {{ referencia.pages }}{% endif %}
+                                {#                            Journal of Differential Equations, Vol. 266, Issue 2-3, 2019, p. 1121-1152#}
+                            </div>
+                            <div class="author">{{ referencia.authors }}</div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

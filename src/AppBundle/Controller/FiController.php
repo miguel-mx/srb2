@@ -107,7 +107,7 @@ class FiController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('fi_edit', array('id' => $fi->getId()));
+            return $this->redirectToRoute('fi_show', array('id' => $fi->getId()));
         }
 
         return $this->render('fi/edit.html.twig', array(

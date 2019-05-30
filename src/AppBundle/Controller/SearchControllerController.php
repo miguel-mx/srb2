@@ -63,6 +63,7 @@ class SearchControllerController extends Controller
     }
 
 
+
     /**
      * Lists all referencium entities.
      *

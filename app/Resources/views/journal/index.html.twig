@@ -7,7 +7,7 @@
             <table id="myTable" class="table">
                 <thead>
                 <tr>
-                    <th>{{ journals|length }} Resultados</th>
+                    <th>{{ journals|length }} Results</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -25,7 +25,7 @@
                 </tbody>
             </table>
             {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('journal_new') }}">Agregar journal</a>
+            <a href="{{ path('journal_new') }}">New journal</a>
             {% endif %}
 
         </div>

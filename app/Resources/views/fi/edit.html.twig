@@ -1,28 +1,39 @@
 {% extends 'base.html.twig' %}
 
+
+ {% block stylesheets %}
+     {{ parent() }}
+     <!-- select2 -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+     <link href="https://cdn.jsdelivr.net/gh/ttskch/select2-bootstrap4-theme@master/dist/select2-bootstrap4.min.css"
+           rel="stylesheet">
+
+ {% endblock %}
+
 {% block body %}
 
     {{ form_errors(edit_form) }}
+    {{ form_start(edit_form) }}
     <section id="edit-fi">
-        <div class="container-fluid myTab" >
+        <div class="container-fluid myTab">
             <div class="row justify-content-md-center">
                 <div class="col-9" style="background-color: #eeeeee">
                     <div class="row referencia-container p-5">
                         <div class="col-md-12">
                             <form>
                                 <h1>Fi edit</h1>
-                                {#                                <h3>{{ cite.references.title }}</h3>#}
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="origen">{{ form_label(edit_form.origen) }}</label>
                                         {{ form_errors(edit_form.origen) }}
-                                        {{ form_widget(edit_form.origen, { 'attr': { 'class': "form-control", 'placeholder': "Reference" , 'id': "origen" } } ) }}
+                                        {{ form_widget(edit_form.origen, { 'attr': { 'class': "form-control", 'placeholder': "Reference" , 'id': "origen", 'autocomplete':"off"  } } ) }}
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="year">{{ form_label(edit_form.year) }}</label>
                                         {{ form_errors(edit_form.year) }}
-                                        {{ form_widget(edit_form.year, { 'attr': { 'class': "form-control", 'placeholder': "Year" , 'id': "year"  } } ) }}
+                                        {{ form_widget(edit_form.year, { 'attr': { 'class': "form-control", 'placeholder': "Year" , 'id': "year",'autocomplete':"off"   } } ) }}
                                     </div>
                                 </div>
 
@@ -30,25 +41,24 @@
                                     <div class="form-group col-md-6">
                                         <label for="fi">{{ form_label(edit_form.fi) }}</label>
                                         {{ form_errors(edit_form.fi) }}
-                                        {{ form_widget(edit_form.fi, { 'attr': { 'class': "form-control", 'placeholder': "Fi" , 'id': "fi"  } } ) }}
+                                        {{ form_widget(edit_form.fi, { 'attr': { 'class': "form-control", 'placeholder': "Fi" , 'id': "fi", 'autocomplete':"off"   } } ) }}
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="cuartil">{{ form_label(edit_form.cuartil) }}</label>
                                         {{ form_errors(edit_form.cuartil) }}
-                                        {{ form_widget(edit_form.cuartil, { 'attr': { 'class': "form-control", 'placeholder': "Cuartil" , 'id': "cuartil"  } } ) }}
+                                        {{ form_widget(edit_form.cuartil, { 'attr': { 'class': "form-control", 'placeholder': "Cuartil" , 'id': "cuartil",'autocomplete':"off"   } } ) }}
                                     </div>
                                 </div>
+
+
                                 <div>
                                     {{ form_widget(edit_form) }}
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                    <a href="javascript:history.back(-1);" title="Ir la página anterior" class="btn btn-danger">Cancelar <i class="fas fa-times fa-x3"></i></a>
-                                    {#                                                                    {{ form_end(form) }}#}
+                                    <button type="submit" class="btn btn-primary">Save <i class="fas fa-save fa-x3"></i>
+                                    </button>
+                                    <a href="javascript:history.back(-1);" title="Ir la página anterior"
+                                       class="btn btn-danger">Cancel <i class="fas fa-times fa-x3"></i></a>
+                                    {{ form_end(edit_form) }}
                                 </div>
-                                {#        <ul>#}
-                                {#            <li>#}
-                                {#                <a href="{{ path('fi_index') }}">Back to the list</a>#}
-                                {#            </li>#}
-                                {#        </ul>#}
                             </form>
                         </div>
                     </div>
@@ -74,4 +84,22 @@
     {#            {{ form_end(delete_form) }}#}
     {#        </li>#}
     {#    </ul>#}
+{% endblock %}
+
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+
+    <script>
+        $('select').each(function (idx, ele) {
+            $(ele).select2({
+                theme: 'bootstrap4',
+                placeholder: ele.getAttribute('placeholder')
+            });
+        });
+    </script>
+
 {% endblock %}

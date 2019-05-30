@@ -62,14 +62,16 @@
                             </form>
                         </li >
                     {% else %}
+                        <div class="d-none d-xl-block">
                         <li class="d-flex nav-item">
-                            <form action="../search2" method="get">
+                            <form action="../index" method="get">
                                 <div class="input-group">
                                     <input type="search" class="form-control" placeholder="Search" autocomplete="off"
                                            name="q" value="{{ app.request.get('query') }}">
                                 </div>
                             </form>
                         </li >
+                        </div>
                     {% endif %}
                     <li class="nav-item active" >
                         <a class="nav-link" href="http://localhost:8000/index">INICIO <span class="sr-only">(current)</span></a>
@@ -108,8 +110,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="http://localhost:8000/login">Iniciar sesión</a>
                                 <a class="dropdown-item" href="http://localhost:8000/resetting/request">Recuperar Contraseña</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Ayuda</a>
+
                             </div>
                         </li>
                     {% endif %}
@@ -131,14 +132,13 @@
 
                     {% if is_granted('ROLE_ADMIN') %}
 
-
                         <li class="nav-item dropdown" >
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
                                aria-expanded="false">
                                 Publicar
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Referencia</a>
+                                <a class="dropdown-item" href="http://localhost:8000/referencia/new">Referencia</a>
                                 <a class="dropdown-item" href="http://localhost:8000/journal/new">Revista</a>
                             </div>
                         </li>

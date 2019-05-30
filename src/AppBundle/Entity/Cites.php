@@ -44,6 +44,13 @@ class Cites
     private $doi;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=1)
+     */
+    private $type;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created", type="datetime")
@@ -56,6 +63,23 @@ class Cites
      * @ORM\JoinColumn(name="references_id", referencedColumnName="id")
      */
     private $references;
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
 
 
     /**

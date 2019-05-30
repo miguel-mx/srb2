@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Journal;
+use AppBundle\Entity\Referencia;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -72,12 +73,13 @@ class JournalController extends Controller
      * @Route("/{id}", name="journal_show")
      * @Method("GET")
      */
-    public function showAction(Journal $journal)
+    public function showAction(Journal $journal, Referencia $referencia)
     {
         $deleteForm = $this->createDeleteForm($journal);
 
         return $this->render('journal/show.html.twig', array(
             'journal' => $journal,
+            'referencia' => $referencia,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -105,7 +107,7 @@ class JournalController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('journal_edit', array('id' => $journal->getId()));
+            return $this->redirectToRoute('journal_show', array('id' => $journal->getId()));
         }
 
         return $this->render('journal/edit.html.twig', array(
