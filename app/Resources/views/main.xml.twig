@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ccm>
+    {% for referencia in referencias %}
+<evento>
+        <titulo>{{ referencia.title }}</titulo>
+        <journal>{{ referencia.journal }}</journal>
+        <volume>{{ referencia.volume }}</volume>
+        <issue>{{ referencia.issue }}</issue>
+        <yearPub>{{ referencia.yearPub }}</yearPub>
+        <pages>{{ referencia.pages }}</pages>
+        <authors>{{ referencia.authors }}</authors>
+    </evento>
+    {% endfor %}
+</ccm>

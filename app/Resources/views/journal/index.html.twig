@@ -25,57 +25,11 @@
                 </tbody>
             </table>
             {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('journal_new') }}">New journal</a>
+                <a href="{{ path('journal_new') }}">New journal</a>
             {% endif %}
 
         </div>
     </section>
-
-    {#    <h1>Journals list</h1>#}
-
-    {#    <table>#}
-    {#        <thead>#}
-    {#            <tr>#}
-    {#                <th>Id</th>#}
-    {#                <th>Name</th>#}
-    {#                <th>Publisher</th>#}
-    {#                <th>Issn</th>#}
-    {#                <th>Eissn</th>#}
-    {#                <th>Url</th>#}
-    {#                <th>Pais</th>#}
-    {#                <th>Actions</th>#}
-    {#            </tr>#}
-    {#        </thead>#}
-    {#        <tbody>#}
-    {#        {% for journal in journals %}#}
-    {#            <tr>#}
-    {#                <td><a href="{{ path('journal_show', { 'id': journal.id }) }}">{{ journal.id }}</a></td>#}
-    {#                <td>{{ journal.name }}</td>#}
-    {#                <td>{{ journal.publisher }}</td>#}
-    {#                <td>{{ journal.issn }}</td>#}
-    {#                <td>{{ journal.eissn }}</td>#}
-    {#                <td>{{ journal.url }}</td>#}
-    {#                <td>{{ journal.pais }}</td>#}
-    {#                <td>#}
-    {#                    <ul>#}
-    {#                        <li>#}
-    {#                            <a href="{{ path('journal_show', { 'id': journal.id }) }}">show</a>#}
-    {#                        </li>#}
-    {#                        <li>#}
-    {#                            <a href="{{ path('journal_edit', { 'id': journal.id }) }}">edit</a>#}
-    {#                        </li>#}
-    {#                    </ul>#}
-    {#                </td>#}
-    {#            </tr>#}
-    {#        {% endfor %}#}
-    {#        </tbody>#}
-    {#    </table>#}
-
-    {#    <ul>#}
-    {#        <li>#}
-    {#            <a href="{{ path('journal_new') }}">Create a new journal</a>#}
-    {#        </li>#}
-    {#    </ul>#}
 {% endblock %}
 
 

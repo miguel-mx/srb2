@@ -29,8 +29,6 @@
                                         href="{{ path('search', {'q': key | trim | url_encode() }) }}"> {{ key|trim }}</a>; {% endfor %}
                                 </div>
                             {% endif %}
-
-
                         </td>
                     </tr>
                 {% endfor %}
@@ -39,12 +37,6 @@
 
         </div>
     </section>
-
-    {#    <ul>#}
-    {#        <li>#}
-    {#            <a href="{{ path('referencia_new') }}">Create a new referencium</a>#}
-    {#        </li>#}
-    {#    </ul>#}
 {% endblock %}
 
 

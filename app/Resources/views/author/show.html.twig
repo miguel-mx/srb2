@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 
-
 {% block body %}
 
     <section id="show-article">
@@ -12,7 +11,8 @@
                         <div class="col-md-12 ">
                             <div class="d-inline-block">
                                 <h3 class="mt-1 text-info">{{ author.name }} {% if is_granted('ROLE_ADMIN') %}
-                                        <a href="{{ path('author_edit', { id : author.id}) }}"><i class="fas fa-pen-square fa-x3"></i></a>
+                                        <a href="{{ path('author_edit', { id : author.id}) }}"><i
+                                                    class="fas fa-pen-square fa-x3"></i></a>
                                     {% endif %}</h3>
                                 {% if  author.alias %}
                                     <p><strong>Alias:</strong> {{ author.alias }}</p>{% endif %}
@@ -84,41 +84,3 @@
     </script>
 {% endblock %}
 
-{#{% block body %}#}
-{#    <h1>Author</h1>#}
-
-{#    <table>#}
-{#        <tbody>#}
-{#            <tr>#}
-{#                <th>Name</th>#}
-{#                <td>{{ author.name }}</td>#}
-{#            </tr>#}
-{#            <tr>#}
-{#                <th>Alias</th>#}
-{#                <td>{{ author.alias }}</td>#}
-{#            </tr>#}
-{#            <tr>#}
-{#                <th>Id</th>#}
-{#                <td>{{ author.id }}</td>#}
-{#            </tr>#}
-{#            <tr>#}
-{#                <th>Slug</th>#}
-{#                <td>{{ author.slug }}</td>#}
-{#            </tr>#}
-{#        </tbody>#}
-{#    </table>#}
-
-{#    <ul>#}
-{#        <li>#}
-{#            <a href="{{ path('author_index') }}">Back to the list</a>#}
-{#        </li>#}
-{#        <li>#}
-{#            <a href="{{ path('author_edit', { 'id': author.id }) }}">Edit</a>#}
-{#        </li>#}
-{#        <li>#}
-{#            {{ form_start(delete_form) }}#}
-{#                <input type="submit" value="Delete">#}
-{#            {{ form_end(delete_form) }}#}
-{#        </li>#}
-{#    </ul>#}
-{#{% endblock %}#}

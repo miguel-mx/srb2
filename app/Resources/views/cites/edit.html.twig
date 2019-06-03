@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
+
     {{ parent() }}
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
@@ -9,14 +10,13 @@
 
 {% block body %}
 
-
     {{ form_errors(edit_form) }}
     {{ form_start(edit_form) }}
 
     <section id="edit-cite">
         <div class="container-fluid myTab">
             <div class="row justify-content-md-center">
-                <div class="col-9" style="background-color: #eeeeee">
+                <div class="col-md-9 col-sm-12 col-xs-12" id="box1">
                     <div class="row referencia-container p-5">
                         <div class="col-md-12">
                             <form>
@@ -61,29 +61,11 @@
             </div>
         </div>
     </section>
-    {#    <h1>Cite edit</h1>#}
-
-    {#    {{ form_start(edit_form) }}#}
-    {#        {{ form_widget(edit_form) }}#}
-    {#        <input type="submit" value="Edit" />#}
-    {#    {{ form_end(edit_form) }}#}
-
-    {#    <ul>#}
-    {#        <li>#}
-    {#            <a href="{{ path('cites_index') }}">Back to the list</a>#}
-    {#        </li>#}
-    {#        <li>#}
-    {#            {{ form_start(delete_form) }}#}
-    {#                <input type="submit" value="Delete">#}
-    {#            {{ form_end(delete_form) }}#}
-    {#        </li>#}
-    {#    </ul>#}
 {% endblock %}
 
 {% block javascripts %}
 
     {{ parent() }}
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-
 
 {% endblock %}

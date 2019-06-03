@@ -18,26 +18,26 @@
     <section id="new-author">
         <div class="container-fluid myTab">
             <div class="row justify-content-md-center">
-                <div class="col-9" style="background-color: #eeeeee">
+                <div class="col-md-9 col-sm-12 col-xs-12" id="box1">
                     <div class="row referencia-container p-5">
                         <div class="col-md-12 ">
                             <form>
                                 <h1>Author creation</h1>
 
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-6">
                                         <label for="name">{{ form_label(form.name) }}</label>
                                         {{ form_errors(form.name) }}
                                         {{ form_widget(form.name, { 'attr': { 'class': "form-control", 'placeholder': "Name" , 'id': "name", 'autocomplete':"off"} } ) }}
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-6">
                                         <label for="user">{{ form_label(form.user) }}</label>
                                         {{ form_errors(form.user) }}
                                         {{ form_widget(form.user, { 'attr': { 'class': "form-control", 'placeholder': "User" , 'id': "user"  } } ) }}
                                     </div>
 
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group ">
                                     <label for="alias">{{ form_label(form.alias) }}</label>
                                     {{ form_errors(form.alias) }}
                                     {{ form_widget(form.alias, { 'attr': { 'class': "form-control", 'placeholder': "Alias" , 'id': "alias", 'autocomplete':"off" } } ) }}
@@ -57,18 +57,6 @@
             </div>
         </div>
     </section>
-    {#    <h1>Author creation</h1>#}
-
-    {#    {{ form_start(form) }}#}
-    {#        {{ form_widget(form) }}#}
-    {#        <input type="submit" value="Create" />#}
-    {#    {{ form_end(form) }}#}
-
-    {#    <ul>#}
-    {#        <li>#}
-    {#            <a href="{{ path('author_index') }}">Back to the list</a>#}
-    {#        </li>#}
-    {#    </ul>#}
 {% endblock %}
 
 
@@ -76,7 +64,6 @@
 
     {{ parent() }}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-
 
     <script>
         $('select').each(function (idx, ele) {

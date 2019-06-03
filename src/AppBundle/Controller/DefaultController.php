@@ -7,7 +7,6 @@ use AppBundle\Entity\Referencia;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends Controller
@@ -26,8 +25,9 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/index")
+     * @Route("/index.{_format}", name="index_home", defaults={"_format"="html"}, requirements={"_format"="html|xml"}))
      */
+
     public function index(Request $request)
     {
 //        // replace this example code with whatever you need
@@ -51,7 +51,7 @@ class DefaultController extends Controller
 
                 return $this->render('main.html.twig');
             }else{
-                return $this->render('referencia/data-tables.html.twig', array(
+                return $this->render('referencia/index.html.twig', array(
                     'referencias' => $referencias,
                 ));
             }
@@ -92,13 +92,14 @@ class DefaultController extends Controller
                 ->getQuery();
             $authorTotal = $qbAuthor->getResult();
 
+            $format = $request->getRequestFormat();
 
-            return $this->render('main.html.twig', array(
+            return $this->render('main.'.$format.'.twig', [
                 'referencias' => $referencias,
                 'articlesTotal' => $articlesTotal,
                 'thesisTotal' => $thesisTotal,
                 'authorTotal' => $authorTotal,
-            ));
+            ]);
         }
     }
 

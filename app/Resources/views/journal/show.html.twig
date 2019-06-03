@@ -8,9 +8,9 @@
                     <div class="row referencia-container p-5">
                         <div class="col-md-12 ">
                             <form>
-
                                 <h1>Journal {% if is_granted('ROLE_ADMIN') %}
-                                        <a href="{{ path('journal_edit', { id : journal.id}) }}"><i class="fas fa-pen-square fa-x3"></i></a>
+                                        <a href="{{ path('journal_edit', { id : journal.id}) }}"><i
+                                                    class="fas fa-pen-square fa-x3"></i></a>
                                     {% endif %}</h1>
 
 
@@ -69,12 +69,11 @@
                                     <h5><strong>Referencias</strong></h5>
 
                                     {% for journals in referencia.journals %}
-                                        <p><a href="{{ path('referencia_show', { id: journals.id }) }}">{{ journals.referencia }}</a></p>
+                                        <p>
+                                            <a href="{{ path('referencia_show', { id: journals.id }) }}">{{ journals.referencia }}</a>
+                                        </p>
                                     {% endfor %}
                                 </div>
-{#                                {% for cites in  referencia.cites %}#}
-{#                                    <p><a href="{{ path('cites_show', { id: cites.id }) }}">{{ cites.cite }}</a></p>#}
-{#                                {% endfor %}#}
                             </form>
                         </div>
                     </div>
@@ -82,53 +81,4 @@
             </div>
         </div>
     </section>
-
-    {#    <h1>Journal</h1>#}
-
-    {#    <table>#}
-    {#        <tbody>#}
-    {#            <tr>#}
-    {#                <th>Id</th>#}
-    {#                <td>{{ journal.id }}</td>#}
-    {#            </tr>#}
-    {#            <tr>#}
-    {#                <th>Name</th>#}
-    {#                <td>{{ journal.name }}</td>#}
-    {#            </tr>#}
-    {#            <tr>#}
-    {#                <th>Publisher</th>#}
-    {#                <td>{{ journal.publisher }}</td>#}
-    {#            </tr>#}
-    {#            <tr>#}
-    {#                <th>Issn</th>#}
-    {#                <td>{{ journal.issn }}</td>#}
-    {#            </tr>#}
-    {#            <tr>#}
-    {#                <th>Eissn</th>#}
-    {#                <td>{{ journal.eissn }}</td>#}
-    {#            </tr>#}
-    {#            <tr>#}
-    {#                <th>Url</th>#}
-    {#                <td>{{ journal.url }}</td>#}
-    {#            </tr>#}
-    {#            <tr>#}
-    {#                <th>Pais</th>#}
-    {#                <td>{{ journal.pais }}</td>#}
-    {#            </tr>#}
-    {#        </tbody>#}
-    {#    </table>#}
-
-    {#    <ul>#}
-    {#        <li>#}
-    {#            <a href="{{ path('journal_index') }}">Back to the list</a>#}
-    {#        </li>#}
-    {#        <li>#}
-    {#            <a href="{{ path('journal_edit', { 'id': journal.id }) }}">Edit</a>#}
-    {#        </li>#}
-    {#        <li>#}
-    {#            {{ form_start(delete_form) }}#}
-    {#                <input type="submit" value="Delete">#}
-    {#            {{ form_end(delete_form) }}#}
-    {#        </li>#}
-    {#    </ul>#}
 {% endblock %}

@@ -104,7 +104,7 @@ class SearchControllerController extends Controller
             return $this->render('busquedaAvanzada.html.twig');
 
         }else{
-            return $this->render('referencia/data-tables.html.twig', array(
+            return $this->render('referencia/index.html.twig', array(
                 'referencias' => $referencias,
             ));
         }

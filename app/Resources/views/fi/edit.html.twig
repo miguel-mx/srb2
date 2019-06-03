@@ -18,7 +18,7 @@
     <section id="edit-fi">
         <div class="container-fluid myTab">
             <div class="row justify-content-md-center">
-                <div class="col-9" style="background-color: #eeeeee">
+                <div class="col-md-9 col-sm-12 col-xs-12" id="box1">
                     <div class="row referencia-container p-5">
                         <div class="col-md-12">
                             <form>
@@ -66,24 +66,6 @@
             </div>
         </div>
     </section>
-
-    {#    <h1>Fi edit</h1>#}
-
-    {#    {{ form_start(edit_form) }}#}
-    {#        {{ form_widget(edit_form) }}#}
-    {#        <input type="submit" value="Edit" />#}
-    {#    {{ form_end(edit_form) }}#}
-
-    {#    <ul>#}
-    {#        <li>#}
-    {#            <a href="{{ path('fi_index') }}">Back to the list</a>#}
-    {#        </li>#}
-    {#        <li>#}
-    {#            {{ form_start(delete_form) }}#}
-    {#                <input type="submit" value="Delete">#}
-    {#            {{ form_end(delete_form) }}#}
-    {#        </li>#}
-    {#    </ul>#}
 {% endblock %}
 
 
@@ -91,7 +73,6 @@
 
     {{ parent() }}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-
 
     <script>
         $('select').each(function (idx, ele) {

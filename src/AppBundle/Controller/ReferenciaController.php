@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * Referencium controller.
@@ -35,7 +36,15 @@ class ReferenciaController extends Controller
     }
 
     /**
-     * Creates a new referencium entity.
+     * Displays a form to new an existing reference entity.
+     *
+     * Will throw a normal AccessDeniedException:
+     *
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
+     *
+     * Will throw an HttpException with a 404 status code:
+     *
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Post not found")
      *
      * @Route("/new", name="referencia_new")
      * @Method({"GET", "POST"})
@@ -80,7 +89,15 @@ class ReferenciaController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing referencium entity.
+     * Displays a form to edit an existing reference entity.
+     *
+     * Will throw a normal AccessDeniedException:
+     *
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
+     *
+     * Will throw an HttpException with a 404 status code:
+     *
+     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Post not found")
      *
      * @Route("/{slug}/edit", name="referencia_edit")
      * @Method({"GET", "POST"})

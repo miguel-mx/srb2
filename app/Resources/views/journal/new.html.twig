@@ -4,8 +4,9 @@
      {{ parent() }}
      <!-- select2 -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-     <link href="https://cdn.jsdelivr.net/gh/ttskch/select2-bootstrap4-theme@master/dist/select2-bootstrap4.min.css" rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+     <link href="https://cdn.jsdelivr.net/gh/ttskch/select2-bootstrap4-theme@master/dist/select2-bootstrap4.min.css"
+           rel="stylesheet">
 
  {% endblock %}
 
@@ -17,7 +18,7 @@
     <section id="new-cite">
         <div class="container-fluid myTab">
             <div class="row justify-content-md-center">
-                <div class="col-9" style="background-color: #eeeeee">
+                <div class="col-md-9 col-sm-12 col-xs-12" id="box1">
                     <div class="row referencia-container p-5">
                         <div class="col-md-12 ">
                             <form>
@@ -62,16 +63,12 @@
 
                                 <div>
                                     {{ form_widget(form) }}
-                                    <button type="submit" class="btn btn-primary">Save <i class="fas fa-save fa-x3"></i></button>
+                                    <button type="submit" class="btn btn-primary">Save <i class="fas fa-save fa-x3"></i>
+                                    </button>
                                     <a href="javascript:history.back(-1);" title="Ir la página anterior"
                                        class="btn btn-danger">Cancel <i class="fas fa-times fa-x3"></i></a>
                                     {{ form_end(form) }}
                                 </div>
-                                {#        <ul>#}
-                                {#            <li>#}
-                                {#                <a href="{{ path('journal_index') }}">Back to the list</a>#}
-                                {#            </li>#}
-                                {#        </ul>#}
                             </form>
                         </div>
                     </div>
@@ -79,18 +76,6 @@
             </div>
         </div>
     </section>
-
-    {#    {{ form_start(form) }}#}
-    {#        {{ form_widget(form) }}#}
-    {#        <input type="submit" value="Create" />#}
-    {#    {{ form_end(form) }}#}
-
-    {#    <ul>#}
-    {#        <li>#}
-    {#            <a href="{{ path('journal_index') }}">Back to the list</a>#}
-    {#        </li>#}
-    {#    </ul>#}
-
 {% endblock %}
 
 
@@ -99,9 +84,8 @@
     {{ parent() }}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
-
     <script>
-        $('select').each(function(idx, ele) {
+        $('select').each(function (idx, ele) {
             $(ele).select2({
                 theme: 'bootstrap4',
                 placeholder: ele.getAttribute('placeholder')
