@@ -63,14 +63,14 @@
                         </li >
                     {% else %}
                         <div class="d-none d-xl-block">
-                        <li class="d-flex nav-item">
-                            <form action="../index" method="get">
-                                <div class="input-group">
-                                    <input type="search" class="form-control" placeholder="Search" autocomplete="off"
-                                           name="q" value="{{ app.request.get('query') }}">
-                                </div>
-                            </form>
-                        </li >
+                            <li class="d-flex nav-item">
+                                <form action="../index" method="get">
+                                    <div class="input-group">
+                                        <input type="search" class="form-control" placeholder="Search" autocomplete="off"
+                                               name="q" value="{{ app.request.get('query') }}">
+                                    </div>
+                                </form>
+                            </li >
                         </div>
                     {% endif %}
                     <li class="nav-item active" >
@@ -157,10 +157,10 @@
                         </li>
 
                     {%endif%}
-{#                    <!-- Button trigger modal -->#}
-{#                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">#}
-{#                        Launch demo modal#}
-{#                    </button>#}
+                    {#                    <!-- Button trigger modal -->#}
+                    {#                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">#}
+                    {#                        Launch demo modal#}
+                    {#                    </button>#}
                 </ul>
             </div>
         </nav>
@@ -174,31 +174,41 @@
 {% block footer %}
 
     <section class="footer ">
-        <div class="container  ">
-{#            <div class="row text-center text-xs-center text-sm-left text-md-left">#}
+        <div class="container-fluid">
+            <div class="row">
 
-{#                <div class="col-xs-12 col-sm-4 col-md-4">#}
-{#                    <h5>Quick links</h5>#}
-{#                    <ul class="list-unstyled quick-links">#}
-{#                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>#}
-{#                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>#}
-{#                    </ul>#}
-{#                </div>#}
-{#                <div class="col-xs-12 col-sm-4 col-md-4">#}
-{#                    <h5>Quick links</h5>#}
-{#                    <ul class="list-unstyled quick-links">#}
-{#                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>#}
-{#                        <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>#}
-{#                    </ul>#}
-{#                </div>#}
-{#            </div>#}
-            <div class="row ">
-                <div class="col-xs-12 col-sm-12 col-md-12  mt-sm-2 text-center text-white">
-                    <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
-                    <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+                <div class="col-md-4 offset-md-2 col-xs-12">
+                    <div>
+                        <h1 class="text-md-right tituloft">Unidad de Documentación<br>
+                            Centro de Ciencias Matemáticas</h1>
+                    </div>
+                    <div>
+                        <p class="text-md-right subtituloft">
+                            Lic. Lidia González García<br>
+                            lidia@matmor.unam.mx<br>
+                            Morelia: (443)322 2772 <br>
+                            RedUNAM: 32772 <br>
+                            Horario: 10:00 - 18:00 hrs<br>
+                        </p>
+                    </div>
                 </div>
-                </hr>
+
+                <div class="col-4 col-xs-12 mt-sm-3">
+                    <div class="">
+                        <h5 class="text-md-left ">Enlaces</h5>
+                        <ul class="list-unstyled quick-links text-left ">
+                            <li><a href=""><i class="fa fa-angle-double-right"></i>Inicio</a></li>
+                            <li><a href=""><i class="fa fa-angle-double-right"></i>Unidad de Documentación</a></li>
+                            <li><a href=""><i class="fa fa-angle-double-right"></i>Centro de Ciencias Matematicas </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
             </div>
+
+
         </div>
     </section>
 {% endblock %}

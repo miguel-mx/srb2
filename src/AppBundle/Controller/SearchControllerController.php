@@ -90,7 +90,7 @@ class SearchControllerController extends Controller
 
         }
 
-        $query = $queryBuilder->orderBy('r.title', 'ASC')
+        $query = $queryBuilder->orderBy('r.yearpub', 'ASC')
             ->getQuery();
 
         $referencias = $query->getResult();

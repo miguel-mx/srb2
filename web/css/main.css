@@ -25,7 +25,7 @@ body {
 }
 .hero-text h1 {
     text-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
-    font-size: 48px;
+    font-size: 2.7rem;
     font-weight: 900;
     font-style: normal;
     font-stretch: normal;
@@ -36,7 +36,7 @@ body {
 }
 .hero-text h2 {
     text-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
-    font-size: 42px;
+    font-size: 2.2rem;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
@@ -160,7 +160,7 @@ input::placeholder {
     padding: 60px 0;
 }
 .footer{
-    padding: 60px 0;
+    padding: 20px 0;
 }
 section .section-title {
     text-align: center;
@@ -174,10 +174,10 @@ section .section-title {
     background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .footer h5{
+    margin-top: 5%;
+    margin-bottom: 5%;
     padding-left: 10px;
     border-left: 3px solid #eeeeee;
-    padding-bottom: 6px;
-    margin-bottom: 20px;
     color:#ffffff;
 }
 .footer a {
@@ -186,27 +186,7 @@ section .section-title {
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
 }
-.footer ul.social li{
-    padding: 3px 0;
-}
-.footer ul.social li a i {
-    margin-right: 5px;
-    font-size:25px;
-    -webkit-transition: .5s all ease;
-    -moz-transition: .5s all ease;
-    transition: .5s all ease;
-}
-.footer ul.social li:hover a i {
-    font-size:30px;
-    margin-top:-10px;
-}
-.footer ul.social li a,
-.footer ul.quick-links li a{
-    color:#ffffff;
-}
-.footer ul.social li a:hover{
-    color:#eeeeee;
-}
+
 .footer ul.quick-links li{
     padding: 3px 0;
     -webkit-transition: .5s all ease;
@@ -276,3 +256,18 @@ latest-articles {
     font-weight: 400;
     color: #615e62;
 }
+
+
+.tituloft{
+    font-size: 1.3rem;
+    color: white;
+}
+
+.subtituloft{
+    font-size: 0.8rem;
+    color: white ;
+}
+
+
+
+/*----------------------------------------------------------*/
