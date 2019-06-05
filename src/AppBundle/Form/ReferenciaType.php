@@ -31,6 +31,7 @@ class ReferenciaType extends AbstractType
                     'Inproceedings' => 'inproceedings',
                     'Preprint' => 'preprint',
                     'Thesis' => 'thesis',
+                    'Material Editorial' => 'material editorial',
                 ),
                 'choices_as_values' => true
             ));
@@ -42,42 +43,43 @@ class ReferenciaType extends AbstractType
                 $tipo = $event->getData();
 
                 if ($tipo === 'article') {
-                    $form->add('title')
+                    $form
+                        ->add('title', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')
                         ->add('authors')
-                        ->add('yearpub')
+                        ->add('yearpub', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('keywords')
                         ->add('msc')
-                        ->add('notas')
+                        ->add('notas', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('mrnumber')
                         ->add('zmath')
                         ->add('arxiv')
-                        ->add('file')
-                        ->add('url')
+                        ->add('url', 'Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
 //                    diferentes en articulo
-                        ->add('journal')
-                        ->add('volume')
-                        ->add('abst')
+                        ->add('journals', null, ['required' => true])
+                        ->add('abst', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('pages')
-                        ->add('doi')
+                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('issn')
                         ->add('e_issn');
+
+
                 } else if ($tipo === "incollection") {
-                    $form->add('title')
+                    $form
+                        ->add('title', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')
                         ->add('authors')
-                        ->add('yearpub')
+                        ->add('yearpub', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('keywords')
                         ->add('msc')
-                        ->add('notas')
+                        ->add('notas', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('mrnumber')
                         ->add('zmath')
                         ->add('arxiv')
-                        ->add('file')
-                        ->add('url')
+                        ->add('url', 'Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
@@ -86,134 +88,172 @@ class ReferenciaType extends AbstractType
                         ->add('publisher')
                         ->add('editor')
                         ->add('address')
-                        ->add('abst')
+                        ->add('abst', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('volume')
                         ->add('pages')
-                        ->add('doi');
+                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('isbn')
+                        ->add('e_isbn');
 
                 } else if ($tipo === "proceedings") {
-                    $form->add('title')
+                    $form
+                        ->add('title', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')
                         ->add('authors')
-                        ->add('yearpub')
+                        ->add('yearpub', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('keywords')
                         ->add('msc')
-                        ->add('notas')
+                        ->add('notas', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('mrnumber')
                         ->add('zmath')
                         ->add('arxiv')
-                        ->add('file')
-                        ->add('url')
+                        ->add('url', 'Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
 //                  diferentes en proceedings
                         ->add('publisher')
                         ->add('editor')
-                        ->add('journal')
+                        ->add('journals', null, ['required' => true])
                         ->add('address')
                         ->add('issn')
+                        ->add('e_issn')
                         ->add('volume')
                         ->add('pages')
-                        ->add('doi');
-
-
-
-                } else if ($tipo === "book") {
-                    $form->add('title')
-                        ->add('author')
-                        ->add('authors')
-                        ->add('yearpub')
-                        ->add('keywords')
-                        ->add('msc')
-                        ->add('notas')
-                        ->add('mrnumber')
-                        ->add('zmath')
-                        ->add('arxiv')
-                        ->add('file')
-                        ->add('url')
-                        ->add('wos')
-                        ->add('scopus')
-                        ->add('scielo')
-//                    diferentes en book
-                        ->add('publisher')
-                        ->add('editor')
-                        ->add('address')
-                        ->add('pages')
-                        ->add('doi')
+                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('isbn')
                         ->add('e_isbn');
 
 
-                } else if ($tipo === "inproceedings") {
-                    $form->add('title')
+                } else if ($tipo === "book") {
+                    $form
+                        ->add('title', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')
                         ->add('authors')
-                        ->add('yearpub')
+                        ->add('yearpub', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('keywords')
                         ->add('msc')
-                        ->add('notas')
+                        ->add('notas', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('mrnumber')
                         ->add('zmath')
                         ->add('arxiv')
-                        ->add('file')
-                        ->add('url')
+                        ->add('url', 'Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+//                    diferentes en book
+                        ->add('publisher', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('editor', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('address')
+                        ->add('pages')
+                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('isbn', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('e_isbn');
+
+
+                } else if ($tipo === "inproceedings") {
+                    $form
+                        ->add('title', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpub', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('url', 'Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
 //                  diferentes en Inproceedings
-                        ->add('booktitle')
-                        ->add('publisher')
-                        ->add('editor')
+                        ->add('booktitle', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('publisher', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('editor', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('address')
-                        ->add('abst')
-                        ->add('volume')
+                        ->add('abst', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array(
+                            'required' => false,))
+                        ->add('volume', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('pages')
-                        ->add('journal')
+                        ->add('journals', null, ['required' => true])
                         ->add('issn')
-                        ->add('doi');
+                        ->add('e_issn')
+                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('isbn')
+                        ->add('e_isbn');
                 } else if ($tipo === "preprint") {
-                    $form->add('title')
+                    $form
+                        ->add('title', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')
                         ->add('authors')
-                        ->add('yearpreprint')
+                        ->add('yearpub', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('keywords')
                         ->add('msc')
-                        ->add('notas')
+                        ->add('notas', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('mrnumber')
                         ->add('zmath')
                         ->add('arxiv')
-                        ->add('file')
-                        ->add('url')
+                        ->add('url', 'Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
 //                  diferentes en Preprint
-                        ->add('abst')
+                        ->add('abst', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('pages')
                         ->add('reportnumber');
 
 
                 } else if ($tipo === "thesis") {
-                    $form->add('title')
+                    $form
+                        ->add('title', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')
                         ->add('authors')
-                        ->add('yearpub')
+                        ->add('yearpub', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('keywords')
                         ->add('msc')
-                        ->add('notas')
+                        ->add('notas', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('mrnumber')
                         ->add('zmath')
                         ->add('arxiv')
-                        ->add('file')
-                        ->add('url')
+                        ->add('url', 'Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
-//                  diferentes en Preprint
-                        ->add('advisor')
-                        ->add('thesistype')
+//                  diferentes en thesis
+                        ->add('advisor', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('thesistype', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType', array(
+                            'choices' => array(
+                                '' => '',
+                                'Licenciatura' => 'licenciatura',
+                                'Maestria' => 'maestria',
+                                'Doctorado' => 'doctorado'
+                            )))
                         ->add('school');
+
+
+                } else if ($tipo === "material editorial") {
+                    $form
+                        ->add('title', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpub', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('url', 'Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+//                  diferentes en thesis;
+                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('volume', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('pages')
+                        ->add('journals', null, ['required' => true]);
+
                 }
             }
         );
@@ -223,42 +263,44 @@ class ReferenciaType extends AbstractType
             $form = $event->getForm();
             if ($tipo and $tipo->getType()) {
                 if ($tipo->getType() === "article") {
-                    $form->add('title')
+                    $form
+                        ->add('title','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')
                         ->add('authors')
-                        ->add('yearpub')
+                        ->add('yearpub','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('keywords')
                         ->add('msc')
-                        ->add('notas')
+                        ->add('notas','Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('mrnumber')
                         ->add('zmath')
                         ->add('arxiv')
-                        ->add('file')
-                        ->add('url')
+                        ->add('url','Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
 //                    diferentes en articulo
-                        ->add('journal')
+                        ->add('journals',null,['required' => true])
                         ->add('volume')
-                        ->add('abst')
+                        ->add('abst','Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('pages')
-                        ->add('doi')
+                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('issn')
                         ->add('e_issn');
+
+
                 } else if ($tipo->getType() === "incollection") {
-                    $form->add('title')
+                    $form
+                        ->add('title','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')
                         ->add('authors')
-                        ->add('yearpub')
+                        ->add('yearpub','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('keywords')
                         ->add('msc')
-                        ->add('notas')
+                        ->add('notas','Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('mrnumber')
                         ->add('zmath')
                         ->add('arxiv')
-                        ->add('file')
-                        ->add('url')
+                        ->add('url','Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
@@ -267,129 +309,168 @@ class ReferenciaType extends AbstractType
                         ->add('publisher')
                         ->add('editor')
                         ->add('address')
-                        ->add('abst')
+                        ->add('abst','Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('volume')
                         ->add('pages')
-                        ->add('doi');
+                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('isbn')
+                        ->add('e_isbn');
 
                 } else if ($tipo->getType() === "proceedings") {
-                    $form->add('title')
+                    $form
+                        ->add('title','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')
                         ->add('authors')
-                        ->add('yearpub')
+                        ->add('yearpub','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('keywords')
                         ->add('msc')
-                        ->add('notas')
+                        ->add('notas','Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('mrnumber')
                         ->add('zmath')
                         ->add('arxiv')
-                        ->add('file')
-                        ->add('url')
+                        ->add('url','Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
 //                  diferentes en proceedings
                         ->add('publisher')
                         ->add('editor')
-                        ->add('journal')
+                        ->add('journals',null,['required' => true])
                         ->add('address')
                         ->add('issn')
+                        ->add('e_issn')
                         ->add('volume')
                         ->add('pages')
-                        ->add('doi');
+                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('isbn')
+                        ->add('e_isbn');
+
 
                 } else if ($tipo->getType() === "book") {
-                    $form->add('title')
+                    $form
+                        ->add('title','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')
                         ->add('authors')
-                        ->add('yearpub')
+                        ->add('yearpub','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('keywords')
                         ->add('msc')
-                        ->add('notas')
+                        ->add('notas','Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('mrnumber')
                         ->add('zmath')
                         ->add('arxiv')
-                        ->add('file')
-                        ->add('url')
+                        ->add('url','Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
 //                    diferentes en book
-                        ->add('publisher')
-                        ->add('editor')
+                        ->add('publisher','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('editor','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('address')
                         ->add('pages')
-                        ->add('doi')
-                        ->add('isbn')
+                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('isbn','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('e_isbn');
-
                 } else if ($tipo->getType() === "inproceedings") {
-                    $form->add('title')
+                    $form
+                        ->add('title','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')
                         ->add('authors')
-                        ->add('yearpub')
+                        ->add('yearpub','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('keywords')
                         ->add('msc')
-                        ->add('notas')
+                        ->add('notas','Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('mrnumber')
                         ->add('zmath')
                         ->add('arxiv')
-                        ->add('file')
-                        ->add('url')
+                        ->add('url','Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
 //                  diferentes en Inproceedings
-                        ->add('booktitle')
-                        ->add('publisher')
-                        ->add('editor')
+                        ->add('booktitle','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('publisher','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('editor','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('address')
-                        ->add('abst')
-                        ->add('volume')
+                        ->add('abst','Symfony\Component\Form\Extension\Core\Type\TextareaType', array(
+                            'required' => false,))
+                        ->add('volume','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('pages')
-                        ->add('journal')
+                        ->add('journals',null,['required' => true])
                         ->add('issn')
-                        ->add('doi');
+                        ->add('e_issn')
+                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('isbn')
+                        ->add('e_isbn');
+
                 } else if ($tipo->getType() === "preprint") {
-                    $form->add('title')
+                    $form
+                        ->add('title','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')
                         ->add('authors')
-                        ->add('yearpreprint')
+                        ->add('yearpub','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('keywords')
                         ->add('msc')
-                        ->add('notas')
+                        ->add('notas','Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('mrnumber')
                         ->add('zmath')
                         ->add('arxiv')
-                        ->add('file')
-                        ->add('url')
+                        ->add('url','Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
 //                  diferentes en Preprint
-                        ->add('abst')
+                        ->add('abst','Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('pages')
                         ->add('reportnumber');
+
                 } else if ($tipo->getType() === "thesis") {
-                    $form->add('title')
+                    $form
+                        ->add('title','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')
                         ->add('authors')
-                        ->add('yearpub')
+                        ->add('yearpub','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('keywords')
                         ->add('msc')
-                        ->add('notas')
+                        ->add('notas','Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('mrnumber')
                         ->add('zmath')
                         ->add('arxiv')
-                        ->add('file')
-                        ->add('url')
+                        ->add('url','Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
                         ->add('wos')
                         ->add('scopus')
                         ->add('scielo')
-//                  diferentes en Preprint
-                        ->add('advisor')
-                        ->add('thesistype')
+//                  diferentes en thesis
+                        ->add('advisor','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('thesistype', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType', array(
+                            'choices' => array(
+                                '' => '',
+                                'Licenciatura' => 'licenciatura',
+                                'Maestria' => 'maestria',
+                                'Doctorado' => 'doctorado'
+                            )))
                         ->add('school');
+                } else if ($tipo->getType() ===  "material editorial") {
+                    $form
+                        ->add('title', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('author')
+                        ->add('authors')
+                        ->add('yearpub', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('keywords')
+                        ->add('msc')
+                        ->add('notas', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
+                        ->add('mrnumber')
+                        ->add('zmath')
+                        ->add('arxiv')
+                        ->add('url', 'Symfony\Component\Form\Extension\Core\Type\UrlType', array('required' => false))
+                        ->add('wos')
+                        ->add('scopus')
+                        ->add('scielo')
+//                  diferentes en thesis;
+                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('volume', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('pages')
+                        ->add('journals', null, ['required' => true]);
+
                 }
             }
         });

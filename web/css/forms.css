@@ -34,3 +34,7 @@ body{
         margin-bottom: 35px;
     }
 }
+
+.file{
+    border: 0px solid #ced4da;
+}

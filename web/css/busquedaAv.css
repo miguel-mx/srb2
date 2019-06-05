@@ -1,7 +1,7 @@
 
 
 #busquedaAv {
-    min-height: 650px;
+    min-height: 700px;
     margin-top: 6%;
     margin-bottom: 30px;
 }
@@ -13,29 +13,9 @@
 }
 
 .hero2-text {
-    padding-top: 50px;
+    padding-top: 20px;
 }
-.hero2-text h1 {
-    text-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
-    font-size: 2.0rem;
-    font-weight: 900;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #000000;
-    margin-bottom: 0.1rem;
-}
-.hero2-text h2 {
-    text-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
-    font-size: 1.5rem;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #000000;
-}
+
 .year{
     padding-right: 0px;
     padding-left: 0px;
@@ -48,34 +28,13 @@
     #busquedaAv  {
         border: 1px solid rgba(129, 129, 129, 0.87);
         width: 100%;
-        background-color: #dadada;
         border-radius: 20px;
 
     }
     .hero2-text {
-        padding-top: 50px;
+        padding-top: 30px;
     }
-    .hero2-text h1 {
-        text-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
-        font-size: 3.5rem;
-        font-weight: 900;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        color: #ffffff;
-        margin-bottom: 0.1rem;
-    }
-    .hero2-text h2 {
-        text-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
-        font-size: 2.5rem;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        color: #ffffff;
-    }
+
 
 
 }

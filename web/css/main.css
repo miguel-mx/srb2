@@ -114,22 +114,14 @@ input::placeholder {
     color:white;
 }
 .cards1 a:hover {
-    color: #197a99;
+
     text-decoration: none;
 }
-.cards2{
-    color: gray;
-}
+
 .cards1 a{
     color: white;
 }
-.cards2 a:hover {
-    color: #197a99;
-    text-decoration: none;
-}
-.cards2 a{
-    color: black;
-}
+
 #stats .card {
     background: #004e68;
     padding: 15px;
@@ -141,15 +133,7 @@ input::placeholder {
 #stats .fas {
     color: #197a99;
 }
-@media (min-width: 992px) {
-    .after-loop a.after-loop-item:hover {
-        transform: translateY(-0.25rem);
-        box-shadow: 0 2.25rem 1.5rem -1.5rem rgba(33, 37, 41, .3), 0 0 1.5rem .5rem rgba(33, 37, 41, .05) !important;
-    }
-}
-.after-loop a.after-loop-item:hover {
-    text-decoration: none;
-}
+
 .card-body{
     border-bottom: 1px solid rgba(0,0,0,0);
 }
@@ -268,6 +252,9 @@ latest-articles {
     color: white ;
 }
 
-
-
-/*----------------------------------------------------------*/
+.anim{
+    transition: transform .2s
+}
+.anim:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}

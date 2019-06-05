@@ -132,11 +132,11 @@
                                 <span class="text-dange">{{ form_errors(form.abst) }}</span>
                             </div>
                         {% endif %}
-                        {% if form.journal is defined %}
+                        {% if form.journals is defined %}
                             <div class="form-group  col-12">
                                 <label class="etiqueta">Revista</label>
-                                {{ form_widget(form.journal, {'attr': {'class': 'form-control'}}) }}
-                                <span class="text-dange">{{ form_errors(form.journal) }}</span>
+                                {{ form_widget(form.journals, {'attr': {'class': 'form-control'}}) }}
+                                <span class="text-dange">{{ form_errors(form.journals) }}</span>
                             </div>
                         {% endif %}
                         {% if form.volume is defined %}
@@ -177,16 +177,16 @@
                             </div>
                         {% endif %}
                         {% if form.url is defined %}
-                            <div class="form-group  col-xl-6 col-sm-12">
+                            <div class="form-group  col-12">
                                 <label class="etiqueta">URL</label>
                                 {{ form_widget(form.url, {'attr': {'class': 'form-control '}}) }}
                                 <span class="text-dange">{{ form_errors(form.url) }}</span>
                             </div>
                         {% endif %}
                         {% if form.file is defined %}
-                            <div class="form-group  col-xl-6 col-sm-12">
+                            <div class="form-group  col-12">
                                 <label class="etiqueta">Archivo</label>
-                                {{ form_widget(form.file, {'attr': {'class': 'form-control '}}) }}
+                                {{ form_widget(form.file, {'attr': {'class': 'form-control file '}}) }}
                                 <span class="text-dange">{{ form_errors(form.file) }}</span>
                             </div>
                         {% endif %}

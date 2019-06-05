@@ -135,11 +135,11 @@
                                     <span class="text-dange">{{ form_errors(edit_form.abst) }}</span>
                                 </div>
                             {% endif %}
-                            {% if edit_form.journal is defined %}
+                            {% if edit_form.journals is defined %}
                                 <div class="form-group  col-12">
                                     <label class="etiqueta">Revista</label>
-                                    {{ form_widget(edit_form.journal, {'attr': {'class': 'form-control'}}) }}
-                                    <span class="text-dange">{{ form_errors(edit_form.journal) }}</span>
+                                    {{ form_widget(edit_form.journals, {'attr': {'class': 'form-control'}}) }}
+                                    <span class="text-dange">{{ form_errors(edit_form.journals) }}</span>
                                 </div>
                             {% endif %}
                             {% if edit_form.volume is defined %}
@@ -189,7 +189,7 @@
                             {% if edit_form.file is defined %}
                                 <div class="form-group  col-xl-6 col-sm-12">
                                     <label class="etiqueta">Archivo</label>
-                                    {{ form_widget(edit_form.file, {'attr': {'class': 'form-control '}}) }}
+                                    {{ form_widget(edit_form.file, {'attr': {'class': 'form-control file'}}) }}
                                     <span class="text-dange">{{ form_errors(edit_form.file) }}</span>
                                 </div>
                             {% endif %}

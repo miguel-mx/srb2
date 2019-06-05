@@ -11,29 +11,31 @@ use Omines\DataTablesBundle\Adapter\Elasticsearch\ElasticaAdapter;
 
 class SearchControllerController extends Controller
 {
-    /**
-     * Lists all Referencia entities.
-     *
-     * @Route("/search", name="search")
-     * @Method({ "head", "get" })
-     */
-    public function searchAction(Request $request)
-    {
-        $searchQuery  = $request->get('q');
+//    /**
+//     * Lists all Referencia entities.
+//     *
+//     * @Route("/search", name="search")
+//     * @Method({ "head", "get" })
+//     */
+//    public function searchAction(Request $request)
+//    {
+//        $searchQuery  = $request->get('q');
+//
+//        if(!empty($searchQuery))
+//            $finder  = $this->container->get('fos_elastica.finder.app.referencia');
+//        $referencias = $finder->find($searchQuery, 500);
+//
+//
+//        return $this->render('referencia/index.html.twig', array(
+//            'referencias' => $referencias,
+//        ));
+//    }
 
-        if(!empty($searchQuery))
-            $finder  = $this->container->get('fos_elastica.finder.app.referencia');
-        $referencias = $finder->find($searchQuery, 500);
 
-
-        return $this->render('referencia/data-tables.html.twig', array(
-            'referencias' => $referencias,
-        ));
-    }
     /**
      * Lists all referencium entities.
      *
-     * @Route("/search2", name="referencia_index2")
+     * @Route("/search2", name="search")
      * @Method("GET")
      */
     public function search(Request $request)
@@ -53,7 +55,7 @@ class SearchControllerController extends Controller
 
                 return $this->render('main.html.twig');
             }else{
-                return $this->render('referencia/data-tables.html.twig', array(
+                return $this->render('referencia/index.html.twig', array(
                     'referencias' => $referencias,
                 ));
             }

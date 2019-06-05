@@ -62,7 +62,7 @@ class ReferenciaController extends Controller
             $em->persist($referencia);
             $em->flush();
 
-            return $this->redirectToRoute('referencia_show', array('id' => $referencia->getId()));
+            return $this->redirectToRoute('referencia_show', array('slug' => $referencia->getSlug()));
         }
 
         return $this->render('referencia/new.html.twig', array(
