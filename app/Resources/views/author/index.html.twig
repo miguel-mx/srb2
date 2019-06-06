@@ -4,6 +4,12 @@
     <section id="table">
         <div class="container myTab">
             <table id="myTable" class="table">
+
+                <div class="mb-4">
+                    <h1>Authors   {% if is_granted('ROLE_ADMIN') %}<a
+                                href="{{ path('author_new') }}"><i
+                                    class="fas fa-plus-circle fa-x3"></i></a></h1> {% endif %}
+                </div>
                 <thead>
                 <tr>
                     <th>{{ authors|length }} Results</th>

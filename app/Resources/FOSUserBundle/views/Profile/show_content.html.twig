@@ -1,6 +1,25 @@
-{% trans_default_domain 'FOSUserBundle' %}
+<section id="show-profile">
+    <div class="container myTab">
+        <div class="row justify-content-md-center">
+            <div class="col-md-9 col-sm-12 col-xs-12" style="background-color: #eeeeee">
+                <div class="row referencia-container p-5">
+                    <div class="col-md-2 mt-4">
+                        <img src="/img/user.png">
+                    </div>
 
-<div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-</div>
+                    <div class="col-md-10">
+                        <form>
+                            <h1>PROFILE</h1>
+                            <p><strong>User: </strong> {{ user.username }}</p>
+                            <p><strong>E-mail: </strong> {{ user.email }}</p>
+                            <hr class="mt-5"/>
+                            <div class="text-right">
+                                <a href="{{ path('fos_user_change_password') }}">Change password</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

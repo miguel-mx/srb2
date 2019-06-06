@@ -83,7 +83,7 @@
                         <a class="nav-link" href="http://localhost:8000/journal/">Revista</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:8000/busqueda_avanzada">Busqueda Avanzada</a>
+                        <a class="nav-link" href="#">Busqueda Avanzada</a>
                     </li>
 
                     {% if is_granted('ROLE_USER') %}
@@ -151,16 +151,15 @@
                                 {{ app.user.username }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ path('fos_user_profile_show') }}">Profile</a>
+                                <a class="dropdown-item" href="{{ path('fos_user_change_password') }}">Change password</a>
+                                <hr/>
                                 <a class="dropdown-item" href="{{ path('fos_user_security_logout') }}">Cerrar sesión</a>
 
                             </div>
                         </li>
 
                     {%endif%}
-                    {#                    <!-- Button trigger modal -->#}
-                    {#                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">#}
-                    {#                        Launch demo modal#}
-                    {#                    </button>#}
                 </ul>
             </div>
         </nav>
@@ -203,7 +202,12 @@
                         </ul>
                     </div>
                 </div>
+
+
+
             </div>
+
+
         </div>
     </section>
 {% endblock %}

@@ -62,6 +62,13 @@ class ReferenciaController extends Controller
             $em->persist($referencia);
             $em->flush();
 
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Nueva referencia')
+                ->setFrom('thaliavelazquez263@gmail.com')
+                ->setTo(['sergio.rangel@tecmor.mx', 'thaliavelazquez263@gmail.com'])
+                ->setBody($this->renderView('referencia/email_referencia.html.twig', array('referencia' => $referencia)), 'text/html');
+            $this->get('mailer')->send($message);
+
             return $this->redirectToRoute('referencia_show', array('slug' => $referencia->getSlug()));
         }
 

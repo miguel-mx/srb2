@@ -66,13 +66,15 @@
                                     {% endif %}
                                 </div>
                                 <div class="block">
-                                    <h5><strong>Referencias</strong></h5>
+                                    {% if referencia.journals %}
+                                        <h5><strong>Referencias</strong></h5>
 
-                                    {% for journals in referencia.journals %}
-                                        <p>
-                                            <a href="{{ path('referencia_show', { id: journals.id }) }}">{{ journals.referencia }}</a>
-                                        </p>
-                                    {% endfor %}
+                                        {% for journals in referencia.journals %}
+                                            <p>
+                                                <a href="{{ path('referencia_show', { id: journals.id }) }}">{{ journals.referencia }}</a>
+                                            </p>
+                                        {% endfor %}
+                                    {% endif %}
                                 </div>
                             </form>
                         </div>

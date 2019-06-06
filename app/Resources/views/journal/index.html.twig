@@ -5,6 +5,11 @@
     <section id="table">
         <div class="container myTab">
             <table id="myTable" class="table">
+                <div class="mb-4">
+                    <h1>Journals   {% if is_granted('ROLE_ADMIN') %}<a
+                                href="{{ path('journal_new') }}"><i
+                                    class="fas fa-plus-circle fa-x3"></i></a></h1> {% endif %}
+                </div>
                 <thead>
                 <tr>
                     <th>{{ journals|length }} Results</th>
@@ -24,9 +29,6 @@
 
                 </tbody>
             </table>
-            {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('journal_new') }}">New journal</a>
-            {% endif %}
 
         </div>
     </section>

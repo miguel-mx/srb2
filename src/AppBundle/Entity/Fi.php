@@ -56,6 +56,34 @@ class Fi
      */
     private $journal;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created", type="datetime",  nullable=true)
+     */
+    private $created;
+
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param \DateTime $created
+     *
+     * @return Fi
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+        return $this;
+    }
+
+
 
     /**
      * @return mixed

@@ -6,7 +6,8 @@ use AppBundle\Entity\Journal;
 use AppBundle\Entity\Referencia;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
@@ -58,8 +59,16 @@ class JournalController extends Controller
             $em->persist($journal);
             $em->flush();
 
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Nueva revista')
+                ->setFrom('thaliavelazquez263@gmail.com')
+                ->setTo(['sergio.rangel@tecmor.mx', 'thaliavelazquez263@gmail.com'])
+                ->setBody($this->renderView('journal/email_journal.html.twig', array('journal' => $journal)), 'text/html');
+            $this->get('mailer')->send($message);
+
             return $this->redirectToRoute('journal_show', array('id' => $journal->getId()));
         }
+
 
         return $this->render('journal/new.html.twig', array(
             'journal' => $journal,
@@ -149,7 +158,6 @@ class JournalController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('journal_delete', array('id' => $journal->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }
