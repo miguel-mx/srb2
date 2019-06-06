@@ -6,7 +6,7 @@
             <table id="myTable" class="table">
 
                 <div class="mb-4">
-                    <h1>Authors   {% if is_granted('ROLE_ADMIN') %}<a
+                    <h1>Authors {% if is_granted('ROLE_ADMIN') %}<a
                                 href="{{ path('author_new') }}"><i
                                     class="fas fa-plus-circle fa-x3"></i></a></h1> {% endif %}
                 </div>
@@ -26,13 +26,8 @@
                         </td>
                     </tr>
                 {% endfor %}
-
                 </tbody>
             </table>
-            {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('author_new') }}">New author</a>
-            {% endif %}
-        </div>
     </section>
 
 {% endblock %}

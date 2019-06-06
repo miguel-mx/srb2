@@ -59,6 +59,11 @@ class JournalController extends Controller
             $em->persist($journal);
             $em->flush();
 
+            $this->addFlash(
+                'success',
+                'Revista agregada con éxito!'
+            );
+
             $message = \Swift_Message::newInstance()
                 ->setSubject('Nueva revista')
                 ->setFrom('thaliavelazquez263@gmail.com')

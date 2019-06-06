@@ -59,6 +59,11 @@ class FiController extends Controller
             $em->persist($fi);
             $em->flush();
 
+            $this->addFlash(
+                'success',
+                'Fi agregado con éxito!'
+            );
+
             return $this->redirectToRoute('fi_show', array('id' => $fi->getId()));
         }
 

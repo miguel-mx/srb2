@@ -62,6 +62,11 @@ class CitesController extends Controller
             $em->persist($cite);
             $em->flush();
 
+            $this->addFlash(
+                'success',
+                'Cita agregada con éxito!'
+            );
+
             return $this->redirectToRoute('cites_show', array('id' => $cite->getId()));
         }
 

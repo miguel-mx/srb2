@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="journal")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\JournalRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Journal
 {
@@ -69,6 +70,13 @@ class Journal
      * @ORM\OneToMany(targetEntity="Fi", mappedBy="journal")
      */
     private $fi;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created", type="datetime",  nullable=true)
+     */
+    private $created;
 
 
     /**
@@ -206,6 +214,26 @@ class Journal
         $this->issn = $issn;
 
         return $this;
+    }
+
+    /**
+     * Set created.
+     *
+     * @ORM\PrePersist
+     */
+    public function setCreated()
+    {
+        $this->created = new \DateTime();
+    }
+
+    /**
+     * Get created.
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 
     /**

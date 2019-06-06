@@ -70,6 +70,11 @@ class AuthorController extends Controller
             $em->persist($author);
             $em->flush();
 
+            $this->addFlash(
+                'success',
+                'Author agregado con éxito!'
+            );
+
             return $this->redirectToRoute('author_show', array('slug' => $author->getSlug()));
         }
 

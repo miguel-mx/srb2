@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="fi")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FiRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Fi
 {
@@ -62,28 +63,6 @@ class Fi
      * @ORM\Column(name="created", type="datetime",  nullable=true)
      */
     private $created;
-
-
-    /**
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * @param \DateTime $created
-     *
-     * @return Fi
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-        return $this;
-    }
-
-
 
     /**
      * @return mixed
@@ -205,6 +184,26 @@ class Fi
     public function getCuartil()
     {
         return $this->cuartil;
+    }
+
+    /**
+     * Set created.
+     *
+     * @ORM\PrePersist
+     */
+    public function setCreated()
+    {
+        $this->created = new \DateTime();
+    }
+
+    /**
+     * Get created.
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 
     public function __toString()
