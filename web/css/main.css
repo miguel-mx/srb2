@@ -1,23 +1,39 @@
 /********************pagina inicio NAV y FOOTER*******************/
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+/*@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');*/
 .nav-item {
     margin-left: 15px;
     font-weight: normal;
     font-size: 18px;
     color: #615e62;
 }
+
+/* nunito-sans-regular - latin */
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/nunito-sans-v4-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Nunito Sans Regular'), local('NunitoSans-Regular'),
+    url('../fonts/nunito-sans-v4-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/nunito-sans-v4-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/nunito-sans-v4-latin-regular.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/nunito-sans-v4-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/nunito-sans-v4-latin-regular.svg#NunitoSans') format('svg'); /* Legacy iOS */
+}
+
 body {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: "Nunito Sans";
     margin-top: 65px;
     min-height: 550px;
 }
+
 
 .brand p {
     margin-top: 0px;
     margin-bottom: 0px;
     font-size: 14px;
     line-height: 120%;
-    color: #6c757c;
+    color: #545454;
 }
 .hero-text {
     color: white;
@@ -69,6 +85,9 @@ body {
 #navbar input::-webkit-input-placeholder {
     color: #424242;
 }
+.navbar-light .navbar-nav .nav-link {
+    color: #545454;
+}
 input::placeholder {
     color: #ffffff;
 }
@@ -93,7 +112,8 @@ input::placeholder {
     border: #197a99;
     background: url(https://images.unsplash.com/photo-1534774592507-488885376ad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80) no-repeat center;
     background-size: cover;
-    height: 620px;
+    width: 1838px;
+    height: 565px;
     background-position: center;
 }
 .h1, h1 {

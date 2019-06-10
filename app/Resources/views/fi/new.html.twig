@@ -45,7 +45,7 @@
                                     <div class="form-group col-md-6">
                                         <label for="cuartil">{{ form_label(form.cuartil) }}</label>
                                         {{ form_errors(form.cuartil) }}
-                                        {{ form_widget(form.cuartil, { 'attr': { 'class': "form-control", 'placeholder': "Cuartil" , 'id': "cuartil", 'autocomplete':"off"  } } ) }}
+                                        {{ form_widget(form.cuartil, { 'attr': { 'class': "form-control", 'placeholder': "Cuartil" , 'id': "cuartil", 'autocomplete':"off", 'pattern' : "[0-9]+",'title':"Solo números en este campo"  } } ) }}
                                     </div>
                                 </div>
                                 <div>

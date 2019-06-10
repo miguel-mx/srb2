@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -14,27 +15,30 @@ class CitesType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('url',null, [
+        $builder->add('url', UrlType::class, [
+            'attr' => array(
+                'inputmode' => "url",
+                'type' => "url",
+            )])
+            ->add('cite', null, [
                 'required' => true,
 
             ])
-            ->add('cite',null, [
-                'required' => true,
-
-            ])
-            ->add('doi',null, [
+            ->add('doi', null, [
                 'required' => true,
 
             ])
             ->add('type', ChoiceType::class, [
-                'choices'  => [
+                'choices' => [
                     'A' => "A",
                     'B' => "B",
                 ],
             ]);
-    }/**
- * {@inheritdoc}
- */
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
