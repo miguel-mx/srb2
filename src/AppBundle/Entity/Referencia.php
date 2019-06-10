@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Referencia
  *
  * @ORM\Table(name="Referencia", indexes={@ORM\Index(name="IDX_8F4F1008A76ED395", columns={"user_id"})})
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ReferenciaRepository")
  */
 class Referencia
@@ -245,12 +246,15 @@ class Referencia
 
 
     // falta*****************************************************************************************+
+
+
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="created", type="datetime", nullable=true)
      */
     private $created;
+
 
     /**
      * @var \DateTime
@@ -1182,42 +1186,37 @@ class Referencia
 //        return $this->inspires;
 //    }
 
+//*******************************************************************************************
     /**
-     * Set created
+     * Set created.
      *
-     * @param \DateTime $created
-     *
-     * @return Referencia
+     * @ORM\PrePersist
      */
-    public function setCreated($created)
+    public function setCreated()
     {
-        $this->created = $created;
+        $this->created = new \DateTime();
+    }
 
-        return $this;
+
+    /**
+     * Set modified
+     *
+     * @ORM\PrePersist
+     */
+    public function setModified()
+    {
+        $this->modified =  new \DateTime();
+
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
     public function getCreated()
     {
         return $this->created;
-    }
-
-    /**
-     * Set modified
-     *
-     * @param \DateTime $modified
-     *
-     * @return Referencia
-     */
-    public function setModified($modified)
-    {
-        $this->modified = $modified;
-
-        return $this;
     }
 
     /**
@@ -1230,6 +1229,7 @@ class Referencia
         return $this->modified;
     }
 
+//    *********************************************************************************************************+
     /**
      * Set volume
      *
@@ -1237,6 +1237,8 @@ class Referencia
      *
      * @return Referencia
      */
+
+
     public function setVolume($volume)
     {
         $this->volume = $volume;

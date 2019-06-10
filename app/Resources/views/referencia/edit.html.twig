@@ -20,23 +20,29 @@
 
     {% block body %}
 
-
+        {{ form_start(edit_form) }}
 
         <div class="formulario  ">
-            <section class=" d-flex content-header justify-content-center ">
-                <h1>Nueva referencia</h1>
-            </section>
+
 
             <div class="container" id="box1">
                 <div class=" row d-flex flex-column ">
 
-                    <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
-                        <div class="form-group  col-lg-3 ">
-                            <h5 class="etiqueta2 ml-lg-4">Publicación</h5>
+                    <div class=" d-flex content-header justify-content-start p-3 ml-3">
+                        <h1>Editar referencia <small>
+                                {{ referencia.type }}
+                            </small></h1>
+                    </div>
+
+                    <div class ="row d-flex flex-row " id="data1" >
+                        <div class="row form-group col-lg-7 offset-md-1 col-sm-12 d-flex justify-content-center ">
+                            <div class="form-group  col-12  d-none" >
+                                <label class="etiqueta ">Tipo de Publicación</label>
+                                {{ form_widget(edit_form.type, {'attr': {'class': 'form-control  ' , 'style':"background-color:white;"}}) }}
+                                <span class="text-dange">{{ form_errors(edit_form.type) }}</span>
+                            </div>
                         </div>
-                        <div class="row form-group col-lg-7 offset-md-1 col-sm-12 d-flex justify-content-end ">
-                            <h2>{{ referencia.type }}</h2>
-                        </div>
+
                     </div>
 
                     <div><hr color="#BDBDBD" size=3></div>
@@ -331,6 +337,7 @@
             </div>
         </div>
 
+        {{ form_end(edit_form) }}
 
 
 
