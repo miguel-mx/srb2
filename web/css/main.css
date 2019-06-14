@@ -110,7 +110,7 @@ input::placeholder {
 }
 #buscador{
     border: #197a99;
-    background: url(https://images.unsplash.com/photo-1534774592507-488885376ad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80) no-repeat center;
+    background: url(../img/photo-1534774592507-488885376ad3.jpeg) no-repeat center;
     background-size: cover;
     width: 1838px;
     height: 565px;

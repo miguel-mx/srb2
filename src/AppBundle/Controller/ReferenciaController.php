@@ -40,11 +40,11 @@ class ReferenciaController extends Controller
      *
      * Will throw a normal AccessDeniedException:
      *
-     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
+     * @IsGranted("IS_AUTHENTICATED_FULLY", message="No access! Get out!")
      *
      * Will throw an HttpException with a 404 status code:
      *
-     * @IsGranted("ROLE_ADMIN", statusCode=404, message="Post not found")
+     * @IsGranted("IS_AUTHENTICATED_FULLY", statusCode=404, message="Post not found")
      *
      * @Route("/new", name="referencia_new")
      * @Method({"GET", "POST"})

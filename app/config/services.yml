@@ -33,3 +33,6 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+#    Symfony\Bridge\Twig\Extension\WebLinkExtension:
+#        arguments: ["@request_stack"]

@@ -9,7 +9,7 @@
                     <div class="row referencia-container p-5">
                         <div class="col-md-11 ">
                             <form>
-                                <h1>Fi {% if is_granted('ROLE_ADMIN') %}
+                                <h1>Factor de Impacto {% if is_granted('ROLE_ADMIN') %}
                                         <a href="{{ path('fi_edit', { id : fi.id}) }}"><i
                                                     class="fas fa-pen-square fa-x3"></i></a>
                                     {% endif %}</h1>
