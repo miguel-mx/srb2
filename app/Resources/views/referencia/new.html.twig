@@ -3,6 +3,8 @@
  {% block stylesheets %}
      {{ parent() }}
      <link rel="stylesheet" href="{{ asset('css/forms.css') }}"/>
+
+     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
      <!-- select2 -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
@@ -23,7 +25,22 @@
 
                 <div class=" d-flex content-header justify-content-start p-3 ml-3">
                     <h1>Nueva referencia </h1>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <div class="form-group col-1 offset-md-7 mt-4 ">
+                        {{ form_widget(form.revision, {'attr':  { 'data-toggle':'toggle','class': '', 'data-onstyle':'success', 'data-on':'Revisado', 'data-off':'sin revision', 'data-onstyle':'success', 'data-offstyle':'danger'}}) }}
+                        <span class="text-dange">{{ form_errors(form.revision) }}</span>
+                    </div>
+                    {% endif %}
+                    {% if is_granted('ROLE_USER') %}
+                        <div class="form-group col-1 offset-md-7 mt-4 d-none ">
+                            {{ form_widget(form.revision, {'attr':  { 'data-toggle':'toggle','class': '', 'data-onstyle':'success', 'data-on':'Revisado', 'data-off':'sin revision', 'data-onstyle':'success', 'data-offstyle':'danger'}}) }}
+                            <span class="text-dange">{{ form_errors(form.revision) }}</span>
+                        </div>
+                    {% endif %}
+
                 </div>
+
+
                 <div><hr color="#BDBDBD" size=3></div>
 
                 <div class ="row d-flex col mt-lg-5 flex-row " id="data1" >
@@ -36,6 +53,7 @@
                             {{ form_widget(form.type, {'attr': {'class': 'form-control' , 'style':"background-color:white;"}}) }}
                             <span class="text-dange">{{ form_errors(form.type) }}</span>
                         </div>
+
                     </div>
                 </div>
 
@@ -106,7 +124,7 @@
 
                         {% if form.publisher is defined %}
                             <div class="form-group  col-12">
-                                <label class="etiqueta">publicó</label>
+                                <label class="etiqueta">publisher</label>
                                 {{ form_widget(form.publisher, {'attr': {'class': 'form-control'}}) }}
                                 <span class="text-dange">{{ form_errors(form.publisher) }}</span>
                             </div>
@@ -338,6 +356,8 @@
 {% block javascripts %}
 
     {{ parent() }}
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
     <script>
