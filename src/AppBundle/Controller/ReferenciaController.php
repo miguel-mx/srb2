@@ -38,7 +38,7 @@ class ReferenciaController extends Controller
  *
  * Will throw a normal AccessDeniedException:
  *
- * @IsGranted("IS_AUTHENTICATED_FULLY", message="No access! Get out!")
+ * @IsGranted("IS_AUTHENTICATED_FULLY", message="Access denied!")
  *
  * Will throw an HttpException with a 404 status code:
  *
@@ -98,7 +98,7 @@ class ReferenciaController extends Controller
      *
      * Will throw a normal AccessDeniedException:
      *
-     * @IsGranted("IS_AUTHENTICATED_FULLY", message="No access! Get out!")
+     * @IsGranted("IS_AUTHENTICATED_FULLY", message="Access denied!")
      *
      * Will throw an HttpException with a 404 status code:
      *
@@ -109,6 +109,9 @@ class ReferenciaController extends Controller
      */
     public function editAction(Request $request, Referencia $referencia)
     {
+
+        $this->denyAccessUnlessGranted('edit', $referencia);
+
         $deleteForm = $this->createDeleteForm($referencia);
         $editForm = $this->createForm('AppBundle\Form\ReferenciaType', $referencia);
         $editForm->handleRequest($request);

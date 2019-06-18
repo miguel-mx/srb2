@@ -38,7 +38,7 @@ class CitesController extends Controller
      *
      * Will throw a normal AccessDeniedException:
      *
-     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
+     * @IsGranted("ROLE_ADMIN", message="Access denied!")
      *
      * Will throw an HttpException with a 404 status code:
      *
@@ -97,7 +97,7 @@ class CitesController extends Controller
      *
      * Will throw a normal AccessDeniedException:
      *
-     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
+     * @IsGranted("ROLE_ADMIN", message="Access denied!")
      *
      * Will throw an HttpException with a 404 status code:
      *

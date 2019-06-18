@@ -1509,4 +1509,16 @@ class Referencia
         return (string) $this->title;
     }
 
+    public function isAuthor(User $user) {
+
+        // Recorrer el arreglo de autores
+        foreach( $this->getAuthor() as $author) {
+
+            if($author->getUser() === $user)
+                    return true;
+        }
+
+        return false;
+    }
+
 }
