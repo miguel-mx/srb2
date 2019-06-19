@@ -10,9 +10,10 @@
 /* nunito-sans-regular - latin */
 @font-face {
     font-family: 'Nunito Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/nunito-sans-v4-latin-regular.eot'); /* IE9 Compat Modes */
+    font-display: block;
+    /*font-style: normal;*/
+    /*font-weight: 400;*/
+    /*src: url('../fonts/nunito-sans-v4-latin-regular.eot'); !* IE9 Compat Modes *!*/
     src: local('Nunito Sans Regular'), local('NunitoSans-Regular'),
     url('../fonts/nunito-sans-v4-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
     url('../fonts/nunito-sans-v4-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */

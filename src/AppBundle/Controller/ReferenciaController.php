@@ -60,6 +60,11 @@ class ReferenciaController extends Controller
             $em->persist($referencia);
             $em->flush();
 
+            $this->addFlash(
+                'success',
+                'Referencia agregada con éxito!'
+            );
+
             $message = \Swift_Message::newInstance()
                 ->setSubject('Nueva referencia')
                 ->setFrom('thaliavelazquez263@gmail.com')
@@ -110,24 +115,43 @@ class ReferenciaController extends Controller
     public function editAction(Request $request, Referencia $referencia)
     {
 
-        $this->denyAccessUnlessGranted('edit', $referencia);
+        if ($this->getUser()) {
+            $deleteForm = $this->createDeleteForm($referencia);
+            $editForm = $this->createForm('AppBundle\Form\ReferenciaType', $referencia);
+            $editForm->handleRequest($request);
+            $referencia->setModified($referencia);
 
-        $deleteForm = $this->createDeleteForm($referencia);
-        $editForm = $this->createForm('AppBundle\Form\ReferenciaType', $referencia);
-        $editForm->handleRequest($request);
-        $referencia->setModified($referencia);
+            if ($editForm->isSubmitted() && $editForm->isValid()) {
+                $this->getDoctrine()->getManager()->flush();
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+                return $this->redirectToRoute('referencia_show', array('slug' => $referencia->getSlug()));
+            }
 
-            return $this->redirectToRoute('referencia_show', array('slug' => $referencia->getSlug()));
+            return $this->render('referencia/edit.html.twig', array(
+                'referencia' => $referencia,
+                'edit_form' => $editForm->createView(),
+                'delete_form' => $deleteForm->createView(),
+            ));
+        }else {
+            $this->denyAccessUnlessGranted('edit', $referencia);
+
+            $deleteForm = $this->createDeleteForm($referencia);
+            $editForm = $this->createForm('AppBundle\Form\ReferenciaType', $referencia);
+            $editForm->handleRequest($request);
+            $referencia->setModified($referencia);
+
+            if ($editForm->isSubmitted() && $editForm->isValid()) {
+                $this->getDoctrine()->getManager()->flush();
+
+                return $this->redirectToRoute('referencia_show', array('slug' => $referencia->getSlug()));
+            }
+
+            return $this->render('referencia/edit.html.twig', array(
+                'referencia' => $referencia,
+                'edit_form' => $editForm->createView(),
+                'delete_form' => $deleteForm->createView(),
+            ));
         }
-
-        return $this->render('referencia/edit.html.twig', array(
-            'referencia' => $referencia,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
     }
     /**
      * Deletes a referencium entity.
