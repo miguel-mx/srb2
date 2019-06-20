@@ -15,56 +15,63 @@
                                                 class="fas fa-pen-square fa-x3"></i></a>
                                 {% endif %}
                             </h3>
+
                             {% if referencia.authors %}
-                                <div style="padding:5px 0px 10px 2px;">
+                                <div style="padding:15px 0px 10px 2px;">
                                     <p>{% for key in referencia.authors|split(';') %}<a
                                             href="{{ path('search', {'q': key | trim | url_encode() }) }}"> {{ key|trim }}</a>; {% endfor %}
                                     </p>
                                 </div>
                             {% endif %}
-                            {% if  referencia.mrNumber %}<p><strong>Article Number:</strong> {{ referencia.mrNumber }}
-                                </p>{% endif %}
-                            {% if  referencia.yearPub %}<p><strong>Year Published:</strong> {{ referencia.yearPub }}
-                                </p>{% endif %}
-                            <div class="row">
-                                {% if  referencia.volume %}
-                                    <div class="col-auto">
-                                        <p><strong>Volume:</strong> {{ referencia.volume }}</p>
-                                    </div>
-                                {% endif %}
-                                {% if  referencia.issue %}
-                                    <div class="col-auto">
-                                        <p><strong>Issue:</strong> {{ referencia.issue }}</p>
-                                    </div>
-                                {% endif %}
-                                {% if  referencia.pages %}
-                                    <div class="col-auto">
-                                        <p><strong>Pages:</strong> {{ referencia.pages }}</p>
-                                    </div>
-                                {% endif %}
+                            <div style="padding:15px 0px 10px 2px;">
+                                {% if  referencia.mrNumber %}
+                                    <p><strong>Article Number:</strong> {{ referencia.mrNumber }}
+                                    </p>{% endif %}
+                                {% if  referencia.yearPub %}<p><strong>Year Published:</strong> {{ referencia.yearPub }}
+                                    </p>{% endif %}
+                                <div class="row">
+                                    {% if  referencia.volume %}
+                                        <div class="col-auto">
+                                            <p><strong>Volume:</strong> {{ referencia.volume }}</p>
+                                        </div>
+                                    {% endif %}
+                                    {% if  referencia.issue %}
+                                        <div class="col-auto">
+                                            <p><strong>Issue:</strong> {{ referencia.issue }}</p>
+                                        </div>
+                                    {% endif %}
+                                    {% if  referencia.pages %}
+                                        <div class="col-auto">
+                                            <p><strong>Pages:</strong> {{ referencia.pages }}</p>
+                                        </div>
+                                    {% endif %}
+                                </div>
                             </div>
 
+                            {% if  referencia.abst %}
+                                <div style="padding:15px 0px 10px 2px;">
+                                <h5><strong>Abstract</strong></h5>
+                                <p class="text-justify mr-5">{{ referencia.abst }}</p>
+                                </div>{% endif %}
 
-                            <div class="block">
-                                {% if  referencia.abst %}
-                                    <h5><strong>Abstract</strong></h5>
-                                    <p class="text-justify mr-5">{{ referencia.abst }}</p>{% endif %}
-                            </div>
-
-                            <div class="block">
-                                {% if  referencia.keywords %}
+                            {% if  referencia.keywords %}
+                                <div style="padding:15px 0px 10px 2px;">
                                     <h5><strong>Keywords</strong></h5>
                                     <p><strong class="text-muted">Author keywords:</strong> {{ referencia.keywords }}
-                                    </p>{% endif %}
-                            </div>
+                                    </p>
+                                </div>
+                            {% endif %}
 
-                            <div class="block">
-                                {% if  referencia.journal %}
-                                    <h5><strong>Journal</strong></h5>
-                                    <p> {{ referencia.journal }}</p>{% endif %}
 
-                            </div>
-                            <div class="block">
+
+                            {% if  referencia.journal %}
+                                <div style="padding:17px 0px 10px 2px;">
+                                <h5><strong>Journal</strong></h5>
+                                <p> {{ referencia.journal }}</p>
+                                </div>{% endif %}
+
+
+                            <div style="padding:17px 0px 10px 2px;">
                                 <h5><strong>Cites</strong>
                                     {% if is_granted('ROLE_ADMIN') %}
                                     <a href="{{ path('cites_new', { id : referencia.id}) }}"><i
@@ -81,48 +88,74 @@
                                         href="https://dx.doi.org/{{ referencia.doi }}">{{ referencia.doi }}</a></p>
                                 </p>{% endif %}
 
-                            {% if  referencia.url %} <p><strong>Url</strong> <br> <a
-                                        href="{{ referencia.url }}">{{ referencia.url |truncate(30) }}</a>
-                                </p>{% endif %}
+                            {% if  referencia.url %}
+                                <div style="padding-top: 5%"><p><strong>Url</strong> <br> <a
+                                            href="{{ referencia.url }}">{{ referencia.url |truncate(30) }}</a>
+                                </p></div>{% endif %}
 
-                            {% if  referencia.mrNumber %} <p><strong>Mr Number</strong> <br><a
-                                        href="https://mathscinet.ams.org/mathscinet-getitem?mr={{ referencia.mrNumber }}">{{ referencia.mrNumber }}</a>
-                                </p>{% endif %}
+                            {% if  referencia.mrNumber %}
+                                <div style="padding-top: 5%"><p><strong>Mr Number</strong> <br><a
+                                            href="https://mathscinet.ams.org/mathscinet-getitem?mr={{ referencia.mrNumber }}">{{ referencia.mrNumber }}</a>
+                                </p> </div>{% endif %}
 
-                            {% if  referencia.wos %} <p><strong>Web of Science</strong><br> <p><a
-                                        href="#{{ referencia.wos }}">{{ referencia.wos }}</a></p>
-                                </p>{% endif %}
+                            {% if  referencia.wos %}
+                                <div style="padding-top: 5%"><p><strong>Web of Science</strong><br>
+                                <p><a
+                                            href="#{{ referencia.wos }}">{{ referencia.wos }}</a>
+                                </p></div>{% endif %}
 
-                            {% if  referencia.scopus %} <p><strong>Scopus</strong><br> <p><a
-                                        href="#{{ referencia.scopus }}">{{ referencia.scopus }}</a></p>
-                                </p>{% endif %}
+                            {% if  referencia.scopus %}
+                                <div style="padding-top: 5%"> <p><strong>Scopus</strong><br>
+                                <p><a
+                                            href="#{{ referencia.scopus }}">{{ referencia.scopus }}</a>
+                                </p></div>{% endif %}
 
-                            {% if  referencia.scielo %} <p><strong>SciELO</strong><br> <p><a
-                                        href="#{{ referencia.scielo }}">{{ referencia.scielo }}</a></p>
-                                </p>{% endif %}
+                            {% if  referencia.scielo %}
+                                <div style="padding-top: 5%"> <p><strong>SciELO</strong><br>
+                                <p><a
+                                            href="#{{ referencia.scielo }}">{{ referencia.scielo }}</a>
+                                </p></div>{% endif %}
 
-                            {% if  referencia.arxiv %} <p><strong>ArXiv</strong><br> <p><a
-                                        href="https://arxiv.org/abs/{{ referencia.arxiv }}">{{ referencia.arxiv }}</a>
-                            </p>
-                                </p>{% endif %}
+                            {% if  referencia.arxiv %}
+                                <div style="padding-top: 5%"> <p><strong>ArXiv</strong><br>
+                                <p><a
+                                            href="https://arxiv.org/abs/{{ referencia.arxiv }}">{{ referencia.arxiv }}</a>
 
-                            {% if  referencia.zmath %} <p><strong>zbMATH </strong><br> <p><a
-                                        href="https://zbmath.org/?q=en%3Aan%3A{{ referencia.zmath }}">{{ referencia.zmath }}</a>
-                            </p>
-                                </p>{% endif %}
+                                </p></div>{% endif %}
 
-                            {% if  referencia.msc %} <p><strong>MathSciNet </strong><br> <p><a
-                                        href="https://mathscinet.ams.org/mathscinet/search/mscdoc.html?code={{ referencia.msc }}">{{ referencia.msc }}</a>
-                            </p>
-                                </p>{% endif %}
+                            {% if  referencia.zmath %}
+                                <div style="padding-top: 5%"><p><strong>zbMATH </strong><br>
+                                <p><a
+                                            href="https://zbmath.org/?q=en%3Aan%3A{{ referencia.zmath }}">{{ referencia.zmath }}</a>
 
-                            <p><strong>Author</strong> <br>
-                                {% for  author in referencia.author %}
-                                    <a href="{{ path('author_show', { 'slug': author.slug }) }}">{{ author.name }}</a>
-                                    <br>
-                                {% endfor %}
-                            </p>
+                                </p></div>{% endif %}
 
+                            {% if  referencia.msc %}
+                                <div style="padding-top: 5%"> <p><strong>MathSciNet </strong><br>
+                                <p><a
+                                            href="https://mathscinet.ams.org/mathscinet/search/mscdoc.html?code={{ referencia.msc }}">{{ referencia.msc }}</a>
+                                </p></div>{% endif %}
+
+
+                            {% if referencia.type == "thesis" %}
+                                {% if  referencia.author %}
+                                    <div style="padding-top: 5%"><p><strong>Tutor</strong> <br>
+                                            {% for  author in referencia.author %}
+                                                <a href="{{ path('author_show', { 'slug': author.slug }) }}">{{ author.name }}</a>
+                                                <br>
+                                            {% endfor %}
+                                        </p></div>
+                                {% endif %}
+                            {% else %}
+                                {% if  referencia.author %}
+                                    <div style="padding-top: 5%"><p><strong>Author</strong> <br>
+                                            {% for  author in referencia.author %}
+                                                <a href="{{ path('author_show', { 'slug': author.slug }) }}">{{ author.name }}</a>
+                                                <br>
+                                            {% endfor %}
+                                        </p></div>
+                                {% endif %}
+                            {% endif %}
                         </div>
                     </div>
                 </div>
