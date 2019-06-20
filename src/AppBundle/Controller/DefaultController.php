@@ -40,73 +40,8 @@ class DefaultController extends Controller
     public function index(Request $request)
     {
 
-        $searchQuery = $request->get('q');
-
-        if (!empty($searchQuery)) {
-            $finder = $this->container->get('fos_elastica.finder.app.referencia');
-            $referencias = $finder->find($searchQuery, 500);
-
-            if ($referencias == null) {
-
-                $this->addFlash(
-                    'danger',
-                    'No se encontraron registros!'
-                );
-
-                $repository = $this->getDoctrine()
-                    ->getRepository(Referencia::class);
-
-
-                $qb = $repository->createQueryBuilder('r')
-                    ->andWhere('r.type  LIKE :article')
-                    ->setParameter('article', "article")
-                    ->setMaxResults(5)
-                    ->orderBy('r.id', 'DESC')
-                    ->getQuery();
-                $referencias = $qb->getResult();
-
-                $qbArticles = $repository->createQueryBuilder('a')
-                    ->select('a.id')
-                    ->andWhere('a.type  LIKE :article')
-                    ->setParameter('article', "article")
-                    ->getQuery();
-                $articlesTotal = $qbArticles->getResult();
-
-
-                $qbThesis = $repository->createQueryBuilder('t')
-                    ->select('t.id')
-                    ->andWhere('t.type  LIKE :thesis')
-                    ->setParameter('thesis', "thesis")
-                    ->getQuery();
-                $thesisTotal = $qbThesis->getResult();
-
-                $repositoryAuthor = $this->getDoctrine()
-                    ->getRepository(Author::class);
-
-                $qbAuthor = $repositoryAuthor->createQueryBuilder('a')
-                    ->select('a.id')
-                    ->getQuery();
-                $authorTotal = $qbAuthor->getResult();
-
-                $format = $request->getRequestFormat();
-
-
-                return $this->render('main.' . $format . '.twig', [
-                    'referencias' => $referencias,
-                    'articlesTotal' => $articlesTotal,
-                    'thesisTotal' => $thesisTotal,
-                    'authorTotal' => $authorTotal,
-                ]);
-            } else {
-                return $this->render('referencia/index.html.twig', array(
-                    'referencias' => $referencias,
-                ));
-            }
-        }
-
         $repository = $this->getDoctrine()
             ->getRepository(Referencia::class);
-
 
         $qb = $repository->createQueryBuilder('r')
             ->andWhere('r.type  LIKE :article')
@@ -146,6 +81,37 @@ class DefaultController extends Controller
             ->getQuery();
         $authorTotal = $qbAuthor->getResult();
 
+        $searchQuery = $request->get('q');
+
+        if (!empty($searchQuery)) {
+            $finder = $this->container->get('fos_elastica.finder.app.referencia');
+            $result = $finder->find($searchQuery, 500);
+
+            if ($result == null) {
+
+                $this->addFlash(
+                    'danger',
+                    'No se encontraron registros!'
+                );
+
+                $format = $request->getRequestFormat();
+
+                return $this->render('main.' . $format . '.twig', [
+                    'referencias' => $referencias,
+                    'articlesTotal' => $articlesTotal,
+                    'thesisTotal' => $thesisTotal,
+                    'authorTotal' => $authorTotal,
+                    'revision'=> $revision,
+
+                ]);
+            } else {
+                return $this->render('referencia/index.html.twig', array(
+                    'referencias' => $result,
+                    'revision'=> $revision,
+                ));
+            }
+        }
+
         $format = $request->getRequestFormat();
 
         return $this->render('main.' . $format . '.twig', [
@@ -157,9 +123,6 @@ class DefaultController extends Controller
         ]);
 
     }
-
-
-
 
 
     /**

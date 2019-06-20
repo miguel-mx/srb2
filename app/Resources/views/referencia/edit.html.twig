@@ -9,6 +9,8 @@
     {% block stylesheets %}
         {{ parent()}}
         <link rel="stylesheet" href="{{ asset('css/forms.css') }}"/>
+
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
         <!-- select2 -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
@@ -28,11 +30,30 @@
             <div class="container" id="box1">
                 <div class=" row d-flex flex-column ">
 
+
+
+
+
+
+
                     <div class=" d-flex content-header justify-content-start p-3 ml-3">
                         <h1>Editar referencia <small>
                                 {{ referencia.type }}
                             </small></h1>
-
+                        {% if  edit_form.revision is defined %}
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <div class="form-group col-1 offset-md-5 mt-4 ">
+                                    {{ form_widget( edit_form.revision, {'attr':  { 'data-toggle':'toggle','class': '', 'data-onstyle':'success', 'data-on':'Revisado', 'data-off':'no_revisado', 'data-onstyle':'success', 'data-offstyle':'danger'}}) }}
+                                    <span class="text-dange">{{ form_errors( edit_form.revision) }}</span>
+                                </div>
+                            {% endif %}
+                            {% if is_granted('ROLE_USER') %}
+                                <div class="form-group col-1 offset-md-5 mt-4 d-none ">
+                                    {{ form_widget( edit_form.revision, {'attr':  { 'data-toggle':'toggle','class': '', 'data-onstyle':'success', 'data-on':'Revisado', 'data-off':'sin revision', 'data-onstyle':'success', 'data-offstyle':'danger'}}) }}
+                                    <span class="text-dange">{{ form_errors( edit_form.revision) }}</span>
+                                </div>
+                            {% endif %}
+                        {% endif %}
                     </div>
 
                     <div class ="row d-flex flex-row " id="data1" >
@@ -348,6 +369,8 @@
 
         {{ parent() }}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 
         <script>
             var $tipo = $('#appbundle_referencia_type');

@@ -64,7 +64,7 @@ class ReferenciaType extends AbstractType
                         ->add('journals', null, ['required' => true])
                         ->add('abst', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('pages')
-                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => false,))
                         ->add('issn')
                         ->add('e_issn');
 
@@ -93,7 +93,7 @@ class ReferenciaType extends AbstractType
                         ->add('abst', 'Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('volume')
                         ->add('pages')
-                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => false,))
                         ->add('isbn')
                         ->add('e_isbn');
 
@@ -122,7 +122,7 @@ class ReferenciaType extends AbstractType
                         ->add('e_issn')
                         ->add('volume')
                         ->add('pages')
-                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => false,))
                         ->add('isbn')
                         ->add('e_isbn');
 
@@ -148,7 +148,7 @@ class ReferenciaType extends AbstractType
                         ->add('editor', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('address')
                         ->add('pages')
-                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => false,))
                         ->add('isbn', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('e_isbn');
 
@@ -181,7 +181,7 @@ class ReferenciaType extends AbstractType
                         ->add('journals', null, ['required' => true])
                         ->add('issn')
                         ->add('e_issn')
-                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => false,))
                         ->add('isbn')
                         ->add('e_isbn');
                 } else if ($tipo === "preprint") {
@@ -251,7 +251,7 @@ class ReferenciaType extends AbstractType
                         ->add('scopus')
                         ->add('scielo')
 //                  diferentes en thesis;
-                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => false,))
                         ->add('volume', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('pages')
                         ->add('journals', null, ['required' => true]);
@@ -285,7 +285,7 @@ class ReferenciaType extends AbstractType
                         ->add('volume')
                         ->add('abst','Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('pages')
-                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => false))
                         ->add('issn')
                         ->add('e_issn');
 
@@ -314,7 +314,7 @@ class ReferenciaType extends AbstractType
                         ->add('abst','Symfony\Component\Form\Extension\Core\Type\TextareaType', array('required' => false,))
                         ->add('volume')
                         ->add('pages')
-                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => false))
                         ->add('isbn')
                         ->add('e_isbn');
 
@@ -343,7 +343,7 @@ class ReferenciaType extends AbstractType
                         ->add('e_issn')
                         ->add('volume')
                         ->add('pages')
-                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => false))
                         ->add('isbn')
                         ->add('e_isbn');
 
@@ -369,7 +369,7 @@ class ReferenciaType extends AbstractType
                         ->add('editor','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('address')
                         ->add('pages')
-                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => false))
                         ->add('isbn','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('e_isbn');
                 } else if ($tipo->getType() === "inproceedings") {
@@ -400,7 +400,7 @@ class ReferenciaType extends AbstractType
                         ->add('journals',null,['required' => true])
                         ->add('issn')
                         ->add('e_issn')
-                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('doi','Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => false))
                         ->add('isbn')
                         ->add('e_isbn');
 
@@ -468,7 +468,7 @@ class ReferenciaType extends AbstractType
                         ->add('scopus')
                         ->add('scielo')
 //                  diferentes en thesis;
-                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
+                        ->add('doi', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => false,))
                         ->add('volume', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('pages')
                         ->add('journals', null, ['required' => true]);

@@ -113,7 +113,6 @@ class SearchControllerController extends Controller
 
     }
 
-
     /**
      * @Route("/revision")
      */
@@ -129,8 +128,6 @@ class SearchControllerController extends Controller
 
         $referencias = $query->getResult();
 
-
-
         if($referencias == null){
 
             $this->addFlash(
@@ -144,7 +141,4 @@ class SearchControllerController extends Controller
             ));
         }
     }
-
-
-
 }
