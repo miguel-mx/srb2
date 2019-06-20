@@ -112,4 +112,39 @@ class SearchControllerController extends Controller
         }
 
     }
+
+
+    /**
+     * @Route("/revision")
+     */
+    public function revision(Request $request)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $query = $entityManager->createQuery(
+            'SELECT p
+            FROM AppBundle:Referencia p
+            WHERE p.revision = :revision
+            ORDER BY p.title ASC'
+        )->setParameter('revision', 0);
+
+        $referencias = $query->getResult();
+
+
+
+        if($referencias == null){
+
+            $this->addFlash(
+                'error',
+                'No se encontraron registros!'
+            );
+            return $this->render('main.html.twig');
+        }else{
+            return $this->render('referencia/index.html.twig', array(
+                'referencias' => $referencias,
+            ));
+        }
+    }
+
+
+
 }

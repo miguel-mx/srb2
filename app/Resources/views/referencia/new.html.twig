@@ -25,18 +25,21 @@
 
                 <div class=" d-flex content-header justify-content-start p-3 ml-3">
                     <h1>Nueva referencia </h1>
-                    {% if is_granted('ROLE_ADMIN') %}
-                    <div class="form-group col-1 offset-md-7 mt-4 ">
-                        {{ form_widget(form.revision, {'attr':  { 'data-toggle':'toggle','class': '', 'data-onstyle':'success', 'data-on':'Revisado', 'data-off':'sin revision', 'data-onstyle':'success', 'data-offstyle':'danger'}}) }}
-                        <span class="text-dange">{{ form_errors(form.revision) }}</span>
-                    </div>
+                    {% if form.revision is defined %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <div class="form-group col-1 offset-md-7 mt-4 ">
+                                {{ form_widget(form.revision, {'attr':  { 'data-toggle':'toggle','class': '', 'data-onstyle':'success', 'data-on':'Revisado', 'data-off':'no_revisado', 'data-onstyle':'success', 'data-offstyle':'danger'}}) }}
+                                <span class="text-dange">{{ form_errors(form.revision) }}</span>
+                            </div>
+                        {% endif %}
+                        {% if is_granted('ROLE_USER') %}
+                            <div class="form-group col-1 offset-md-7 mt-4 d-none ">
+                                {{ form_widget(form.revision, {'attr':  { 'data-toggle':'toggle','class': '', 'data-onstyle':'success', 'data-on':'Revisado', 'data-off':'sin revision', 'data-onstyle':'success', 'data-offstyle':'danger'}}) }}
+                                <span class="text-dange">{{ form_errors(form.revision) }}</span>
+                            </div>
+                        {% endif %}
                     {% endif %}
-                    {% if is_granted('ROLE_USER') %}
-                        <div class="form-group col-1 offset-md-7 mt-4 d-none ">
-                            {{ form_widget(form.revision, {'attr':  { 'data-toggle':'toggle','class': '', 'data-onstyle':'success', 'data-on':'Revisado', 'data-off':'sin revision', 'data-onstyle':'success', 'data-offstyle':'danger'}}) }}
-                            <span class="text-dange">{{ form_errors(form.revision) }}</span>
-                        </div>
-                    {% endif %}
+
 
                 </div>
 

@@ -131,6 +131,13 @@ class DefaultController extends Controller
             ->getQuery();
         $thesisTotal = $qbThesis->getResult();
 
+        $qbrevision = $repository->createQueryBuilder('r')
+            ->select('r.id')
+            ->andWhere('r.revision  = :revision')
+            ->setParameter('revision', 0)
+            ->getQuery();
+        $revision = $qbrevision->getResult();
+
         $repositoryAuthor = $this->getDoctrine()
             ->getRepository(Author::class);
 
@@ -146,9 +153,14 @@ class DefaultController extends Controller
             'articlesTotal' => $articlesTotal,
             'thesisTotal' => $thesisTotal,
             'authorTotal' => $authorTotal,
+            'revision'=> $revision,
         ]);
 
     }
+
+
+
+
 
     /**
      * @Route("/busqueda_avanzada")

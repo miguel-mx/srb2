@@ -34,7 +34,9 @@ class ReferenciaType extends AbstractType
                     'Material Editorial' => 'material editorial',
                 ),
                 'choices_as_values' => true
-            ));
+            ))
+        ->add('revision');
+
 
         $builder->get('type')->addEventListener(
             FormEvents::PRE_SUBMIT,
