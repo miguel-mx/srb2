@@ -64,10 +64,13 @@ class JournalController extends Controller
                 'Revista agregada con éxito!'
             );
 
+            $correo_uno = $this->getParameter('correo_uno');
+            $correo_dos = $this->getParameter('correo_dos');
+
             $message = \Swift_Message::newInstance()
                 ->setSubject('Nueva revista')
                 ->setFrom('thaliavelazquez263@gmail.com')
-                ->setTo(['sergio.rangel@tecmor.mx', 'thaliavelazquez263@gmail.com'])
+                ->setTo([$correo_uno, $correo_dos])
                 ->setBody($this->renderView('journal/email_journal.html.twig', array('journal' => $journal)), 'text/html');
             $this->get('mailer')->send($message);
 

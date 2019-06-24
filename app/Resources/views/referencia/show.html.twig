@@ -101,19 +101,19 @@
                             {% if  referencia.wos %}
                                 <div style="padding-top: 5%"><p><strong>Web of Science</strong><br>
                                 <p><a
-                                            href="#{{ referencia.wos }}">{{ referencia.wos }}</a>
+                                            href="https://apps.webofknowledge.com/full_record.do?product=WOS&search_mode=GeneralSearch&qid={{ referencia.wos }}">{{ referencia.wos }}</a>
                                 </p></div>{% endif %}
 
                             {% if  referencia.scopus %}
                                 <div style="padding-top: 5%"> <p><strong>Scopus</strong><br>
                                 <p><a
-                                            href="#{{ referencia.scopus }}">{{ referencia.scopus }}</a>
+                                            href="https://www.scopus.com/record/display.uri?eid={{ referencia.scopus }}">{{ referencia.scopus }}</a>
                                 </p></div>{% endif %}
 
                             {% if  referencia.scielo %}
                                 <div style="padding-top: 5%"> <p><strong>SciELO</strong><br>
                                 <p><a
-                                            href="#{{ referencia.scielo }}">{{ referencia.scielo }}</a>
+                                            href="http://www.scielo.br/scielo.php?script=sci_arttext&pid={{ referencia.scielo }}">{{ referencia.scielo }}</a>
                                 </p></div>{% endif %}
 
                             {% if  referencia.arxiv %}

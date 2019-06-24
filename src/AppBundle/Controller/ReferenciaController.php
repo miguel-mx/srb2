@@ -27,7 +27,7 @@ class ReferenciaController extends Controller
 
 
         $em = $this->getDoctrine()->getManager();
-        $referencias = $em->getRepository(Referencia::class)->findByYearpub('2018');
+        $referencias = $em->getRepository(Referencia::class)->findByType('article');
 
         return $this->render('referencia/index.html.twig', array(
             'referencias' => $referencias,
@@ -65,10 +65,12 @@ class ReferenciaController extends Controller
                 'Referencia agregada con éxito!'
             );
 
+            $correo_uno = $this->getParameter('correo_uno');
+            $correo_dos = $this->getParameter('correo_dos');
             $message = \Swift_Message::newInstance()
                 ->setSubject('Nueva referencia')
                 ->setFrom('thaliavelazquez263@gmail.com')
-                ->setTo(['sergio.rangel@tecmor.mx', 'thaliavelazquez263@gmail.com'])
+                ->setTo([$correo_uno, $correo_dos])
                 ->setBody($this->renderView('referencia/email_referencia.html.twig', array('referencia' => $referencia)), 'text/html');
             $this->get('mailer')->send($message);
 

@@ -6,13 +6,13 @@ use Doctrine\ORM\EntityRepository;
 
 class ReferenciaRepository extends EntityRepository
 {
-    public function findByYear($year)
+    public function findByType($type)
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT r FROM AppBundle:Referencia r WHERE r.yearPub = :year ORDER BY r.created ASC'
+                'SELECT r FROM AppBundle:Referencia r WHERE r.type = :type'
             )
-            ->setParameter('yearPub', $year)
+            ->setParameter('type', $type)
             ->getResult();
     }
 }
