@@ -26,9 +26,22 @@
                             <div style="padding:15px 0px 10px 2px;">
                                 {% if  referencia.mrNumber %}
                                     <p><strong>Article Number:</strong> {{ referencia.mrNumber }}
-                                    </p>{% endif %}
-                                {% if  referencia.yearPub %}<p><strong>Year Published:</strong> {{ referencia.yearPub }}
-                                    </p>{% endif %}
+                                    </p>
+                                {% endif %}
+                                {% if referencia.type == "thesis" %}
+                                    {% if  referencia.school %}
+                                        <p><strong>School:</strong> {{ referencia.school }}
+                                        </p>
+                                    {% endif %}
+                                    {% if  referencia.thesisType %}
+                                        <p><strong>Degree:</strong> {{ referencia.thesisType| title }}
+                                        </p>
+                                    {% endif %}
+                                {% endif %}
+                                {% if  referencia.yearPub %}
+                                    <p><strong>Year Published:</strong> {{ referencia.yearPub }}
+                                    </p>
+                                {% endif %}
                                 <div class="row">
                                     {% if  referencia.volume %}
                                         <div class="col-auto">
@@ -62,15 +75,14 @@
                                 </div>
                             {% endif %}
 
-
-
                             {% if  referencia.journal %}
                                 <div style="padding:17px 0px 10px 2px;">
                                 <h5><strong>Journal</strong></h5>
                                 <p> {{ referencia.journal }}</p>
-                                </div>{% endif %}
+                                </div>
+                            {% endif %}
 
-
+                            {% if  referencia.type != "thesis" %}
                             <div style="padding:17px 0px 10px 2px;">
                                 <h5><strong>Cites</strong>
                                     {% if is_granted('ROLE_ADMIN') %}
@@ -81,6 +93,7 @@
                                     <p><a href="{{ path('cites_show', { id: cites.id }) }}">{{ cites.cite }}</a></p>
                                 {% endfor %}
                             </div>
+                            {% endif %}
                         </div>
 
                         <div class="col-xs-2 col-sm-7 col-lg-3 p-3 mb-auto" style="background-color: #e0e0e0">

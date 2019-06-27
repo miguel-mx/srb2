@@ -94,10 +94,34 @@ class AuthorController extends Controller
     {
         $deleteForm = $this->createDeleteForm($author);
 
-        return $this->render('author/show.html.twig', array(
+        $repository = $this->getDoctrine()
+            ->getRepository(Referencia::class);
+
+
+        $qbPub = $repository->createQueryBuilder('r')
+            ->select('r')
+            ->innerJoin('r.author','a')
+            ->where("r.type != 'thesis'")
+            ->andwhere('a = :author')
+            ->setParameter('author', $author)
+            ->getQuery();
+        $publicaciones = $qbPub->getResult();
+
+        $qbThesis = $repository->createQueryBuilder('t')
+            ->select('t')
+            ->innerJoin('t.author','a')
+            ->where("t.type  = 'thesis'")
+            ->andWhere('a = :adv')
+            ->setParameter('adv', $author)
+            ->getQuery();
+        $thesis = $qbThesis->getResult();
+
+        return $this->render('author/show.html.twig', [
+            'publicaciones' => $publicaciones,
+            'thesis' => $thesis,
             'author' => $author,
             'delete_form' => $deleteForm->createView(),
-        ));
+        ]);
     }
 
     /**

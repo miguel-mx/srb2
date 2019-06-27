@@ -16,16 +16,25 @@
                 <tbody>
 
                 {% for referencia in referencias %}
+
                     <tr>
                         <td class="p-4 m-4">
                             <h5>
-                                <strong><a href="{{ path('referencia_show', { 'slug': referencia.slug }) }}">{{ referencia.title }}</a></strong>
+                                <strong><a href="{{ path('referencia_show', { 'slug': referencia.slug }) }}">{{ referencia.title }}</a>
+                                    <small class="text-muted">{{ referencia.type }}</small>
+                                </strong>
                             </h5>
-                            {% if  referencia.journal %} {{ referencia.journal }}
-                                <small class="text-muted">{{ referencia.yearPub }}</small>, {% endif %}
-                            {% if  referencia.volume %}Vol: {{ referencia.volume }}, {% endif %}
-                            {% if  referencia.issue %}Issue: {{ referencia.issue }}, {% endif %}
-                            {% if  referencia.pages %}p. {{ referencia.pages }}{% endif %}
+                            {% if referencia.type != "thesis" %}
+                                {% if  referencia.journal %} {{ referencia.journal }}
+                                    <small class="text-muted">{{ referencia.yearPub }}</small>, {% endif %}
+                                {% if  referencia.volume %}Vol: {{ referencia.volume }}, {% endif %}
+                                {% if  referencia.issue %}Issue: {{ referencia.issue }}, {% endif %}
+                                {% if  referencia.pages %}p. {{ referencia.pages }}{% endif %}
+                            {% else %}
+                                {% if  referencia.school %} {{ referencia.school }}, {% endif %}
+                                {% if  referencia.thesistype %}Degree: {{ referencia.thesistype }} {% endif %}
+                                <small class="text-muted">{{ referencia.yearPub }}</small>
+                            {% endif %}
                             {% if referencia.authors %}
                                 <div>
                                     {% for key in referencia.authors|split(';') %}<a
@@ -64,7 +73,6 @@
                 {
                     "lengthMenu": [[5, 10, 15], [5, 10, 15]]
                 }
-
             );
 
         });
