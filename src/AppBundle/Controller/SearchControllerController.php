@@ -110,7 +110,6 @@ class SearchControllerController extends Controller
                 'referencias' => $referencias,
             ));
         }
-
     }
 
     /**
