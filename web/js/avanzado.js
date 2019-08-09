@@ -11,8 +11,6 @@ $( "#type" )
             else {
                 $("#advisor").hide();
             }
-
         });
-
     })
     .change();

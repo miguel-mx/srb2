@@ -33,7 +33,6 @@
                             <input class="form-control " type="text" name="title"/>
                         </div>
 
-
                         <div class="form-group" >
                             <label class="etiqueta">Tipo de Publicación</label>
                             <select id="type" name="type" class="form-control">
@@ -46,21 +45,21 @@
                                 <option value="preprint">Preprint</option>
                                 <option value="thesis">Thesis</option>
                               </select>
-
                         </div>
 
-                        <div class="form-group" id="advisor">
-                            <label  class="etiqueta">Asesor</label>
-                            <input type="text" name="advisor" class="form-control" />
-                        </div>
-                        <div class="form-group ">
+{#                        <div class="form-group" id="advisor">#}
+{#                            <label  class="etiqueta">Asesor</label>#}
+{#                            <input type="text" name="advisor" class="form-control" />#}
+{#                        </div>#}
+
+                        <div class="form-group" id="author">
                             <label class="etiqueta">Author</label>
                             <input type="text" name="authors" class="form-control"/>
                         </div>
                         <div class="d-flex flex-row">
                             <div class="form-group col-12 year">
                                 <label class="etiqueta">Busqueda por año</label>
-                                <select name="yearpub" class="form-control" >
+                                <select id="yearpub" name="yearpub" class="form-control" >
                                     <option value="">Todos</option>
                                     <option value="2019">2019</option>
                                     <option value="2018">2018</option>

@@ -83,20 +83,15 @@ class SearchControllerController extends Controller
 
         foreach ($searchTerms as $key => $term) {
 
-
-
             $queryBuilder
                 ->andWhere('r.' .$key.'  LIKE :r_'.$key)
                 ->setParameter('r_'. $key, '%'.strtolower($term).'%');
-
-
         }
 
         $query = $queryBuilder->orderBy('r.yearpub', 'ASC')
             ->getQuery();
 
         $referencias = $query->getResult();
-
 
         if($referencias == null){
             $this->addFlash(
