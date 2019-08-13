@@ -31,7 +31,7 @@ class ReferenciaType extends AbstractType
                     'Inproceedings' => 'inproceedings',
                     'Preprint' => 'preprint',
                     'Thesis' => 'thesis',
-                    'Material Editorial' => 'material editorial',
+                    'Material Editorial' => 'materiale',
                 ),
                 'choices_as_values' => true
             ))
@@ -237,7 +237,7 @@ class ReferenciaType extends AbstractType
                         ->add('school');
 
 
-                } else if ($tipo === "material editorial") {
+                } else if ($tipo === "materiale") {
                     $form
                         ->add('title', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')
@@ -458,7 +458,7 @@ class ReferenciaType extends AbstractType
                                 'Doctorado' => 'doctorado'
                             )))
                         ->add('school');
-                } else if ($tipo->getType() ===  "material editorial") {
+                } else if ($tipo->getType() ===  "materiale") {
                     $form
                         ->add('title', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('required' => true,))
                         ->add('author')

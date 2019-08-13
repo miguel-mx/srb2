@@ -337,7 +337,13 @@
                             </div>
                         {% endif %}
 
-
+                        {% if form.issue is defined %}
+                            <div class="form-group  col-12 " >
+                                <label class="etiqueta">ISSUE</label>
+                                {{ form_widget(form.issue, {'attr': {'class': 'form-control ', }}) }}
+                                <span class="text-dange">{{ form_errors(form.issue) }}</span>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
 

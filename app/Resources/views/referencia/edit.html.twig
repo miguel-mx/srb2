@@ -343,6 +343,13 @@
                                     <span class="text-dange">{{ form_errors(edit_form.notas) }}</span>
                                 </div>
                             {% endif %}
+                            {% if edit_form.issue is defined %}
+                                <div class="form-group  col-12 " >
+                                    <label class="etiqueta">ISSUE</label>
+                                    {{ form_widget(edit_form.issue, {'attr': {'class': 'form-control ', }}) }}
+                                    <span class="text-dange">{{ form_errors(edit_form.issue) }}</span>
+                                </div>
+                            {% endif %}
 
 
                         </div>
