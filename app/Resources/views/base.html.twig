@@ -56,38 +56,38 @@
 
             <div class="collapse navbar-collapse .flex-column  " id="navbarSupportedContent">
                 <ul class="navbar-nav  ml-md-auto  d-md-flex justify-content-around" style="margin-right: 10px">
-                    {% if is_granted('ROLE_USER') %}
-                        <li class="d-flex nav-item" hidden="hidden">
-                            <form hidden="hidden" action="../search2" method="get">
-                                <div class="input-group">
-                                    <input type="search" class="form-control" placeholder="Search" autocomplete="off"
-                                           name="q" aria-label="search" value="{{ app.request.get('query') }}">
-                                </div>
-                            </form>
-                        </li>
-                    {% else %}
-                        <li class="d-flex nav-item">
-                            <form action="../index" method="get">
-                                <div class="input-group">
-                                    <input type="search" class="form-control" placeholder="Search"
-                                           autocomplete="off" aria-label="search"
-                                           name="q" value="{{ app.request.get('query') }}">
-                                </div>
-                            </form>
-                        </li>
-                    {% endif %}
+{#                    {% if is_granted('ROLE_USER') %}#}
+{#                        <li class="d-flex nav-item" hidden="hidden">#}
+{#                            <form hidden="hidden" action="../search2" method="get">#}
+{#                                <div class="input-group">#}
+{#                                    <input type="search" class="form-control" placeholder="Search" autocomplete="off"#}
+{#                                           name="q" aria-label="search" value="{{ app.request.get('query') }}">#}
+{#                                </div>#}
+{#                            </form>#}
+{#                        </li>#}
+{#                    {% else %}#}
+{#                        <li class="d-flex nav-item">#}
+{#                            <form action="../index" method="get">#}
+{#                                <div class="input-group">#}
+{#                                    <input type="search" class="form-control" placeholder="Search"#}
+{#                                           autocomplete="off" aria-label="search"#}
+{#                                           name="q" value="{{ app.request.get('query') }}">#}
+{#                                </div>#}
+{#                            </form>#}
+{#                        </li>#}
+{#                    {% endif %}#}
                     <li class="nav-item active">
-                        <a class="nav-link" href="http://localhost:8000/index"> <i class="fas fa-home" style="color: #636363"></i> <span
+                        <a class="nav-link" href="{{ path('index_home') }}"> <i class="fas fa-home" style="color: #636363"></i> <span
                                     class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="http://localhost:8000/author/">Autores </a>
+                        <a class="nav-link" href="{{ path('author_index') }}">Autores </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:8000/journal/">Revista</a>
+                        <a class="nav-link" href="{{ path('journal_index') }}">Revista</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:8000/busqueda_avanzada">Busqueda Avanzada</a>
+                        <a class="nav-link" href="{{ path('app_default_busqueda') }}">Busqueda Avanzada</a>
                     </li>
 
 
@@ -98,10 +98,9 @@
                                aria-haspopup="true"
                                aria-expanded="false">
                                 <i class="fas fa-user"></i>
-                                Ingresa
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="http://localhost:8000/login">Iniciar sesión</a>
+                                <a class="dropdown-item" href=" {{path('login')}} ">Iniciar sesión</a>
                                 <a class="dropdown-item" href="http://localhost:8000/resetting/request">Recuperar
                                     Contraseña</a>
                                 <div class="dropdown-divider"></div>
@@ -114,13 +113,11 @@
                                aria-haspopup="true"
                                aria-expanded="false">
                                 <i class="fas fa-user"></i>
-                                Ingresa
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="http://localhost:8000/login">Iniciar sesión</a>
+                                <a class="dropdown-item" href=" {{path('login')}} ">Iniciar sesión</a>
                                 <a class="dropdown-item" href="http://localhost:8000/resetting/request">Recuperar
                                     Contraseña</a>
-
                             </div>
                         </li>
                     {% endif %}
