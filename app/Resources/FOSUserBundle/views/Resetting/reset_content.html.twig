@@ -5,10 +5,7 @@
 
 {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}
 
-
 <div class="form-group">
-
-
     <label for="fos_user_change_password_form_new_first"
            class="sr-only">{{ form_label(form.plainPassword.first) }}</label>
     {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control' , 'placeholder' : 'nueva contraseña'}}) }}
