@@ -108,7 +108,7 @@ class SearchControllerController extends Controller
     }
 
     /**
-     * @Route("/revision")
+     * @Route("/revision", name="referencia_revision")
      */
     public function revision(Request $request)
     {

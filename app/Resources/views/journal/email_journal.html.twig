@@ -4,7 +4,7 @@ Se ha creado una nueva revista
 <br>"
 <strong>Revista: {{ journal.name }}</strong>
 <br>
-http://localhost:8000/journal/{{ journal.id }}
+{{ path('journal_show', { id : journal.id}) }}
 <br>
 Centro de Ciencias Matemáticas
 <br>

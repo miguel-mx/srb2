@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -77,6 +78,12 @@ class Journal
      * @ORM\Column(name="created", type="datetime",  nullable=true)
      */
     private $created;
+
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=128, unique=false)
+     */
+    private $slug;
 
 
     /**
@@ -234,6 +241,18 @@ class Journal
     public function getCreated()
     {
         return $this->created;
+    }
+
+     public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**
