@@ -1,6 +1,6 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="text-center"><img src="/img/ccmlogo200x100.png"></div>
+<div class="text-center"><img src="{{ asset('img/ccmlogo200x100.png') }}"></div>
 <h5 class="text-secondary text-center"><strong>Sistema de Información Académica</strong></h5>
 
 {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}
